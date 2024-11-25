@@ -1,0 +1,12 @@
+.control {
+    height: 750px; /* Ajusta el alto deseado */
+}
+
+.control img.w-100 {
+    height: 100%; /* La imagen llena el contenedor */
+    object-fit: cover; /* Recorta la imagen si es necesario */
+}
+
+.custom-rounded {
+    border-radius: 50px;  /* Totalmente redondeado */
+}
