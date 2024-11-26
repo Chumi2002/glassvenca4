@@ -11,4 +11,9 @@
     border-radius: 50px;  /* Totalmente redondeado */
 }
 
-
+.reservation2 {
+    background: url(../img/img/banerBotellas.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
