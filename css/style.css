@@ -20,7 +20,7 @@
   --gray: #6c757d;
   --gray-dark: #343a40;
   --primary: #DA9F5B;
-  --secondary: #33211D;
+  /* --secondary: #041d5c ; */
   --success: #28a745;
   --info: #17a2b8;
   --warning: #ffc107;
@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   line-height: 1.2;
-  color: #33211D;
+  /* color: #041d5c ; */
 }
 
 h1, .h1 {
@@ -2403,8 +2403,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #33211D;
-  border-color: #33211D;
+  background-color: #041d5c ;
+  border-color: #041d5c ;
 }
 
 .btn-secondary:hover {
@@ -2422,8 +2422,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary.disabled, .btn-secondary:disabled {
   color: #fff;
-  background-color: #33211D;
-  border-color: #33211D;
+  background-color: #041d5c ;
+  border-color: #041d5c ;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
@@ -2693,14 +2693,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-secondary {
-  color: #33211D;
-  border-color: #33211D;
+  color: #041d5c ;
+  border-color: #041d5c ;
 }
 
 .btn-outline-secondary:hover {
   color: #fff;
-  background-color: #33211D;
-  border-color: #33211D;
+  background-color: #041d5c ;
+  border-color: #041d5c ;
 }
 
 .btn-outline-secondary:focus, .btn-outline-secondary.focus {
@@ -2708,15 +2708,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {
-  color: #33211D;
+  color: #041d5c ;
   background-color: transparent;
 }
 
 .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-secondary.dropdown-toggle {
   color: #fff;
-  background-color: #33211D;
-  border-color: #33211D;
+  background-color: #041d5c ;
+  border-color: #041d5c ;
 }
 
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
@@ -4686,7 +4686,7 @@ a.badge-primary:focus, a.badge-primary.focus {
 
 .badge-secondary {
   color: #fff;
-  background-color: #33211D;
+  background-color: #041d5c ;
 }
 
 a.badge-secondary:hover, a.badge-secondary:focus {
@@ -5819,7 +5819,7 @@ a.close.disabled {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0;
   font-size: 1rem;
-  color: #33211D;
+  color: #041d5c ;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
 }
@@ -6105,7 +6105,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #33211D !important;
+  background-color: #041d5c  !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -6227,7 +6227,7 @@ button.bg-dark:focus {
 }
 
 .border-secondary {
-  border-color: #33211D !important;
+  border-color: #041d5c  !important;
 }
 
 .border-success {
@@ -9273,7 +9273,7 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .text-secondary {
-  color: #33211D !important;
+  color: #041d5c  !important;
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
@@ -9520,7 +9520,7 @@ h6,
 @media (max-width: 991.98px) {
   .container-fluid.nav-bar, .nav-bar.container-sm, .nav-bar.container-md, .nav-bar.container-lg, .nav-bar.container-xl {
     position: relative;
-    background: #33211D;
+    background: #041d5c ;
   }
 }
 
@@ -9592,7 +9592,7 @@ h6,
   align-items: center;
   justify-content: center;
   border-radius: 45px;
-  color: #33211D;
+  color: #041d5c ;
   background: #DA9F5B;
 }
 
@@ -9607,7 +9607,7 @@ h6,
   align-items: center;
   justify-content: center;
   border-radius: 45px;
-  color: #33211D;
+  color: #041d5c ;
   background: #DA9F5B;
 }
 
@@ -9629,7 +9629,7 @@ h6,
 
 .testimonial-carousel .owl-dot.active {
   width: 40px;
-  background: #33211D;
+  background: #041d5c ;
 }
 
 .testimonial-carousel .owl-item img {
@@ -9647,8 +9647,9 @@ h6,
 .page-header,
 .offer,
 .footer {
-  background: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)), url(../img/img/f.elconfidencial.com_original_e8e_79e_370_e8e79e37013ed37433bc22c03b6d8642.jpg);
-  background-position: top;
+  /* background: linear-gradient(rgba(40, 43, 79, 0.9), rgba(40, 43, 79, 0.9)), url(../img/img/f.elconfidencial.com_original_e8e_79e_370_e8e79e37013ed37433bc22c03b6d8642.jpg); */
+  background: linear-gradient(rgba(40, 43, 79, 0.9), rgba(40, 43, 79, 0.9)),  url(../img/img/f.elconfidencial.com_original_e8e_79e_370_e8e79e37013ed37433bc22c03b6d8642.jpg);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
