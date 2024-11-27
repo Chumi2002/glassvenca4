@@ -17,6 +17,22 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 768px) {
+    .container2 {
+        grid-template-columns: 1fr; /* Cambiar a una columna */
+        padding: 15px; /* Ajustar espaciado interno */
+        margin: 10% auto; /* Aumentar margen superior en pantallas pequeñas */
+    }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .container2 {
+        gap: 15px; /* Reducir espacio entre elementos */
+        padding: 10px; /* Reducir espaciado interno */
+    }
+}
+
 /* Sección Izquierda */
 .left-section {
     padding: 30px;
@@ -173,4 +189,11 @@ hr {
     border-radius: 10px;
     width: 40px;
     height: 40px;
+}
+
+
+@media screen and (max-width: 768px) { /* Estilos para pantallas más pequeñas */
+    h4.service-title {
+        margin-top: 20px; /* Espaciado superior */
+    }
 }
