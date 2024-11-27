@@ -17,3 +17,221 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+
+/* carrito  */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+#productos {
+    flex: 3;
+}
+
+.carrusel {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.carrusel .producto {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 0 0 auto;
+    width: 200px;
+    text-align: center;
+}
+
+.carrusel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#carrito {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: white;
+    border-left: 2px solid #ccc;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+#carrito.mostrar {
+    transform: translateX(0);
+}
+
+#mostrar-carrito {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    z-index: 1000;
+}
+
+#mostrar-carrito:hover {
+    background-color: #0056b3;
+}
+
+#cerrar-carrito {
+    background-color: #dc3545;
+    margin-bottom: 10px;
+}
+
+#carrito ul {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#carrito li {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#total {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* carrusel */
+/* Ajustes generales */
+
+/* Carrusel */
+#carrusel-productos {
+    text-align: center;
+    padding: 20px 0;
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.carrusel-contenedor {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrusel-items {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Asegura que los elementos ocupen el ancho completo */
+}
+
+.producto {
+    flex: 0 0 100%; /* Cada producto ocupa el 100% del ancho del contenedor */
+    text-align: center;
+    margin: 0;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.producto img {
+    width: 80%; /* Opcional: ajusta el tamaño de la imagen */
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.carrusel-boton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: 50%;
+}
+
+.carrusel-boton.prev {
+    left: 10px;
+}
+
+.carrusel-boton.next {
+    right: 10px;
+}
+
+.carrusel-boton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* fondos */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+ h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-family: 'Poppins', sans-serif;
+
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+
+}
