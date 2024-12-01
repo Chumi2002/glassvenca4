@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Gassvenca Venezuela</title>
-    <link rel="icon" href="img/img/logoEmpresa.ico" type="image/x-icon"></title>
+    <link rel="icon" href="img/img/logoEmpresa.ico" type="image/x-icon">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
@@ -14,13 +14,12 @@
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -30,7 +29,9 @@
     <link href="css/style.min.css" rel="stylesheet">
     <link href="css/micss.css" rel="stylesheet">
     <link href="css/producto.css" rel="stylesheet">
+
 </head>
+
 
 <body>
     <!-- Navbar Start -->
@@ -86,108 +87,141 @@
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
-        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
-            <!-- <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">¿Quiénes somos?</h1> -->
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 desplazamiento-derecha"
+            style="min-height: 400px">
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Productos</h1>
             <div class="d-inline-flex mb-lg-5">
                 <!-- <p class="m-0 text-white"><a class="text-white" href="">Home</a></p>
                 <p class="m-0 text-white px-2">/</p>
-                <p class="m-0 text-white">About Us</p> -->
+                <p class="m-0 text-white">Menu</p> -->
             </div>
         </div>
     </div>
     <!-- Page Header End -->
 
 
-    <div class="container-fluid pt-5" style="margin-bottom: 200px;">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header text-center">
-                            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-uppercase" style="color: #282b4f ;">Iniciar Sesión
-                            </h1>
-                            <h4></h4>
-                        </div>
-                        <div class="card-body">
-                            <form action="login.php" method="POST">
-                                <div class="form-group">
-                                    <label for="email">Correo Electrónico</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Contraseña</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block custom-rounded">Iniciar Sesión</button>
-                            </form>
-                            <div class="mt-3 text-center">
-                                <a href="#">¿Olvidaste tu contraseña?</a>
-                            </div>
-                            <div class="mt-2 text-center">
-                                <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Menu Start -->
+    <div class="product-grid">
+        <!-- Producto 1 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
+            <h3>Tarro 230 ml</h3>
+            <p>Bs206.16 VEF</p>
+            <button class="btn-agotado" disabled>Agotado</button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
+            <h3>Envase Boca Ancha 675 ml Rosca</h3>
+            <p><span class="original-price">Bs426.38 VEF</span> Bs215.53 VEF</p>
+            <button class="btn-agotado" disabled>Agotado</button>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
+            <h3>Envase Boca Ancha 500 ml Twist Off</h3>
+            <p>A partir de Bs257.70 VEF</p>
+            <button class="btn-select">Seleccionar opciones</button>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
+            <h3>Envase Boca Ancha 500 ml Rosca</h3>
+            <p>A partir de Bs257.70 VEF</p>
+            <button class="btn-select">Seleccionar opciones</button>
         </div>
     </div>
 
-    <div class="whatsapp-button">
-        <a href="https://wa.me/584120518796" target="_blank">
-            <img src="img/img/descarga.png" alt="Chat con nosotros">
-        </a>
+    <div class="product-grid">
+        <!-- Producto 1 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
+            <h3>Tarro 230 ml</h3>
+            <p>Bs206.16 VEF</p>
+            <button class="btn-agotado" disabled>Agotado</button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
+            <h3>Envase Boca Ancha 675 ml Rosca</h3>
+            <p><span class="original-price">Bs426.38 VEF</span> Bs215.53 VEF</p>
+            <button class="btn-agotado" disabled>Agotado</button>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
+            <h3>Envase Boca Ancha 500 ml Twist Off</h3>
+            <p>A partir de Bs257.70 VEF</p>
+            <button class="btn-select">Seleccionar opciones</button>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-item">
+            <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
+            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
+            <h3>Envase Boca Ancha 500 ml Rosca</h3>
+            <p>A partir de Bs257.70 VEF</p>
+            <button class="btn-select">Seleccionar opciones</button>
+        </div>
     </div>
+    <!-- Menu End -->
+
 
     <!-- Footer Start -->
-    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+    <div class="container-fluid footer mt-5 pt-5 px-0 position-relative">
         <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Información</h4>
+                <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Información</h4>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>Calle Oeste 1, 19 de Abril, Sector la Morita, Centro Empresarial Intercomunal Center, Galpón G-6 y G-7, Maracay, Aragua 2101</p>
                 <p><i class="fa fa-phone-alt mr-2"></i>0412-0518796</p>
-                <!-- <p class="m-0"><i class="fa fa-envelope mr-2"></i>info@example.com</p> -->
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
+                <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Síguenos</h4>
                 <p>Síguenos en todas nuestras redes sociales</p>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/profile.php?id=61550516111834"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/p/C6WdZcvLmD0/"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-lg btn-outline btn-lg-square mr-2" href="https://www.facebook.com/profile.php?id=61550516111834">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="btn btn-lg btn-outline btn-lg-square" href="https://www.instagram.com/p/C6WdZcvLmD0/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
-            <!-- <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Open Hours</h4>
-                <div>
-                    <h6 class="text-white text-uppercase">Monday - Friday</h6>
-                    <p>8.00 AM - 8.00 PM</p>
-                    <h6 class="text-white text-uppercase">Saturday - Sunday</h6>
-                    <p>2.00 PM - 8.00 PM</p>
-                </div>
-            </div> -->
-            <!-- <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Newsletter</h4>
-                <p>Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
-                <div class="w-100">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
-        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
-            <p class="mb-2 text-white">Copyright &copy; <a class="font-weight-bold" href="#">Glassvenca</a>.</a></p>
-            <!-- <p class="m-0 text-white">Designed by <a class="font-weight-bold" href="https://htmlcodex.com">HTML Codex</a></p> -->
+        <div class="container-fluid text-center border-top mt-4 py-4 px-sm-3 px-md-5">
+            <p class="mb-2">Copyright &copy; <a class="font-weight-bold" href="#">Glassvenca</a>.</p>
         </div>
     </div>
     <!-- Footer End -->
 
+    <aside id="carrito" class="oculto">
+        <h2>Carrito</h2>
+        <button style="background-color: #28a745; color: white; border-radius: 5px;" id="ir-a-comprar" onclick="irAComprar()">Ir a Comprar</button>
+        <ul id="lista-carrito">
+            <!-- Los productos se agregarán aquí -->
+        </ul>
+        <hr>
+        <p>Total: $<span id="total">0</span></p>
+    </aside>
+    
+    <button style="background-color: #041d5c; color: white;" id="mostrar-carrito" onclick="toggleCarrito()">🛒 Ver Carrito</button>
+    
+
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a> -->
 
 
     <!-- JavaScript Libraries -->
@@ -199,14 +233,25 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-
+    <script src="js/mijs.js"></script>
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+
+    <script>
+        // Detectar el scroll en la página
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar-custom');
+
+            if (window.scrollY > 50) { // Si el desplazamiento es mayor a 50px
+                navbar.classList.add('scrolled'); // Añadir la clase 'scrolled'
+            } else {
+                navbar.classList.remove('scrolled'); // Remover la clase 'scrolled'
+            }
+        });
+
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script><script>

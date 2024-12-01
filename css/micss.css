@@ -22,7 +22,7 @@
 
 /* carrito  */
 
-body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -30,7 +30,7 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+ */
 header {
     background-color: #333;
     color: white;
@@ -72,7 +72,7 @@ main {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #784410;
     color: white;
     border: none;
     padding: 10px;
@@ -81,7 +81,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #784410a3; 
 }
 
 #carrito {
@@ -147,91 +147,394 @@ button:hover {
     font-family: 'Poppins', sans-serif;
 }
 
-
-/* carrusel */
-/* Ajustes generales */
-
-/* Carrusel */
-#carrusel-productos {
-    text-align: center;
-    padding: 20px 0;
-    width: 90%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-}
-
-.carrusel-contenedor {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.carrusel-items {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%; /* Asegura que los elementos ocupen el ancho completo */
-}
-
-.producto {
-    flex: 0 0 100%; /* Cada producto ocupa el 100% del ancho del contenedor */
-    text-align: center;
-    margin: 0;
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.producto img {
-    width: 80%; /* Opcional: ajusta el tamaño de la imagen */
-    margin: 0 auto;
-    border-radius: 5px;
-}
-
-.carrusel-boton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    z-index: 1000;
-    border-radius: 50%;
-}
-
-.carrusel-boton.prev {
-    left: 10px;
-}
-
-.carrusel-boton.next {
-    right: 10px;
-}
-
-.carrusel-boton:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-
 /* fondos */
 
+/* Estilos generales del cuerpo */
 body {
-    font-family: 'Poppins', sans-serif;
+    background-color: #fff; /* Fondo gris claro */
+    color: #351a09; /* Texto marrón oscuro */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
- h2, h3 {
-    font-family: 'Poppins', sans-serif;
+h1, h2, h3 {
+    color: #784410; /* Títulos en marrón medio */
 }
 
-h1{
-    font-family: 'Poppins', sans-serif;
-
+/* Estilo de botones */
+.btn-primary {
+    background-color: #041d5c; /* Azul suave */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
-p{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
+.btn-primary:hover {
+    background-color: #041d5c; /* Azul oscuro en hover */
+    color: white;
+}
 
+
+/* navbar */
+
+.navbar-custom {
+    height: 80px;
+    background-color: #405788  ; /* Color azul oscuro */
+}
+.navbar-custom .navbar-brand img {
+    max-height: 50px; /* Tamaño del logo */
+}
+.navbar-custom .nav-link {
+    color: #afb0ae ; /* Color blanco para los enlaces */
+    font-weight: 500;
+}
+.navbar-custom .nav-link:hover {
+    color: #d2b48c; /* Color dorado en hover */
+}
+.navbar-custom {
+    border-color: #afb0ae ;
+}
+
+.navbar-toggler-img {
+    width: 30px;  /* Ajusta el tamaño de la imagen según lo necesites */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+
+.navbar-custom .icon-link {
+    color: #afb0ae ;
+    font-size: 1.2rem;
+    margin-left: 15px;
+}
+.navbar-custom .icon-link:hover {
+    color: #d2b48c; /* Color dorado en hover */
+}
+
+/* Estilo del navbar cuando se hace scroll */
+.navbar-custom.scrolled {
+    background-color: #405788  ; /* Fondo cuando hace scroll */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra cuando hace scroll */
+    height: 50px; /* Hacer el navbar más pequeño */
+    padding: 5px 0; /* Reducir el padding para hacerlo más compacto */
+}
+
+.navbar-custom .navbar-brand img {
+    height: 40px; /* Reducir el tamaño del logo */
+    transition: height 0.3s ease;
+}
+
+.navbar-custom.scrolled .navbar-brand img {
+    height: 30px; /* Tamaño del logo cuando hace scroll */
+}
+
+/* Estilos para el navbar colapsado */
+.navbar-collapse {
+    background-color: #405788; /* Fondo blanco */
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Aseguramos que el menú se vea bien en pantallas pequeñas */
+@media (max-width: 991px) { /* Dispositivos pequeños, como tabletas */
+    .navbar-collapse {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+    } 
+}
+
+/* Ajustes para dispositivos móviles (ancho máximo de 576px) */
+@media (max-width: 576px) {
+    .navbar-collapse {
+        background-color: #fff; /* Cambiar fondo a color oscuro en móviles */
+        border-radius: 10px; /* Sin bordes redondeados */
+        border: solid #afb0aeb3; /* Eliminar borde */
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    
+
+    /* Estilos para los enlaces dentro del navbar */
+    .navbar-nav .nav-link {
+        padding: 10px 15px; /* Espaciado más grande en los enlaces */
+        color: #afb0aeb3; /* Hacer que el texto sea blanco */
+        font-size: 18px; /* Aumentar el tamaño de la fuente para que sea más legible */
+    }
+
+    /* Mejorar la visibilidad en el dropdown */
+    .navbar-nav .dropdown-menu {
+        background-color: #fff; /* Fondo oscuro en el dropdown */
+        border-radius: 0;
+        border: none;
+    }
+
+    .navbar-nav .dropdown-item {
+        color: #afb0aeb3; /* Hacer que los ítems del dropdown sean blancos */
+    }
+    
+    .navbar-nav .dropdown-item:hover {
+        color: #afb0aeb3; /* Asegurarse de que el texto se mantenga blanco */
+    }
+}
+
+
+/* Opcional: Establecer el color de los enlaces cuando están dentro del menú desplegable */
+.navbar-nav .nav-link {
+    color: #afb0ae; /* Color gris claro */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff; /* Blanco cuando pasas el ratón por encima */
+}
+
+
+
+.dropdown-menu {
+    background-color: #405788  ; /* Fondo azul oscuro */
+    border: 0.5px solid #afb0ae ; /* Borde de 2px de grosor y color dorado */
+    border-radius: 5px; 
+}
+
+.dropdown-menu .dropdown-item {
+    color: #afb0ae ; /* Color blanco para los enlaces */
+    font-weight: 500;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #d2b48c; /* Fondo dorado al pasar el mouse */
+    color: #405788  ; /* Texto azul oscuro */
+}
+
+/* presentacion de productos 28/11 */
+
+/* General del contenedor */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Tarjeta del producto */
+.product-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover para resaltar */
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del producto */
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Etiqueta de estado (Agotado/Disponible) */
+.status {
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.status.agotado {
+    background-color: #333; 
+    color: white;
+}
+
+.status.disponible { 
+    background-color: #041d5c;
+    color: white;
+}
+
+/* Título y precio */
+.product-item h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #041d5c;
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+}
+
+/* Botones */
+.btn-agotado {
+    background-color: transparent;
+    color: #999;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: not-allowed;
+}
+
+.btn-select {
+    background-color: #041d5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-select:hover {
+    background-color: #eb8225;
+}
+
+.btn-select2 {
+    background-color: #eb8225;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-select2:hover {
+    color: #fff;
+}
+
+
+/* Contenedor centrado */
+.centered-container {
+    display: flex; /* Utiliza flexbox para alinear el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si se necesita */
+    margin-top: 5%; /* Espaciado superior */
+    width: 100%; /* Asegura que sea responsive */
+}
+
+/* banner */
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 95vh; /* La imagen cubre el 80% de la pantalla */
+    background-image: url('../img/img/producto3.jpg'); /* Coloca la URL de tu imagen aquí */
+    background-size: cover; /* Hace que la imagen se ajuste al tamaño de la sección */
+    background-position: center; /* Centra la imagen */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white; /* Color de texto blanco para mayor contraste */
+    text-align: left;
+}
+
+/* .content2 h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #405788;
+}
+
+.content2 p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #eb8225 ;
+} */
+
+
+.btn-login {
+    padding: 10px 20px;
+    background-color: #d2b48c;
+    color: white;
+    text-decoration: none; /* Elimina el subrayado */
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Efecto de hover sin subrayado */
+.btn-login:hover {
+    background-color: #d2b48cac;
+    text-decoration: none; /* Asegura que no haya subrayado en hover */
+    color: white;
+}
+
+.desplazamiento-derecha {
+    opacity: 0;
+    transform: translateX(100%); /* Coloca el contenido fuera de la pantalla a la izquierda */
+    animation: slideIn 1s forwards ease-out; /* Animación de entrada */
+}
+
+/* Animación de deslizamiento */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%); /* Comienza fuera de la pantalla */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Llega a su posición original */
+    }
+}
+
+
+/* footer  */
+
+/* Footer */
+.footer {
+    background-color: #405788; /* Fondo marrón oscuro */
+    color: #afb0aeb3; /* Texto gris claro */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #afb0ae; /* Enlaces en gris claro */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff; /* Blanco al pasar el ratón */
+}
+
+/* Encabezados del footer */
+.footer h4 {
+    color: #afb0ae; /* Gris claro */
+    letter-spacing: 3px; /* Espaciado entre letras */
+}
+
+/* Botones de redes sociales */
+.footer .btn {
+    background-color: transparent; /* Fondo transparente */
+    color: #afb0ae; /* Iconos en gris claro */
+    border: 1px solid #afb0ae; /* Borde gris claro */
+    border-radius: 50%; /* Forma redonda */
+    padding: 10px;
+    margin: 5px;
+}
+
+.footer .btn:hover {
+    background-color: #784410; /* Azul suave en hover */
+    color: #fff; /* Iconos en blanco */
+    border-color: #784410; /* Cambiar color del borde */
 }
