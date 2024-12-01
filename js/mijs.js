@@ -89,3 +89,24 @@ toggleButton.addEventListener('click', () => {
         localStorage.setItem('dark-mode', 'disabled');
     }
 });
+
+
+// desplazamiento cando se haga scroll
+
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedDivs = document.querySelectorAll('.animated-div'); // Selecciona todos los divs con esta clase
+
+    // Configuración del Intersection Observer
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Agrega la clase 'show' cuando el elemento está visible
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target); // Deja de observar este elemento
+            }
+        });
+    }, { threshold: 0.1 }); // Dispara cuando el 10% del elemento es visible
+
+    // Asocia el observador a cada 'animated-div'
+    animatedDivs.forEach(div => observer.observe(div));
+});

@@ -538,3 +538,23 @@ h1, h2, h3 {
     color: #fff; /* Iconos en blanco */
     border-color: #784410; /* Cambiar color del borde */
 }
+
+/* desplazamiento hacia arriba  */
+.animated-div {
+    position: relative;
+    opacity: 0; /* Invisible inicialmente */
+    transform: translateY(100px); /* Comienza desplazado hacia abajo */
+    animation: slideUp 1s ease-out forwards; /* Animación de deslizamiento */
+}
+
+/* Definición de la animación */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px); /* Posición inicial fuera de la pantalla */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Posición final en el lugar original */
+    }
+}
