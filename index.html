@@ -63,9 +63,8 @@
                             Categorías
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="Categorias.html">Alimentos</a></li>
-                            <li><a class="dropdown-item" href="Categorias.html">Licores</a></li>
-                            <li><a class="dropdown-item" href="Categorias.html">Farmacéuticos</a></li>
+                            <li><a class="dropdown-item" href="Productos-farmacia.html">Farmacéuticos</a></li>
+                            <li><a class="dropdown-item" href="Productos-veterinaria.html">Veterinaria</a></li>
                         </ul>
                     </li>
 
@@ -77,7 +76,7 @@
                 <div class="d-flex align-items-center" style="margin-left: 60%;">
                     <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
                     <a href="Registro.html" class="icon-link"><i class="fas fa-user"></i></a>
-                    <a href="#" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
+                    <a href="#" onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
                 </div>
             </div>
         </div>
@@ -86,7 +85,7 @@
 
     <!-- Carousel Start -->
     <div class="hero-section">
-        <div class=" desplazamiento-derecha" style="margin-left: 20px;">
+        <div class=" animated-div" style="margin-left: 20px;">
             <h1>Glassvenca envios</h1>
             <p>Envés, empaques y envíos por el país.</p>
             <a href="Registro.html" style="margin-left: 20px;" class="btn-login">Iniciar sesión</a>
@@ -97,7 +96,8 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5 animated-div">
+    <!-- <div class="fade-in" style="margin-top: 30%;">Contenido 1</div> -->
+    <div class="container-fluid py-5 elemento">
         <div class="container">
             <div class="section-title">
                 <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; color: #351a09 ;">¿Quiénes somos?
@@ -138,7 +138,7 @@
 
 
     <!-- Service Start -->
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5 elemento">
         <div class="container">
             <div class="section-title">
                 <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Categorías</h4>
@@ -165,18 +165,18 @@
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5 rounded shadow">
-                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="img/img/Licor.jpg" alt="">
+                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="img/img/veterinaria.jpg" alt="">
                         </div>
                         <div class="col-sm-7">
                             <!--  <h4><i class="fa fa-coffee service-icon"></i>Frascos</h4>
                             <p class="m-0">Porque queremos cubrir todas tus necesidades como empresa, hemos decidido desarrollar el producto que necesites</p> -->
                             <h4 class="service-title" ><i
-                                    class="fa fa-wine-bottle service-icon"></i>Licores</h4>
-                            <p class="m-0">La mayor diversidad de envases en el sector de licores.</p>
+                                    class="fa fa-paw service-icon"></i>Veterinaria</h4>
+                            <p class="m-0">La mayor diversidad de envases en el sector de veterinaria.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-5">
+             <!--    <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5 rounded shadow">
                             <img class="img-fluid mb-3 mb-sm-0 rounded" src="img/img/comida.jpg" alt="">
@@ -190,9 +190,9 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-6 mb-5">
+               <!--  <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5 rounded shadow">
                             <img class="img-fluid mb-3 mb-sm-0 rounded" src="img/img/cosmeticos2.jpg" alt="">
@@ -203,7 +203,7 @@
                             <p class="m-0">En Glassvenca podemos desarrollar envases para cosméticos desde ceror</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -213,15 +213,15 @@
 
     <!-- Offer Start -->
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 elemento">
         <div class="container">
-            <div class="reservation2 position-relative overlay-top overlay-bottom">
+            <div class="reservation2 position-relative overlay-top overlay-bottom" style="border-radius: 20px;">
                 <div class="row align-items-center">
                     <div class="col-lg-6 my-5 my-lg-0">
                         <div class="p-5">
                             <div class="mb-4">
                                 <h1 class="display-3 text-primary">Nuevo Usuario</h1>
-                                <h1 class="text-white">Obten opciones de compra</h1>
+                                <h1 style="color: #351a09;">Obten opciones de compra</h1>
                             </div>
 
                             <ul class="list-inline text-white m-0">
@@ -231,8 +231,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
+                    <div class="col-lg-6" >
+                        <div class="text-center p-5" style="background: rgba(51, 33, 29, .8); border-radius: 20px;">
                             <h1 class="text-white mb-4 mt-5">Registrarse</h1>
                             <form class="mb-5">
                                 <div class="form-group">
@@ -278,7 +278,7 @@
 
     <!-- Menu Start -->
 
-    <div class="product-grid">
+    <div class="product-grid elemento">
         <!-- Producto 1 -->
         <div class="product-item">
             <img src="img/img/farmacia.jpg" alt="Tarro 230 ml">
@@ -303,7 +303,7 @@
             <span class="status disponible" style="margin-top: 5px;">Disponible</span>
             <h3>Envase Boca Ancha 500 ml Twist Off</h3>
             <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Seleccionar opciones</button> 
+            <button class="btn-select">Aregar al carrito</button> 
         </div>
 
         <!-- Producto 4 -->
@@ -312,7 +312,7 @@
             <span class="status disponible" style="margin-top: 5px;">Disponible</span>
             <h3>Envase Boca Ancha 500 ml Rosca</h3>
             <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Seleccionar opciones</button>
+            <button class="btn-select">Aregar al carrito</button>
         </div>
     </div>
 
@@ -341,7 +341,7 @@
             <span class="status disponible" style="margin-top: 5px;">Disponible</span>
             <h3>Envase Boca Ancha 500 ml Twist Off</h3>
             <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Seleccionar opciones</button>
+            <button class="btn-select">Aregar al carrito</button>
         </div>
 
         <!-- Producto 4 -->
@@ -350,13 +350,13 @@
             <span class="status disponible" style="margin-top: 5px;">Disponible</span>
             <h3>Envase Boca Ancha 500 ml Rosca</h3>
             <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Seleccionar opciones</button>
+            <button class="btn-select">Aregar al carrito</button>
         </div>
     </div>
 
     <div class="centered-container">
         <a href="Productos.html" class="btn-select2  " style=" border-radius: 20px; 
-    text-decoration: none;">Seleccionar opciones</a>
+    text-decoration: none;">Aregar al carrito</a>
 
     </div>
 
@@ -366,7 +366,7 @@
 
 
     <!-- Ubicacion Start -->
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5 elemento">
         <div class="container">
             <div class="section-title">
                 <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contactanos</h4>
@@ -400,7 +400,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 elemento">
         <div class="container">
             <div class="section-title">
                 <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonios</h4>
@@ -458,10 +458,21 @@
         </a>
     </div>
 
+    <aside id="carrito" class="oculto">
+        <h2>Carrito</h2>
+        <button style="background-color: #28a745; color: white; border-radius: 5px; margin-top: 15px;" id="ir-a-comprar"
+            onclick="irAComprar()">Ir a Comprar</button>
+        <ul id="lista-carrito">
+            <!-- Los productos se agregarán aquí -->
+        </ul>
+        <hr>
+        <p>Total: $<span id="total">0</span></p>
+    </aside>
+
 
 
     <!-- Footer Start -->
-    <div class="container-fluid footer mt-5 pt-5 px-0 position-relative">
+    <div class="container-fluid footer mt-5 pt-5 px-0 position-relative elemento">
         <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Información</h4>
@@ -511,6 +522,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/mijs.js"></script>
     <script>
         // Detectar el scroll en la página
         window.addEventListener('scroll', function () {
@@ -524,7 +536,7 @@
         });
 
     </script>
-  <!--   <script>
+    <script>
         // Deshabilitar clic derecho y combinaciones de teclas específicas
         document.addEventListener('contextmenu', (e) => e.preventDefault());
         document.addEventListener('keydown', (e) => {
@@ -532,7 +544,7 @@
                 e.preventDefault();
             }
         });
-    </script> -->
+    </script>
 
 </body>
 

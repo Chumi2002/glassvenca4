@@ -54,8 +54,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 body {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
+  /* margin: 0; */
+  font-family: 'Radona Condensed', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -362,7 +362,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Radona Condensed', sans-serif;
   font-weight: 500;
   line-height: 1.2;
   /* color: #041d5c ; */
@@ -470,10 +470,8 @@ h6, .h6 {
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: solid 1px  rgba(0, 0, 0, 0.1);
 }
 
 small,

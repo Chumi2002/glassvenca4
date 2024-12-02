@@ -2,7 +2,7 @@ let carrito = [];
 let total = 0;
 
 function agregarAlCarrito(nombre, precio, imagen) {
-    carrito.push({ nombre, precio, imagen});
+    carrito.push({ nombre, precio, imagen });
     total += precio;
     actualizarCarrito();
 }
@@ -10,14 +10,14 @@ function agregarAlCarrito(nombre, precio, imagen) {
 function actualizarCarrito() {
     const listaCarrito = document.getElementById('lista-carrito');
     const totalSpan = document.getElementById('total');
-    
+
     listaCarrito.innerHTML = ''; // Limpiar el carrito actual
 
     carrito.forEach((item, index) => {
         const li = document.createElement('li');
         li.className = 'item-carrito'; // Agregar una clase CSS al <li>
         li.textContent = `${item.nombre} $${item.precio}`;
-        
+
         const botonEliminar = document.createElement('button');
         botonEliminar.textContent = 'Eliminar';
         botonEliminar.className = 'btn-eliminar';
@@ -92,21 +92,18 @@ toggleButton.addEventListener('click', () => {
 
 
 // desplazamiento cando se haga scroll
-
 document.addEventListener("DOMContentLoaded", () => {
-    const animatedDivs = document.querySelectorAll('.animated-div'); // Selecciona todos los divs con esta clase
-
-    // Configuración del Intersection Observer
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Agrega la clase 'show' cuando el elemento está visible
                 entry.target.classList.add('show');
-                observer.unobserve(entry.target); // Deja de observar este elemento
             }
         });
-    }, { threshold: 0.1 }); // Dispara cuando el 10% del elemento es visible
+    });
 
-    // Asocia el observador a cada 'animated-div'
-    animatedDivs.forEach(div => observer.observe(div));
+    const elements = document.querySelectorAll('.elemento');
+    elements.forEach((el) => observer.observe(el));
 });
+
+
+
