@@ -1,85 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include('header.php'); ?>
 
-<head>
-    <meta charset="utf-8">
-    <title>Gassvenca Venezuela</title>
-    <link rel="icon" href="../img/logoEmpresa.ico" type="image/x-icon">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
-
-    <!-- Favicon -->
-    <link href="../img/favicon.ico" rel="icon">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="../css/style.min.css" rel="stylesheet">
-    <link href="../css/micss.css" rel="stylesheet">
-    <link href="../css/producto.css" rel="stylesheet">
-
-</head>
-
-<body>
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container-fluid">
-            <!-- Logo -->
-            <a href="#" class="navbar-brand">
-                <img src="../img/img/logoEmpresa.ico" alt="Glassvenca logo">
-            </a>
-            <!-- Botón para dispositivos móviles -->
-
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <!-- <span class="navbar-toggler-icon"></span> -->
-                <img src="../img/img/boton-menu.png" alt="Icono de menú" class="navbar-toggler-img">
-            </button>
-            <!-- Links del menú -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-item nav-link ">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="Productos.html" class="nav-item nav-link">Productos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorías
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="Productos-farmacia.html">Farmacéuticos</a></li>
-                            <li><a class="dropdown-item" href="Productos-veterinaria.html">Veterinaria</a></li>
-                        </ul>
-                    </li>
-
-                    <!--   <li class="nav-item">
-                        <a href="Registro.html" class="nav-link">Registro</a>
-                    </li> -->
-                </ul>
-                <!-- Iconos a la derecha -->
-                <div class="d-flex align-items-center" style="margin-left: 60%;">
-                    <!-- <a href="#" class="icon-link"><i class="fas fa-search"></i></a> -->
-                    <a href="registrar.html" class="icon-link"><i class="fas fa-user"></i></a>
-                    <a href="#" onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
     <!-- Navbar End -->
 
 
@@ -118,7 +38,7 @@
                     <div class="col-lg-6">
                         <div class="text-center p-5" style="background: rgba(51, 33, 29, .8); border-radius: 20px; height: 70vh;">
                             <h1 class="text-white mb-4 mt-5">Iniciar sesión</h1>
-                            <form class="mb-5" action="../controllers/inicair_sesion.php" method="post">
+                            <form class="mb-5" action="../controllers/iniciar_sesion.php?inicio=2" method="post">
                                 <div class="form-group">S
                                     <input name="correo" type="email" class="form-control  border-primary p-4"
                                         placeholder="Correo" required="required" />

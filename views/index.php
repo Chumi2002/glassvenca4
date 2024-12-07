@@ -1,86 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include('header.php'); ?>
 
-<head>
-    <meta charset="utf-8">
-    <title>Gassvenca Venezuela</title>
-    <link rel="icon" href="../img/img/logoEmpresa.ico" type="image/x-icon">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
-
-    <!-- Favicon -->
-    <link href="../img/img/logoEmpresa.ico" rel="icon">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="../css/style.min.css" rel="stylesheet">
-    <link href="../css/micss.css" rel="stylesheet">
-    <link href="../css/producto.css" rel="stylesheet">
-
-</head>
-
-<body>
-    <!-- Navbar Start -->
-
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container-fluid">
-            <!-- Logo -->
-            <a href="#" class="navbar-brand">
-                <img src="../img/img/logoEmpresa.ico" alt="Glassvenca logo">
-            </a>
-            <!-- Botón para dispositivos móviles -->
-
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <!-- <span class="navbar-toggler-icon"></span> -->
-                <img src="../img/img/boton-menu.png" alt="Icono de menú" class="navbar-toggler-img">
-            </button>
-            <!-- Links del menú -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-item nav-link ">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="Productos.html" class="nav-item nav-link">Productos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorías
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="Productos-farmacia.html">Farmacéuticos</a></li>
-                            <li><a class="dropdown-item" href=".Productos-veterinaria.html">Veterinaria</a></li>
-                        </ul>
-                    </li>
-
-                    <!--   <li class="nav-item">
-                        <a href="Registro.html" class="nav-link">Registro</a>
-                    </li> -->
-                </ul>
-                <!-- Iconos a la derecha -->
-                <div class="d-flex align-items-center" style="margin-left: 60%;">
-                    <!-- <a href="#" class="icon-link"><i class="fas fa-search"></i></a> -->
-                    <a href="registrar.html" class="icon-link"><i class="fas fa-user"></i></a>
-                    <a href="#" onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
     <!-- Navbar End -->
 
     <!-- Carousel Start -->
@@ -88,7 +7,9 @@
         <div class=" animated-div" style="margin-left: 20px;">
             <h1>Glassvenca envios</h1>
             <p>Envases, empaques y envíos por el país.</p>
-            <a href="inicio_sesion.html" style="margin-left: 20px;" class="btn-login">Iniciar sesión</a>
+            <?php if (!$validar_inico) { ?>
+            <a href="inicio_sesion.php" style="margin-left: 20px;" class="btn-login">Iniciar sesión</a>
+            <?php  }?>
         </div>
     </div>
 
@@ -165,7 +86,7 @@
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5 rounded shadow">
-                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="img/img/veterinaria.jpg" alt="">
+                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria.jpg" alt="veterinaria">
                         </div>
                         <div class="col-sm-7">
                             <!--  <h4><i class="fa fa-coffee service-icon"></i>Frascos</h4>
@@ -211,7 +132,7 @@
 
 
     <!-- Offer Start -->
-
+    <?php if (!$validar_inico) { ?>
     <div class="container-fluid py-5 elemento">
         <div class="container">
             <div class="reservation2 position-relative overlay-top overlay-bottom" style="border-radius: 20px;">
@@ -233,8 +154,8 @@
                     <div class="col-lg-6">
                         <div class="text-center p-5" style="background: rgba(51, 33, 29, .8); border-radius: 20px; height: 70vh;">
                             <h1 class="text-white mb-4 mt-5">Iniciar sesión</h1>
-                            <form class="mb-5" action="../controllers/inicair_sesion.php">
-                                <div class="form-group">
+                            <form class="mb-5" action="../controllers/iniciar_sesion.php?inicio=1" method="post">
+                                <div class="form-group">S
                                     <input name="correo" type="email" class="form-control  border-primary p-4"
                                         placeholder="Correo" required="required" />
                                 </div>
@@ -255,6 +176,7 @@
             </div>
         </div>
     </div>
+    <?php  }?>
 
 
     <!-- Offer End -->
@@ -339,7 +261,7 @@
     </div>
 
     <div class="centered-container">
-        <a href="Productos.html" class="btn-select2  " style=" border-radius: 20px; 
+        <a href="Productos.php" class="btn-select2  " style=" border-radius: 20px; 
     text-decoration: none;">Aregar al carrito</a>
 
     </div>
@@ -456,82 +378,5 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid footer mt-5 pt-5 px-0 position-relative elemento">
-        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Información</h4>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>Calle Oeste 1, 19 de Abril, Sector la Morita, Centro
-                    Empresarial Intercomunal Center, Galpón G-6 y G-7, Maracay, Aragua 2101</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>0412-0518796</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Síguenos</h4>
-                <p>Síguenos en todas nuestras redes sociales</p>
-                <div class="d-flex justify-content-start">
-                    <a class="btn btn-lg btn-outline btn-lg-square mr-2"
-                        href="https://www.facebook.com/profile.php?id=61550516111834">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="btn btn-lg btn-outline btn-lg-square" href="https://www.instagram.com/p/C6WdZcvLmD0/">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid text-center border-top mt-4 py-4 px-sm-3 px-md-5">
-            <p class="mb-2">Copyright &copy; <a class="font-weight-bold" href="#">Glassvenca</a>.</p>
-        </div>
-    </div>
-
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" style="color: #041d5c;"><i class="fa fa-angle-double-up"></i></a> -->
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../lib/tempusdominus/js/moment.min.js"></script>
-    <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="../js/main.js"></script>
-    <script src="../js/mijs.js"></script>
-    <script>
-        // Detectar el scroll en la página
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar-custom');
-
-            if (window.scrollY > 50) { // Si el desplazamiento es mayor a 50px
-                navbar.classList.add('scrolled'); // Añadir la clase 'scrolled'
-            } else {
-                navbar.classList.remove('scrolled'); // Remover la clase 'scrolled'
-            }
-        });
-
-    </script>
-    <script>
-        // Deshabilitar clic derecho y combinaciones de teclas específicas
-        document.addEventListener('contextmenu', (e) => e.preventDefault());
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i')) {
-                e.preventDefault();
-            }
-        });
-    </script>
-
-</body>
-
-</html>
+<?php include('footer.php'); ?>
+    

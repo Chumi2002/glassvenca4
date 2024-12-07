@@ -13,15 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'nombre' => $nombre,
         'correo' => $correo,
         'contrasena' => password_hash($contra, PASSWORD_BCRYPT),
-        'id_status' => 1,
+        'id_status' => 5,
         'telefono' => $phone,
     ];
     
     if ($db->insert('usuario', $data)) {
-        header("location:../views/registrar.html?mensaje=1");
+        header("location:../views/registrar.php?mensaje=1");
         exit;
     } else{
-        header("location:../views/registrar.html?mensaje=2");
+        header("location:../views/registrar.php?mensaje=2");
         exit;
     }
 
