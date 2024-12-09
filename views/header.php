@@ -101,7 +101,8 @@ if (!isset($_SESSION['id_status'])) {
                 <!-- Iconos a la derecha -->
                 <div class="d-flex align-items-center" style="margin-left: 60%;">
                     <!-- <a href="#" class="icon-link"><i class="fas fa-search"></i></a> -->
-                    <a href="registrar.php" class="icon-link"><i class="fas fa-user"></i></a>
+                    <!-- <a href="registrar.php" class="icon-link"><i class="fas fa-user"></i></a> -->
+                    <a href="registrar.php" class="icon-link">Registrarse</a>
                     <?php if ($validar_inico) { ?>
                     <a href="#" onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
                     <a href="../controllers/cerrar_sesion.php" class="icon-link"><i class="fas fa-sign-out-alt"></i></a>

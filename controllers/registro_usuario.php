@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'nombre' => $nombre,
         'correo' => $correo,
         'contrasena' => password_hash($contra, PASSWORD_BCRYPT),
-        'id_status' => 5,
+        'id_status' => 1,
         'telefono' => $phone,
     ];
     

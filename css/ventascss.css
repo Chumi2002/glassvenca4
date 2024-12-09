@@ -1,0 +1,81 @@
+
+
+.product-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border: 1px solid #b8aaaa; /* Borde fino de 1px y color negro */
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.product-info p {
+    margin: 0; /* Asegura que el texto esté bien alineado */
+}
+
+.mb-3 {
+    border: 1px solid #ccc;  /* Borde alrededor del div */
+    border-radius: 10px;      /* Bordes redondeados para el div */
+    padding: 15px;            /* Relleno alrededor del contenido */
+}
+
+.form-control {
+    border-radius: 10px;      /* Bordes redondeados para el input */
+    padding: 10px;            /* Relleno dentro del input */
+    width: 100%;              /* Asegura que el input ocupe todo el ancho del contenedor */
+}
+
+.form-check {
+    margin-top: 10px;         /* Separación entre el checkbox y el input */
+}
+
+.payment-methods {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde de 1px y color gris claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor */
+}
+
+h3 {
+    text-align: center;
+}
+
+.payment-option {
+    margin-bottom: 15px;
+}
+
+.payment-info {
+    display: none; /* El contenido está oculto por defecto */
+    padding: 10px;
+    background-color: #e0e0e0;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.payment-radio:checked + .payment-info {
+    display: block; /* Se muestra el contenido cuando el radio está seleccionado */
+}
+
+/* Estilos para pantallas de teléfono móvil */
+@media (max-width: 767px) {
+    .custom-apellido input {
+        margin-top: 10px; /* Aplica margin-top solo al input de "Apellido" en pantallas pequeñas */
+    }
+
+}
+
+
+.container-telefono {
+    margin-top: 5%;
+}
+
+@media (max-width: 767px) {
+    .container-telefono {
+        margin-top: 15%; /* Aumenta el margin-top en teléfonos móviles */
+    }
+}

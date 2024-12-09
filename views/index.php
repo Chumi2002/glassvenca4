@@ -1,4 +1,12 @@
-<?php include('header.php'); ?>
+<?php 
+include('header.php'); 
+require '../models/conexion.php';
+$db = new Database();
+
+ $resultados = $db->select('producto');
+
+
+?>
 
     <!-- Navbar End -->
 
@@ -36,7 +44,7 @@
                 </div>
                 <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;  overflow: hidden;">
                     <div class=" h-100 ">
-                        <img class=" w-100 h-100 " src="../img/img/carrusel3.jpg"
+                        <img class=" w-100 h-100 " src="../img/img/carrusel32.jpg"
                             style="object-fit: contain; border-radius: 20px;">
                     </div>
                 </div>
@@ -141,7 +149,7 @@
                         <div class="p-5">
                             <div class="mb-4">
                                 <h1 class="display-3 text-primary">Inicio de sesión</h1>
-                                <h1 style="color: #351a09;">Obten opciones de compra</h1>
+                                <h1 style="color: #351a09;">Obtén opciones de compra</h1>
                             </div>
 
                             <ul class="list-inline text-white m-0">
@@ -184,81 +192,42 @@
 
     <!-- Menu Start -->
 
-    <div class="product-grid elemento">
-        <!-- Producto 1 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
-            <h3>Tarro 230 ml</h3>
-            <p>Bs206.16 VEF</p>
-            <button class="btn-agotado" disabled>Agotado</button>
-        </div>
 
-        <!-- Producto 2 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
-            <h3>Envase Boca Ancha 675 ml Rosca</h3>
-            <p><span class="original-price">Bs426.38 VEF</span> Bs215.53 VEF</p>
-            <button class="btn-agotado" disabled>Agotado</button>
-        </div>
+            <div class="product-grid elemento">
+                    <!-- Producto 1 -->
+                <?php foreach ($resultados as $producto): ?>
 
-        <!-- Producto 3 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
-            <h3>Envase Boca Ancha 500 ml Twist Off</h3>
-            <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Aregar al carrito</button>
-        </div>
+                    <div class="product-item">
+                        <div>
+                        <img src="../img/img/farmacia3.jpg" alt="Tarro 230 ml" style="justify-content: center; ">
 
-        <!-- Producto 4 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
-            <h3>Envase Boca Ancha 500 ml Rosca</h3>
-            <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Aregar al carrito</button>
-        </div>
-    </div>
+                        </div>
+                        <div>
+                        <span class="status <?php echo $producto["disponible"] == 1 ? "disponible" : "agotado"; ?>" style="margin-top: 5px;"><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
 
-    <div class="product-grid">
-        <!-- Producto 1 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
-            <h3>Tarro 230 ml</h3>
-            <p>Bs206.16 VEF</p>
-            <button class="btn-agotado" disabled>Agotado</button>
-        </div>
+                        </div>
+                        <h3><?php echo $producto["nombre"];?></h3>
+                        <p>Bs<?php echo $producto["precio"];?>.00 </p>
+                        <button 
+                            class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"  
+                            <?php 
+                                if ($producto["disponible"] == 1) {
+                                    // Pasar parámetros como nombre y precio del producto
+                                    echo 'onclick="showAlert(\'' . addslashes($producto["nombre"]) . '\', ' . $producto["precio"] . ', \'' . addslashes($producto["descripcion"]) . '\', ' . $producto["capacidad"] . ')"';
 
-        <!-- Producto 2 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status agotado" style="margin-top: 5px;">Agotado</span>
-            <h3>Envase Boca Ancha 675 ml Rosca</h3>
-            <p><span class="original-price">Bs426.38 VEF</span> Bs215.53 VEF</p>
-            <button class="btn-agotado" disabled>Agotado</button>
-        </div>
+                                } else {
+                                    echo 'disabled';
+                                }
+                            ?>
+                        >
+                            <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
+                        </button>
 
-        <!-- Producto 3 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
-            <h3>Envase Boca Ancha 500 ml Twist Off</h3>
-            <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Aregar al carrito</button>
-        </div>
+                    </div>
 
-        <!-- Producto 4 -->
-        <div class="product-item">
-            <img src="../img/img/farmacia.jpg" alt="Tarro 230 ml">
-            <span class="status disponible" style="margin-top: 5px;">Disponible</span>
-            <h3>Envase Boca Ancha 500 ml Rosca</h3>
-            <p>A partir de Bs257.70 VEF</p>
-            <button class="btn-select">Aregar al carrito</button>
-        </div>
-    </div>
+                <?php endforeach; ?> 
+                    
+            </div>
 
     <div class="centered-container">
         <a href="Productos.php" class="btn-select2  " style=" border-radius: 20px; 
@@ -367,7 +336,7 @@
     <aside id="carrito" class="oculto">
         <h2>Carrito</h2>
         <button style="background-color: #28a745; color: white; border-radius: 5px; margin-top: 15px;" id="ir-a-comprar"
-            onclick="irAComprar()">Ir a Comprar</button>
+            onclick="irAComprar()"> Ir a Comprar</button>
         <ul id="lista-carrito">
             <!-- Los productos se agregarán aquí -->
         </ul>
@@ -375,6 +344,121 @@
         <p>Total: $<span id="total">0</span></p>
     </aside>
 
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="border-radius: 20px;">
+
+                <div class="modal-body text-center">
+                    <div class="container-fluid" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6" style="text-align: center;">
+                                <img id="modalImage" src="../img/img/carrusel3.jpg" alt="Producto"
+                                    style="max-width: 100%; border-radius: 10px;">
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 ">
+
+                                <h1 id="modalProductName"
+                                    style="color: #784410b3; font-family: 'Arial', sans-serif; font-weight: bold; text-align: left;">
+                                    Tarro 230 ml</h1>
+                                <!-- <h6 style="padding: 0px; margin: 0px; margin-top: 20px; text-align: left; font-weight: bold; color: #041d5c;">002654.62 cod</h6> -->
+                                <h4 style="padding: 0px; margin: 0px; margin-top: 10px; text-align: left; font-weight: bold; color: #041d5c;" id="modalProductPrice">Bs257.70</h4>
+                                <p style="text-align: left; margin: 0px;">Envíos al mayor y detal </p>
+                                <p style="text-align: left; margin: 0px;">Opción de venta en paletas </p>
+                                <p style="text-align: left; margin: 0px;">Elija su tapa </p>
+                                <p style="text-align: left; margin: 0px;" id="modalproductcapacidad" >Elija su tapa </p>
+                                <p style="text-align: left; margin: 0px;" id="modalproductdescripcion" >Elija su tapa </p>
+
+                                <div class="input-container" style="margin-top: 10px;">
+                                    <label for="color-select" style="text-align: left;">Color:</label>
+                                    <select id="color-select">
+                                        <option value="1">Blanco</option>
+                                        <option value="2">Marron</option>
+                                        <option value="3">Negro</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-container">
+                                    <label for="color-select" style="text-align: left;">Empaque:</label>
+                                    <select id="color-select">
+                                        <option value="1">12 Unidades</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-container">
+                                    <label for="color-select" style="text-align: left;">Cantidad:</label>
+                                    <input type="number" id="user-input">
+                                </div>
+
+                                <button class="btn-elevate">Agregar al carrito</button>
+                                <br>
+                                <button class="btn-elevate2" style="margin-top: 15px;" onclick="storePurchaseData()">Ir a compra</button>
+                                <div style="margin-top: 5px;">
+                                    <a href="#">Ver más de talles</a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let selectedProductName = '';
+        let selectedProductPrice = 0;
+        let selectedProductDescripcion = '';
+        let selectedProductCapacidad = 0;
+        function showAlert(productName, productPrice, productdescripcion, productcapacidad) {
+
+            selectedProductName = productName;
+            selectedProductPrice = productPrice;
+            selectedProductDescripcion = productdescripcion;
+            selectedProductCapacidad = productcapacidad;
+
+            // Mostrar alerta de carga
+            Swal.fire({
+                background: 'transparent', // Fondo transparente
+                showConfirmButton: false, // Ocultar botón de confirmación
+                allowOutsideClick: false, // Evitar que se cierre al hacer clic fuera
+                customClass: {
+                    loader: 'custom-loader' // Clase personalizada para el spinner
+                },
+                didOpen: () => {
+                    Swal.showLoading(); // Mostrar el ícono de carga
+                },
+                timer: 1000 // Ocultar después de 1 segundo
+            }).then(() => {
+                // Mostrar modal una vez que la alerta desaparezca
+                const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+        document.getElementById('modalProductName').textContent = productName; 
+        document.getElementById('modalproductdescripcion').textContent = 'Color ' + productdescripcion; 
+        document.getElementById('modalproductcapacidad').textContent = productcapacidad + 'ml'; 
+        document.getElementById('modalProductPrice').textContent = 'Bs ' + productPrice;
+                myModal.show();
+            });
+        }
+
+    </script>
+
+    <script>
+        function storePurchaseData(name, price) {
+            const subtotal = price; // En este caso, el subtotal es igual al precio
+            // Guardar datos en localStorage
+            localStorage.setItem('productName', selectedProductName);
+            localStorage.setItem('productPrice', selectedProductPrice);
+            localStorage.setItem('productSubtotal', selectedProductPrice);
+            // Redirigir a la pantalla de compra
+            window.location.href = 'pantalla_ventas.php';
+        }
+
+
+
+    </script>
 
 
     <!-- Footer Start -->

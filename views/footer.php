@@ -42,6 +42,7 @@
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 
 
     <!-- Contact Javascript File -->
@@ -64,7 +65,7 @@
         });
 
     </script>
-    <script>
+    <!-- <script>
         // Deshabilitar clic derecho y combinaciones de teclas específicas
         document.addEventListener('contextmenu', (e) => e.preventDefault());
         document.addEventListener('keydown', (e) => {
@@ -72,7 +73,7 @@
                 e.preventDefault();
             }
         });
-    </script>
+    </script> -->
     <script>
         // Detecta si hay un parámetro de error en la URL
         const params = new URLSearchParams(window.location.search);
@@ -95,6 +96,7 @@
             }
         }
     </script>
+
 
 </body>
 

@@ -341,8 +341,8 @@ h1, h2, h3 {
 
 /* Imagen del producto */
 .product-item img {
-    max-width: 100%;
-    height: auto;
+    /* max-width: 100%; */
+    /* height: 10vh; */
     border-radius: 10px;
 }
 
@@ -362,7 +362,8 @@ h1, h2, h3 {
 }
 
 .status.disponible { 
-    background-color: #041d5c;
+    /* background-color: #041d5c; */
+    background-color: #784410;
     color: white;
 }
 
@@ -768,3 +769,4 @@ h1, h2, h3 {
     color: black;
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); Sombra para el efecto de elevación */
 }
+
