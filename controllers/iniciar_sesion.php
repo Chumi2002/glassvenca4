@@ -30,14 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        $_SESSION['nombre'] = $usuario["nombre"];
        $_SESSION['correo'] = $usuario["correo"];
        $_SESSION['contrasena'] = $usuario["contrasena"];
-       $_SESSION['id_status'] = $usuario["id_status"];
-       $_SESSION['telefono'] = $usuario["telefono"];
+       $_SESSION['tipo_usuario'] = $usuario["tipo_usuario"];
+       $_SESSION['fecha_registro'] = $usuario["fecha_registro"];
 
-       switch ($usuario["id_status"]) {
+       
+       switch ($usuario["tipo_usuario"]) {
         case "1":
             header("Location: ../views/index.php");
             break;
-        case "5":
+        case "2":
             header("Location: ../admin/panel.php");
             break;
         

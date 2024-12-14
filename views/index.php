@@ -3,10 +3,12 @@ include('header.php');
 require '../models/conexion.php';
 $db = new Database();
 
- $resultados = $db->select('producto');
+ $resultados = $db->select('productos');
 
 
 ?>
+
+<link href="../css/carritocss.css" rel="stylesheet">
 
     <!-- Navbar End -->
 
@@ -28,7 +30,7 @@ $db = new Database();
     <!-- <div class="fade-in" style="margin-top: 30%;">Contenido 1</div> -->
     <div class="container-fluid py-5 elemento">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" >
                 <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; color: #351a09 ;">¿Quiénes somos?
                 </h4>
                 <!-- <h1 class="display-4">Serving Since 1950</h1> -->
@@ -44,7 +46,7 @@ $db = new Database();
                 </div>
                 <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;  overflow: hidden;">
                     <div class=" h-100 ">
-                        <img class=" w-100 h-100 " src="../img/img/carrusel32.jpg"
+                        <img class=" w-100 h-100 " src="../img/img/carrusel32.png"
                             style="object-fit: contain; border-radius: 20px;">
                     </div>
                 </div>
@@ -69,7 +71,7 @@ $db = new Database();
     <!-- Service Start -->
     <div class="container-fluid pt-5 elemento">
         <div class="container">
-            <div class="section-title">
+            <div class="">
                 <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Categorías</h4>
                 <h1 class="display-4">Productos para cada necesidad</h1>
             </div>
@@ -77,7 +79,7 @@ $db = new Database();
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5 rounded shadow">
-                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/farmacia.jpg" alt="">
+                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria.png" alt="">
                         </div>
                         <!--  <div class="col-sm-7">
                             <h4><i class="fa fa-truck service-icon"></i>Composición del vidrio</h4>
@@ -94,7 +96,7 @@ $db = new Database();
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5 rounded shadow">
-                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria.jpg" alt="veterinaria">
+                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria2.png" alt="veterinaria">
                         </div>
                         <div class="col-sm-7">
                             <!--  <h4><i class="fa fa-coffee service-icon"></i>Frascos</h4>
@@ -207,13 +209,13 @@ $db = new Database();
 
                         </div>
                         <h3><?php echo $producto["nombre"];?></h3>
-                        <p>Bs<?php echo $producto["precio"];?>.00 </p>
+                        <p>Bs<?php echo $producto["precio_detalle"];?>.00 </p>
                         <button 
                             class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"  
                             <?php 
                                 if ($producto["disponible"] == 1) {
                                     // Pasar parámetros como nombre y precio del producto
-                                    echo 'onclick="showAlert(\'' . addslashes($producto["nombre"]) . '\', ' . $producto["precio"] . ', \'' . addslashes($producto["descripcion"]) . '\', ' . $producto["capacidad"] . ')"';
+                                    echo 'onclick="showAlert(\'' . addslashes($producto["nombre"]) . '\', ' . $producto["precio_detalle"] . ', \'' . addslashes($producto["descripcion"]) . '\', ' . $producto["capacidad"] . ')"';
 
                                 } else {
                                     echo 'disabled';
@@ -332,17 +334,40 @@ $db = new Database();
             <img src="../img/img/descarga.png" alt="Chat con nosotros">
         </a>
     </div>
-
+<!-- 
     <aside id="carrito" class="oculto">
         <h2>Carrito</h2>
         <button style="background-color: #28a745; color: white; border-radius: 5px; margin-top: 15px;" id="ir-a-comprar"
             onclick="irAComprar()"> Ir a Comprar</button>
         <ul id="lista-carrito">
-            <!-- Los productos se agregarán aquí -->
         </ul>
         <hr>
         <p>Total: $<span id="total">0</span></p>
-    </aside>
+    </aside> -->
+
+    <!-- <aside  class="oculto"> -->
+  
+    <div class="side-menu" id="carrito">
+        <div class="menu-header">
+            <h2>Tu carrito</h2>
+            <a onclick="toggleCarrito()" class="close-btn" style="color: black; font-size: 32px; line-height: 1;" id="closeMenu">&times;</a>
+        </div>
+        <div class="menu-content">
+            <ul id="lista-carrito" class="product-list">
+            <!-- Los productos se generarán dinámicamente aquí -->
+            </ul>
+        </div>
+        <div class="menu-footer">
+            <h3>Total estimado: Bs<span id="total">0</span> VEF</h3>
+            <button class="btn-elevate">Ir a pagar</button>
+            <a onclick="cerrarCarrito()" class="close-btn" id="closeMenu">&times;</a>
+
+        </div>
+    </div>
+
+<!-- <button class="open-btn" id="openMenu">Abrir carrito</button> -->
+
+    <!-- </aside> -->
 
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -388,8 +413,13 @@ $db = new Database();
                                     <label for="color-select" style="text-align: left;">Cantidad:</label>
                                     <input type="number" id="user-input">
                                 </div>
+                                <?php if ($validar_inico) { ?>
+                                <!-- <button class="btn-elevate">Agregar al carrito</button> -->
+                                <button class="btn-elevate" onclick="agregarAlCarrito('Envase Boca Ancha', 272.12, '../img/img/farmacia.png')">
+                                    Agregar al carrito
+                                    </button>
 
-                                <button class="btn-elevate">Agregar al carrito</button>
+                                <?php  }?>
                                 <br>
                                 <button class="btn-elevate2" style="margin-top: 15px;" onclick="storePurchaseData()">Ir a compra</button>
                                 <div style="margin-top: 5px;">

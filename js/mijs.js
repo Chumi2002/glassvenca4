@@ -1,46 +1,77 @@
-let carrito = [];
-let total = 0;
+const carrito = []; // Array para almacenar los productos
+let total = 0; // Total inicial
 
 function agregarAlCarrito(nombre, precio, imagen) {
-    carrito.push({ nombre, precio, imagen });
-    total += precio;
-    actualizarCarrito();
+    carrito.push({ nombre, precio, imagen }); // Agregar producto al carrito
+    total += precio; // Actualizar total
+    actualizarCarrito(); // Refrescar el carrito
 }
 
 function actualizarCarrito() {
     const listaCarrito = document.getElementById('lista-carrito');
     const totalSpan = document.getElementById('total');
 
-    listaCarrito.innerHTML = ''; // Limpiar el carrito actual
+    listaCarrito.innerHTML = ''; // Limpiar la lista actual
 
     carrito.forEach((item, index) => {
+        // Crear contenedor para el producto
         const li = document.createElement('li');
-        li.className = 'item-carrito'; // Agregar una clase CSS al <li>
-        li.textContent = `${item.nombre} $${item.precio}`;
+        li.className = 'item-carrito';
 
+        // Crear imagen del producto
+        const img = document.createElement('img');
+        img.src = item.imagen;
+        img.alt = item.nombre;
+        img.style.width = '50px';
+        img.style.height = '50px';
+        img.style.objectFit = 'contain';
+
+        // Crear información del producto
+        const productInfo = document.createElement('div');
+        productInfo.innerHTML = `<strong>${item.nombre}</strong><br>Bs${item.precio} VEF`;
+
+        // Crear botón de eliminar
         const botonEliminar = document.createElement('button');
         botonEliminar.textContent = 'Eliminar';
         botonEliminar.className = 'btn-eliminar';
         botonEliminar.onclick = () => eliminarDelCarrito(index);
 
+        // Agregar todo al contenedor del producto
+        li.appendChild(img);
+        li.appendChild(productInfo);
         li.appendChild(botonEliminar);
+
+        // Agregar el producto al carrito visual
         listaCarrito.appendChild(li);
     });
 
-    totalSpan.textContent = total;
+    // Actualizar el total
+    totalSpan.textContent = total.toFixed(2);
 }
 
 function eliminarDelCarrito(index) {
-    total -= carrito[index].precio;
-    carrito.splice(index, 1);
-    actualizarCarrito();
+    total -= carrito[index].precio; // Restar el precio del producto eliminado
+    carrito.splice(index, 1); // Eliminar producto del array
+    actualizarCarrito(); // Refrescar el carrito
 }
 
 function toggleCarrito() {
     const carrito = document.getElementById('carrito');
-    carrito.classList.toggle('mostrar');
+    carrito.classList.toggle('mostrar'); // Mostrar/Ocultar el menú lateral
 }
 
+function cerrarCarrito() {
+    const carrito = document.getElementById('carrito');
+    carrito.classList.remove('mostrar'); // Elimina la clase para ocultarlo
+}
+
+/* document.addEventListener('click', (e) => {
+    const carrito = document.getElementById('carrito');
+    if (!carrito.contains(e.target) && carrito.classList.contains('mostrar')) {
+        cerrarCarrito();
+    }
+});
+ */
 
 // carrusel
 

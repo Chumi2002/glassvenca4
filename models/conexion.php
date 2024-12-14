@@ -8,7 +8,7 @@ class Database {
     private $pdo; */
 
     private $host = 'localhost'; // Cambiar según configuración
-    private $dbname = 'glassvenca'; // Cambiar nombre de la base
+    private $dbname = 'glassvenca2'; // Cambiar nombre de la base
     private $username = 'root'; // Cambiar usuario
     private $password = ''; // Cambiar contraseña
     private $pdo;

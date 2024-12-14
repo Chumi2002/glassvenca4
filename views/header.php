@@ -3,12 +3,12 @@ session_start();
 $validar_inico = false;
 $rol = "";
 
-if (!isset($_SESSION['id_status'])) {
+if (!isset($_SESSION['tipo_usuario'])) {
     $validar_inico = false;
 } else {
     $validar_inico = true;
 
-    switch ($_SESSION['id_status']) {
+    switch ($_SESSION['tipo_usuario']) {
         case '1':
             $rol = "1";
             break;
@@ -61,7 +61,7 @@ if (!isset($_SESSION['id_status'])) {
 <body>
 
 <!-- Header Section -->
-<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top" style="position: fixed; top: 0; width: 100%; z-index: 1000;">
         <div class="container-fluid">
             <!-- Logo -->
             <a href="#" class="navbar-brand">
@@ -102,9 +102,12 @@ if (!isset($_SESSION['id_status'])) {
                 <div class="d-flex align-items-center" style="margin-left: 60%;">
                     <!-- <a href="#" class="icon-link"><i class="fas fa-search"></i></a> -->
                     <!-- <a href="registrar.php" class="icon-link"><i class="fas fa-user"></i></a> -->
+                    <?php if (!$validar_inico) { ?>
                     <a href="registrar.php" class="icon-link">Registrarse</a>
+                    <?php  }?>
                     <?php if ($validar_inico) { ?>
-                    <a href="#" onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
+                    <a  onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
+                     
                     <a href="../controllers/cerrar_sesion.php" class="icon-link"><i class="fas fa-sign-out-alt"></i></a>
                     <?php  }?>
                 </div>

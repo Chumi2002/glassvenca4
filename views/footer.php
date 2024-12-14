@@ -97,6 +97,29 @@
         }
     </script>
 
+    <script>
+        const decrementBtn = document.querySelector('.btn-decrement');
+const incrementBtn = document.querySelector('.btn-increment');
+const numericInput = document.getElementById('numericValue');
+
+// Función para decrementar el valor
+decrementBtn.addEventListener('click', () => {
+  let value = parseInt(numericInput.value, 10);
+  if (!isNaN(value) && value > parseInt(numericInput.min, 10)) {
+    numericInput.value = value - 1;
+  }
+});
+
+// Función para incrementar el valor
+incrementBtn.addEventListener('click', () => {
+  let value = parseInt(numericInput.value, 10);
+  if (!isNaN(value) && value < parseInt(numericInput.max, 10)) {
+    numericInput.value = value + 1;
+  }
+});
+
+    </script>
+
 
 </body>
 

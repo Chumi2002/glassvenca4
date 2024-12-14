@@ -3,13 +3,13 @@ session_start();
 $validar_inico = false;
 $rol = "";
 
-if (!isset($_SESSION['id_status'])) {
+if (!isset($_SESSION['tipo_usuario'])) {
     header('location: ../views/index.php');
     exit;
 } else {
     $validar_inico = true;
 
-    switch ($_SESSION['id_status']) {
+    switch ($_SESSION['tipo_usuario']) {
         case '1':
             $rol = "1";
             break;
@@ -49,7 +49,7 @@ if (!isset($_SESSION['id_status'])) {
                 <li><a href="customers.php"><i class="fas fa-users"></i> Clientes</a></li>
                 <li><a href="shipments.php"><i class="fas fa-truck"></i> Envíos</a></li>
                 <li><a href="settings.php"><i class="fas fa-cogs"></i> Configuración</a></li>
-                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+                <li><a href="../controllers/cerrar_sesion.php"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
             </ul>
         </aside>
 

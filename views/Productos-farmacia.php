@@ -3,7 +3,7 @@ include('header.php');
 require '../models/conexion.php';
 $db = new Database();
 
- $resultados = $db->select('producto');
+ $resultados = $db->select('productos');
 
 ?>    <!-- Navbar End -->
 
@@ -89,13 +89,13 @@ $db = new Database();
 
         </div>
         <h3><?php echo $producto["nombre"];?></h3>
-        <p>Bs<?php echo $producto["precio"];?>.00 </p>
+        <p>Bs<?php echo $producto["precio_detalle"];?>.00 </p>
         <button 
             class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"  
             <?php 
                 if ($producto["disponible"] == 1) {
                     // Pasar parámetros como nombre y precio del producto
-                    echo 'onclick="showAlert(\'' . addslashes($producto["nombre"]) . '\', ' . $producto["precio"] . ', \'' . addslashes($producto["descripcion"]) . '\', ' . $producto["capacidad"] . ')"';
+                    echo 'onclick="showAlert(\'' . addslashes($producto["nombre"]) . '\', ' . $producto["precio_detalle"] . ', \'' . addslashes($producto["descripcion"]) . '\', ' . $producto["capacidad"] . ')"';
 
                 } else {
                     echo 'disabled';
@@ -164,7 +164,14 @@ $db = new Database();
                                     <input type="number" id="user-input">
                                 </div>
 
-                                <button class="btn-elevate">Agregar al carrito</button>
+                                <!-- <button class="btn-elevate">Agregar al carrito</button> -->
+                                <?php if ($validar_inico) { ?>
+                                <!-- <button class="btn-elevate">Agregar al carrito</button> -->
+                                <button class="btn-elevate" onclick="agregarAlCarrito('Envase Boca Ancha', 272.12, '../img/img/farmacia.png')">
+                                    Agregar al carrito
+                                    </button>
+
+                                <?php  }?>
                                 <br>
                                 <button class="btn-elevate2" style="margin-top: 15px;" onclick="storePurchaseData()">Ir a compra</button>
                                 <div style="margin-top: 5px;">
