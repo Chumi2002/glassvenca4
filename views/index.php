@@ -30,7 +30,7 @@ $db = new Database();
     <!-- <div class="fade-in" style="margin-top: 30%;">Contenido 1</div> -->
     <div class="container-fluid py-5 elemento">
         <div class="container">
-            <div class="section-title" >
+            <div class="" style="text-align: center; padding-bottom: 30px">
                 <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; color: #351a09 ;">¿Quiénes somos?
                 </h4>
                 <!-- <h1 class="display-4">Serving Since 1950</h1> -->

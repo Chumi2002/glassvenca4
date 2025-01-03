@@ -1,0 +1,12 @@
+.sidebar {
+    width: 13%; /* Ancho fijo del sidebar */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    position: fixed; /* Fija el sidebar en la izquierda */
+    left: 0;
+    top: 0;
+    color: white; /* Color del texto */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    overflow-y: auto; /* Permite scrollbar en caso de contenido muy largo */
+}

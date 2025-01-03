@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        $_SESSION['contrasena'] = $usuario["contrasena"];
        $_SESSION['tipo_usuario'] = $usuario["tipo_usuario"];
        $_SESSION['fecha_registro'] = $usuario["fecha_registro"];
+       $_SESSION['user_logged_in'] = true;
 
        
        switch ($usuario["tipo_usuario"]) {
@@ -39,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../views/index.php");
             break;
         case "2":
-            header("Location: ../admin/panel.php");
+            header("Location: ../admin/dashboard.php");
             break;
         
         default:
