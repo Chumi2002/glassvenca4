@@ -1,0 +1,353 @@
+
+/* MODAL precio*/
+.modal_cantidad,.modal_cantidad-2,.modal_cantidad-3,.modal_producto{
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background:#111111db;
+        color:var(--text-color);
+       display: flex;
+       z-index: 500;
+       opacity: 0;
+       pointer-events: none;
+       transition: opacity .6s .9s;
+       --transform: translateX(100vw);
+       --transition: transform .8s;
+}
+
+.modal_show2,.modal_show3{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .5s;
+    --transform: translateX(0);
+    --transition: transform .5s .5s;
+}
+
+.modal_container-cant,.modal_container-cant2{
+    position:relative;
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+    gap:25px;
+    margin: auto;
+    width:100%;
+    max-width: 750px;
+    background-color: var(--sidebar-color);
+    border-radius:15px;
+    padding:3em 2.5rem;
+    text-align:center;
+    z-index: 100;
+    transform: var(--transform);
+    transition:var(--transition);
+}
+
+.modal_container-orden{
+    position:relative;
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+    /* gap:25px; */
+    margin: auto;
+    width:100%;
+    max-width: 800px;
+    background-color: var(--sidebar-color);
+    border-radius:15px;
+    padding:1em 2.5rem;
+    text-align:center;
+    z-index: 100;
+    transform: var(--transform);
+    transition:var(--transition);
+}
+
+.modal_container-cant div.div-modal-cant,.modal_container-orden div.div-modal-cant{
+    display:grid;
+    gap:20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.modal_container-cant div.div-modal-cant div input{
+    width: 100%;
+   
+}
+
+.span-nombre{
+    white-space:nowrap ;
+    width: 100%;
+    height: 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 3px solid transparent;
+    background-color: var(--body-color);
+    border-radius: 7px;
+    line-height: 45px;
+    padding:15px 10px;
+    transition: .3s ease all;
+    color: var(--text-color);
+}
+.btn-import{
+    grid-column: 3/3;
+}
+
+.cotenedor-form{
+    position:relative;
+    
+    
+        
+}
+.main-fac{
+    overflow-x: hidden;
+}
+
+
+.cont-1{
+   position:absolute;
+   /*height: 100%;*/
+   transform: translateX(0);
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    transition: opacity .5s;
+    transition:all 1s ease;
+   
+}
+
+.cont-1-dis{
+    pointer-events: none;
+    transition: opacity .5s;
+    transform: translateX(-100vw);
+    transition:all 1s ease;
+}
+
+.cont-2{
+   position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s;
+    transform: translateX(100vw);
+    transition:all 1s ease;
+   
+}
+
+.cont-2-act{
+    opacity: 1;
+    pointer-events:unset;
+    transition: opacity .5s;
+    transform: translateX(0);
+    transition:all 1s ease;
+    
+}
+
+.cont-2-dis-atras{
+    opacity: 0;
+    pointer-events:none;
+    transition: opacity .5s;
+    transform: translateX(-120vw);
+    transition:all 1s ease;
+}
+
+.cont-3{
+    position:absolute;
+     top:0;
+     bottom:0;
+     left:0;
+     right:0;
+     opacity: 0;
+     pointer-events: none;
+     transition: opacity .5s;
+     transform: translateX(100vw);
+     transition:all 1s ease;
+
+    
+ }
+
+ .cont-3-act{
+    opacity: 1;
+    pointer-events:unset;
+    transition: opacity .5s;
+    transform: translateX(0);
+    transition:all 1s ease;
+}
+
+.btn_borrar-dis,.disabled_btn-import{
+    background-color: transparent !important;
+    pointer-events: none;
+    color:var(--color-btn_eliminar) !important;
+}
+
+/* .btn_borrar-dis,.disabled_btn-import{
+    background-color: transparent !important;
+    pointer-events: none;
+    color:var(--color-btn_eliminar) !important;
+} */
+
+.btn_anadir-dis{
+    background-color: transparent !important;
+    pointer-events: none;
+    color:var(--color-btn) !important;
+}
+
+.btn_act-anadir{
+    background-color: var(--color-btn) !important;
+    color:var(--sidebar-color) !important;
+    border: 1px solid  var(--text-color);
+}
+
+.disabled_btn-import{
+    color:var(--color-btn) !important;
+    color:var(--color-btn);
+}
+
+
+.contenedor_suma{
+    display: grid;
+    padding-top: 15px;
+    grid-template-columns: repeat(4,1fr);
+   
+}
+
+.sun_content_suma{
+    display: flex;
+    font-size: 1rem;
+    align-items: center;
+    background-color:var(--color--black);
+    color:#ffffff;
+    justify-content: center;
+    padding:10px;
+
+}
+
+
+
+.sun_content_suma p{
+    padding-left:5px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+
+.impuesto,.cancelado_dolares,.cancelado_B{
+    background-color:var(--color-btn_eliminar);
+}
+
+.total_dolares,.totalf_dolares{
+    background-color:var(--color-btn);
+}
+.subtotal,.total{
+    background-color:var(--color--black);
+
+}
+
+.content_btn-add{
+    width:100%;
+
+}
+
+.check_fac{
+    background-color:var(--color-btn_agregar) !important;
+}
+.content_btn-add button{
+    width:100%;
+    background-color: transparent;
+    border: none;
+    color:var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    
+}
+.content_btn-add:hover button{
+    color:var(--primary-color-light);    
+}
+
+.content_btn-add button i{
+   margin-left:10px;
+}
+
+.dis_3{
+    pointer-events: none;
+    border:1px solid var(--text-color) !important;
+    background-color: transparent !important;
+
+}
+
+.conten_monto{
+    display:grid;
+    gap:20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+div.conten_producto{
+    display:grid;
+    gap:20px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    align-content: center;
+    
+}
+
+#cantidad_btn{
+    position:relative;
+}
+
+tr.content_tr, tr.content_tr-vuelto{
+    transition: all .7s ease;
+    cursor: pointer;
+    
+}
+
+tr.content_tr:hover, tr.content_tr-vuelto:hover{
+    transform: scale(1.1);
+    background-color:var(--color-btn) !important;
+    transition: all .7s ease;
+}
+
+
+tr.content_tr td span, tr.content_tr-vuelto td span{
+    text-transform: capitalize !important;
+    
+    
+}
+
+tr.content_tr:hover td span, tr.content_tr-vuelto:hover td span{
+    transition: all .7s ease;
+    color: var(--body-color) !important;
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+.form-label-producto{
+    font-size: 0.8rem;
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+    margin-top:15px;
+}
+
+.h-fit{
+    height: fit-content;
+}
+
+.btn-grid{
+    grid-column-start:3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

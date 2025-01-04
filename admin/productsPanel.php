@@ -1,9 +1,8 @@
-
 <?php include('header.php'); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-     /* Contenedor de la gráfica */
+/* Contenedor de la gráfica */
 
 .catalog-container {
     padding: 20px;
@@ -68,8 +67,8 @@
 
 .product-image {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: auto;
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -126,16 +125,16 @@
     padding: 10px 15px;
     font-size: 1rem;
     outline: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Agrega el sombreado */
-    transition: box-shadow 0.3s ease-in-out; /* Animación suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Agrega el sombreado */
+    transition: box-shadow 0.3s ease-in-out;
+    /* Animación suave */
 }
 
 .search-input:focus {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Aumenta el sombreado al enfocar */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    /* Aumenta el sombreado al enfocar */
 }
-
-
-
 </style>
 
 <body>
@@ -145,36 +144,36 @@
 
         <!-- Contenido principal -->
         <main class="main-content">
-            <div class="row" >
-               
-                
-                <div class="col-12 col-md-10 col-lg-8" style="padding-left: 13rem;"> 
-                    <h1 style="color: #784410" >Producto de catálogo</h1>
+            <div class="row">
+
+
+                <div class="col-12 col-md-10 col-lg-8" style="padding-left: 13rem;">
+                    <h1 style="color: #405788">Producto de catálogo</h1>
                 </div>
 
-                <div class="col-lg-12" style="padding-left: 13rem; padding-top: 30px;"> 
-                    <div class="search-bar" >
+                <div class="col-lg-12" style="padding-left: 13rem; padding-top: 30px;">
+                    <div class="search-bar">
                         <input type="text" id="search-input" placeholder="Buscar" class="search-input">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
 
-                <div class="col-lg-12" style="padding-left: 13rem; " >  
-                <div id="product-list" class="row g-4 "  ></div>
-                   
+                <div class="col-lg-12" style="padding-left: 13rem; ">
+                    <div id="product-list" class="row g-4 "></div>
                 </div>
 
             </div>
 
         </main>
     </div>
- 
 
-    
+
+
     <!-- Scripts JavaScript -->
     <script src="js/admin.js"></script>
 
     <script src="js/graficasVentas.js"> </script>
     <script src="js/productosPanel.js"> </script>
 </body>
+
 </html>
