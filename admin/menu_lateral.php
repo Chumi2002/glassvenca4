@@ -22,7 +22,10 @@
                         <a href="productsPanel.php" class="nav-link px-0"> Ver producto </a>
                     </li>
                     <li>
-                        <a href="agrgarProducto.php" class="nav-link px-0"> Ingresar </a>
+                        <a href="agrgarProducto.php" class="nav-link px-0"> Ingresar Frasco </a>
+                    </li>
+                    <li>
+                        <a href="agregarTapas.php" class="nav-link px-0"> Ingresar Tapas </a>
                     </li>
                 </ul>
             </li>
