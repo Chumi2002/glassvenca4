@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'ancho' => $ancho,
         'alto' => $alto,
         'precio_mayor' => $precio_mayor,
-        'precio_unidad' => $precio_detal,
+        'precio_detal' => $precio_detal,
         'cantidad_disponible' => $disponible,
         'inventario' => $inventario,
     ];

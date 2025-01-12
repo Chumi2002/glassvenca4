@@ -18,8 +18,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
     
     if ($db->insert('usuario', $data)) {
-        header("location:../views/index.php?mensaje=1");
+        $id_usaurio = $db->select('usuario');
+        $lastInsertId = $id_usaurio[count($id_usaurio) - 1]["id"];
+
+        $data2 = [
+            'id_usuario' => $lastInsertId,
+            'fecha_creacion' =>  date('Y-m-d\TH:i:sP'),
+        ];
+
+        if ($db->insert('carrito', $data2)) {
+            header("location:../views/index.php?mensaje=1");
+            exit;
+        } else {
+            header("location:../views/index.php?mensaje=2");
         exit;
+        }
+        
     } else{
         header("location:../views/index.php?mensaje=2");
         exit;
@@ -29,6 +43,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Método no permitido.";
     exit;
 }
-
-
-

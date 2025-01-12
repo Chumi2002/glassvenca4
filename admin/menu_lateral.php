@@ -4,6 +4,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 
+<style>
+.submenu-links {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.submenu.active .submenu-links {
+    max-height: 50%;
+    /* Ajusta esto según la altura esperada del contenido */
+}
+
+.submenu a.submenu-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.submenu a.submenu-toggle i {
+    margin-right: 8px;
+}
+
+.sidebar {
+    overflow: hidden;
+    /* Elimina el scroll */
+}
+</style>
+
 <link href="css/menuLateral.css" rel="stylesheet">
 <aside class="sidebar" style="background-color: #784410;">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -14,23 +42,25 @@
                     <i class="fas fa-chart-line"></i> Inicio
                 </a>
             </li>
-            <li>
-                <a href="#submenu1" data-bs-toggle="collapse" class=" px-0 align-middle">
-                    <i class="fas fa-box"></i> Productos</a>
-                <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+            <li class="submenu">
+                <a href="#" class="px-0 align-middle submenu-toggle" data-id="submenu1">
+                    <i class="fas fa-box"></i> Productos
+                </a>
+                <ul class="submenu-links nav flex-column ms-1" id="submenu1">
                     <li class="w-100">
-                        <a href="productsPanel.php" class="nav-link px-0"> Ver producto </a>
+                        <a href="productsPanel.php" class="nav-link px-0">Ver producto</a>
                     </li>
                     <li>
-                        <a href="agrgarProducto.php" class="nav-link px-0"> Ingresar Frasco </a>
+                        <a href="agrgarProducto.php" class="nav-link px-0">Ingresar Frasco</a>
                     </li>
                     <li>
-                        <a href="agregarTapas.php" class="nav-link px-0"> Ingresar Tapas </a>
+                        <a href="agregarTapas.php" class="nav-link px-0">Ingresar Tapas</a>
                     </li>
                 </ul>
             </li>
+
             <li>
-                <a href="#" class="">
+                <a href="control_envios.php" class="">
                     <i class="fas fa-shopping-cart"></i> Pedidos </a>
             </li>
             <!-- <li>
@@ -107,28 +137,19 @@ function toggleMenu() {
 }
 
 // Función para mostrar/ocultar un submenú específico
-function toggleSubmenu(submenuId) {
-    const submenu = document.getElementById(submenuId);
-    if (submenu.style.display === "block") {
-        submenu.style.display = "none";
-    } else {
-        submenu.style.display = "block";
-    }
-}
-document.querySelectorAll('.submenu > a').forEach(item => {
+document.querySelectorAll('.submenu-toggle').forEach(item => {
     item.addEventListener('click', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Evita el comportamiento por defecto del enlace
 
-        const parentLi = this.parentElement;
-        const submenu = parentLi.querySelector('.submenu-links');
+        const parentLi = this.closest('.submenu'); // Encuentra el elemento padre con clase 'submenu'
+        const submenu = parentLi.querySelector('.submenu-links'); // Busca el submenú asociado
 
         // Alterna la clase 'active' en el elemento <li>
         parentLi.classList.toggle('active');
 
         // Ajusta el max-height dinámicamente
         if (parentLi.classList.contains('active')) {
-            submenu.style.maxHeight = submenu.scrollHeight +
-                "px"; // Despliega hasta la altura total del contenido
+            submenu.style.maxHeight = submenu.scrollHeight + "%"; // Despliega el submenú
         } else {
             submenu.style.maxHeight = 0; // Oculta el submenú
         }

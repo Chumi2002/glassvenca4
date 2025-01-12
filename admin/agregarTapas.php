@@ -83,17 +83,17 @@
                                 <div id="grupo__peso" class="inputsection col-md-8">
                                     <label for="peso" class="form-label">Descripción</label>
                                     <div class="formulario__grupo__input">
-                                        <input id="descripcion" type="text" maxlength="9" class="formulario--input"
-                                            name="descripcion" placeholder="Descripción" autocomplete="off">
+                                        <input id="descripcion" type="text" class="formulario--input" name="descripcion"
+                                            placeholder="Descripción" autocomplete="off">
                                         <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                     </div>
                                 </div>
 
                                 <div id="grupo__precio" class="inputsection col-md-4">
-                                    <label for="precio" class="form-label">Ancho</label>
+                                    <label for="precio" class="form-label">Ancho en mm</label>
                                     <div class="formulario__grupo__input">
-                                        <input id="Ancho" type="text" maxlength="9" class="formulario--input"
-                                            name="ancho" placeholder="Medida del ancho" autocomplete="off">
+                                        <input id="Ancho" type="number" class="formulario--input" name="ancho"
+                                            placeholder="Medida del ancho" autocomplete="off">
                                         <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                     </div>
                                     <span>
@@ -102,9 +102,9 @@
                                     </span>
                                 </div>
                                 <div id="grupo__precio" class="inputsection col-md-4">
-                                    <label for="precio" class="form-label">Alto</label>
+                                    <label for="precio" class="form-label">Alto en mm (opcional)</label>
                                     <div class="formulario__grupo__input">
-                                        <input id="Alto" type="text" maxlength="9" class="formulario--input" name="alto"
+                                        <input id="Alto" type="number" class="formulario--input" name="alto"
                                             placeholder="Medida del alto" autocomplete="off">
                                         <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                     </div>
@@ -118,7 +118,7 @@
                                 <div id="grupo__precio" class="inputsection col-md-4">
                                     <label for="precio" class="form-label">Precio al mayor</label>
                                     <div class="formulario__grupo__input">
-                                        <input id="precio_mayor" type="text" maxlength="9" class="formulario--input"
+                                        <input id="precio_mayor" type="number" class="formulario--input"
                                             name="precio_mayor" placeholder="Precio al mayor" autocomplete="off">
                                         <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                     </div>
@@ -130,7 +130,7 @@
                                 <div id="grupo__precio" class="inputsection col-md-4">
                                     <label for="precio" class="form-label">Precio al detal</label>
                                     <div class="formulario__grupo__input">
-                                        <input id="precio_unidad" type="text" maxlength="9" class="formulario--input"
+                                        <input id="precio_unidad" type="number" class="formulario--input"
                                             name="precio_unidad" placeholder="Precio detal" autocomplete="off">
                                         <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                     </div>
@@ -152,8 +152,8 @@
                                 <div id="grupo__segunda" class="inputsection col-md-4">
                                     <label for="segunda" class="form-label">Inventario</label>
                                     <div class="formulario__grupo__input">
-                                        <input id="inventario" type="number" maxlength="9" class="formulario--input"
-                                            name="inventario" placeholder="Inventario" autocomplete="off">
+                                        <input id="inventario" type="number" class="formulario--input" name="inventario"
+                                            placeholder="Inventario" autocomplete="off">
                                         <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                     </div>
                                 </div>

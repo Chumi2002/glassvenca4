@@ -27,6 +27,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <title>Gassvenca Venezuela</title>
@@ -55,13 +56,16 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <link href="../css/style.min.css" rel="stylesheet">
     <link href="../css/micss.css" rel="stylesheet">
     <link href="../css/producto.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- <link href="../css/micss2.css" rel="stylesheet"> -->
 
 </head>
+
 <body>
 
-<!-- Header Section -->
-<nav class="navbar navbar-expand-lg navbar-custom fixed-top" style="position: fixed; top: 0; width: 100%; z-index: 1000;">
+    <!-- Header Section -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000;">
         <div class="container-fluid">
             <!-- Logo -->
             <a href="#" class="navbar-brand">
@@ -81,7 +85,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
                         <a href="index.php" class="nav-item nav-link ">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Productos.php" class="nav-item nav-link">Productos</a>
+                        <a href="Productos-farmacia.php?filtro=3" class="nav-item nav-link">Productos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -89,8 +93,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
                             Categorías
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="Productos-farmacia.php">Farmacéuticos</a></li>
-                            <li><a class="dropdown-item" href="Productos-veterinaria.php">Veterinaria</a></li>
+                            <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=0">Farmacéuticos</a></li>
+                            <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=1">Veterinaria</a></li>
+                            <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=2">Tapas</a></li>
                         </ul>
                     </li>
 
@@ -106,8 +111,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
                     <a href="registrar.php" class="icon-link">Registrarse</a>
                     <?php  }?>
                     <?php if ($validar_inico) { ?>
-                    <a  onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
-                     
+                    <a onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
+
                     <a href="../controllers/cerrar_sesion.php" class="icon-link"><i class="fas fa-sign-out-alt"></i></a>
                     <?php  }?>
                 </div>
@@ -115,4 +120,4 @@ if (!isset($_SESSION['tipo_usuario'])) {
         </div>
     </nav>
 
-<!-- Aquí puedes incluir una barra de navegación, logo, etc. -->
+    <!-- Aquí puedes incluir una barra de navegación, logo, etc. -->

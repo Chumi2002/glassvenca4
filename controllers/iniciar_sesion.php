@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
        session_start();
        $_SESSION['nombre'] = $usuario["nombre"];
+       $_SESSION['id_usuario'] = $usuario["id"];
        $_SESSION['correo'] = $usuario["correo"];
        $_SESSION['contrasena'] = $usuario["contrasena"];
        $_SESSION['tipo_usuario'] = $usuario["tipo_usuario"];
@@ -90,4 +91,4 @@ if (!isset($_SESSION['usuario'])) {
 // Si llega aquí, significa que la sesión está iniciada
 echo "Bienvenido, " . $_SESSION['usuario'];
 ?>
- */
+*/
