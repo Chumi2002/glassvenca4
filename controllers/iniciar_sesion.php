@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../views/index.php");
             break;
         case "2":
-            header("Location: ../admin/dashboard.php");
+            header("Location: ../admin/Dashboard.php");
             break;
         
         default:

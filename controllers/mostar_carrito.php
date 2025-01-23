@@ -5,6 +5,7 @@ session_start();
 
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=glassvenca2', 'root', '');
+    // $pdo = new PDO('mysql:host=sql103.infinityfree.com;dbname=if0_37853010_glassvenca', 'if0_37853010', '8FRkvGWJbK3dyJ5');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     

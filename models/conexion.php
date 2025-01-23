@@ -5,14 +5,14 @@ class Database {
     private $dbname = 'if0_37853010_glassvenca'; // Cambiar nombre de la base
     private $username = 'if0_37853010'; // Cambiar usuario
     private $password = '8FRkvGWJbK3dyJ5'; // Cambiar contraseña
-    private $pdo; */
-
-    private $host = 'localhost'; // Cambiar según configuración
+    private $pdo;
+ */
+   private $host = 'localhost'; // Cambiar según configuración
     private $dbname = 'glassvenca2'; // Cambiar nombre de la base
     private $username = 'root'; // Cambiar usuario
     private $password = ''; // Cambiar contraseña
     private $pdo; 
-
+ 
     // Constructor: Establece la conexión con la base de datos
     public function __construct() {
         try {

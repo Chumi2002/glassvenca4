@@ -9,9 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ancho = $_POST['ancho'];
     $alto = $_POST['alto'];
     $precio_mayor = $_POST['precio_mayor'];
-    $precio_detal = $_POST['precio_unidad'];
+    $precio_detal = $_POST['precio_detal'];
     $disponible = $_POST['cantidad_disponible'];
     $inventario = $_POST['inventario'];
+    $fascos_tapa = $_POST['fascos_tapa'];
 
     // Manejo del archivo de imagen
     if (isset($_FILES['imagen_url']) && $_FILES['imagen_url']['error'] === UPLOAD_ERR_OK) {
@@ -40,6 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
+    $validarDisponiblilidad = 1;
+
+    if ($disponible < 1) {
+        $validarDisponiblilidad = 0;
+    }
+
+
     // Guardar en la base de datos
     $db = new Database();
     $data = [
@@ -53,6 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'precio_detal' => $precio_detal,
         'cantidad_disponible' => $disponible,
         'inventario' => $inventario,
+        'disponible' => $validarDisponiblilidad,
+        // 'id_frascos' => 30,
+        'id_frascos' => $fascos_tapa,
     ];
     
     if ($db->insert('tapas', $data)) {

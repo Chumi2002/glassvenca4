@@ -8,6 +8,12 @@ $dbname = 'glassvenca2';
 $username = 'root';
 $password = '';
 
+
+$host = 'sql103.infinityfree.com';
+$dbname = 'if0_37853010_glassvenca';
+$username = 'if0_37853010';
+$password = '8FRkvGWJbK3dyJ5';
+
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -14,19 +14,20 @@
      col.classList.add('col-lg-3', 'col-md-4', 'col-sm-6', 'd-flex', 'justify-content-center', 'product-card-container'); // Agregamos una clase identificadora
 
      const productCard = `
-         <div class="product-card" style="margin-top: 30px; margin-bottom: 20px;">
-                     <h3 class="product-title">${product.nombre}</h3>
-                     <img src="../img/img/carrusel32.png" alt="Imagen del producto" class="product-image">
-                     <div class="product-info">
-                         <p><strong>Cantidad:</strong> ${product.cantidad_disponible}</p>
-                         <p><strong>Precio de tal:</strong> $${product.precio_detalle}</p>
-                         <p><strong>Precio mayor:</strong> $${product.precio_mayor}</p>
-                     </div>
-                     <button class="view-product">Ver producto</button>
-                     <div class="action-buttons">
-                         <button class="edit"><i class="fas fa-pen" style="color: black;"></i></button>
-                     </div>
-                 </div>
+        <div class="product-card" style="margin-top: 30px; margin-bottom: 20px;">
+            <h3 class="product-title">${product.nombre}</h3>
+            <img src="${product.imagen_url}" alt="Imagen del producto" class="product-image">
+            <div class="product-info">
+                <p><strong>Disponible:</strong> ${product.disponible}</p>
+                <p><strong>Precio de tal:</strong> $${product.precio_detal}</p>
+                <p><strong>Precio mayor:</strong> $${product.precio_mayor}</p>
+            </div>
+            <button class="view-product">Ver producto</button>
+            <div class="action-buttons">
+                <button class="edit"><i class="fas fa-pen" style="color: black;"></i></button>
+            </div>
+        </div>
+
      `;
      col.innerHTML = productCard;
      return col;

@@ -1,6 +1,16 @@
 <?php
 include('header.php'); 
 // include('../models/apis/apiPaises.php'); 
+require_once '../models/conexion.php'; // Asegúrate de incluir la clase Database
+
+try {
+    $db = new Database();
+
+    // Ruta para obtener datos (por ejemplo, ventas)
+    $ventasTapas = $db->select('tapas'); // Cambia 'ventas' a tu nombre de tabla
+
+} catch (Exception $e) {
+}
 
 ?>
 <link href="../css/ventascss.css" rel="stylesheet">
@@ -46,6 +56,20 @@ include('header.php');
                         <select class="form-select" id="state" name="state" disabled>
                             <!-- <option value="" disabled selected>Seleccione un estado</option> -->
                             <!-- Opciones dinámicas se agregarán aquí -->
+                        </select>
+                    </div>
+                </div>
+
+                <div id="locationFields">
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Elegir tapas</label>
+                        <select class="form-select" id="" name="tapas">
+                            <option value="" disabled selected>Seleccione tapas</option>
+                            <?php foreach ($ventasTapas as $product): ?>
+                            <option value="<?= htmlspecialchars($product['id']) ?>">
+                                <?= htmlspecialchars($product['nombre']) ?>
+                            </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -403,6 +427,16 @@ window.addEventListener('scroll', function() {
         navbar.classList.add('scrolled'); // Añadir la clase 'scrolled'
     } else {
         navbar.classList.remove('scrolled'); // Remover la clase 'scrolled'
+    }
+});
+</script>
+
+<script>
+// Deshabilitar clic derecho y combinaciones de teclas específicas
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i')) {
+        e.preventDefault();
     }
 });
 </script>

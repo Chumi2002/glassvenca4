@@ -1,7 +1,23 @@
 <?php require_once('headerpro.php'); ?> <?php require_once('sidebarpro.php'); 
-require_once('../models/conexion.php');
-$db = new Database();
-$ventasTapas = $db->select('productos');
+if ($_GET["id"]) {
+    require_once '../models/conexion.php'; // Cambia 'TuClase.php' por el archivo donde está tu clase.
+    $miClase = new Database();
+    $filtro = $_GET["id"];
+    $ventasTapas = $miClase->select('productos');
+    
+
+    $table = 'tapas';
+    $where = ['id' => $filtro];
+
+    try {
+        $resultados = $miClase->select($table, '*', $where);
+        // print_r($resultados);
+    } catch (Exception $e) {
+        // echo "Error: " . $e->getMessage();
+    }
+
+}
+
 
 ?> <title>Dashboard || VEMAMETCA</title>
 <link rel="stylesheet" type="text/css" href="css/stilos.css">
@@ -18,7 +34,8 @@ $ventasTapas = $db->select('productos');
             <div class="col-lg-11" style=" padding-bottom: 1%">
                 <form id="formulario"
                     class="formulario regis-form cotenedor-form container-fluid row d-flex align-items-center justify-content-center"
-                    action="../controllers/agregar_tapas.php" method="post" enctype="multipart/form-data">
+                    action="../controllers/editarTapa.php?id=<?php echo $filtro;?>" method="post"
+                    enctype="multipart/form-data">
                     <div class="container-fluid row d-flex align-items-center">
 
                         <div class="formulario__grupo__input row d-flex align-items-center ">
@@ -171,7 +188,7 @@ $ventasTapas = $db->select('productos');
 
                             <div class=" inputsection md-4 d-flex justify-content-end align-items-center mt-5">
                                 <button id="" class="d btn-formulario  btn btn-g btn-submit d-flex"
-                                    style="background-color: #405788; color: #fff" type="submit">Agregar Frasco <i
+                                    style="background-color: #405788; color: #fff" type="submit">Editar Tapa <i
                                         class="fa-solid fa-plus icon icon"></i>
                                 </button>
                             </div>
@@ -180,6 +197,7 @@ $ventasTapas = $db->select('productos');
 
                 </form>
             </div>
+
 
 
         </div>

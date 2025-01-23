@@ -2,6 +2,7 @@
 include('header.php'); 
 require '../models/conexion.php';
 $db = new Database();
+$ventasTapas = $db->select('tapas');
 $filtro = "0";
 
 if ($_GET["filtro"]) {
@@ -25,6 +26,9 @@ if ($_GET["filtro"]) {
             $resultado = $db->select('productos');
             break;
     }
+} elseif ($_GET["filtro2"]) {
+    $resultado = $_GET["filtro2"];
+    
 } else {
     $resultado = $db->select('productos');
 }
@@ -157,25 +161,36 @@ if ($_GET["filtro"]) {
                 </form>
             </div>
 
-            <div style="margin-top: 25px;">
-                <h5>Precios</h5>
-                <div class="input-container">
-                    <label for="user-input">Desde:</label>
-                    <input type="number" id="user-input">
-                </div>
+            <!--  <form method="GET" action="../controllers/filtrar_producto.php">
+                <div style="margin-top: 25px;">
+                    <h5>Precios</h5>
 
-                <div class="input-container">
-                    <label for="user-input">Hasta:</label>
-                    <input type="number" id="user-input">
-                </div>
+                    <div class="input-container">
+                        <label for="precio-desde">Precio:</label>
+                        <input type="number" id="precio-desde" name="precio_desde" value="">
+                    </div> -->
 
-            </div>
+            <!-- <div class="input-container">
+                        <label for="precio-hasta">Hasta:</label>
+                        <input type="number" id="precio-hasta" name="precio_hasta" value="">
+                    </div> -->
 
-            <div class="button-container">
-                <a href="../img/catalogo.pdf" download="catalogo_frscos_vidrio" class="button">
+            <!--  <div class="button-container">
+                        <button type="submit" class="button">Filtrar</button>
+                    </div> -->
+
+
+
+            <!-- <button type="submit" class="button">Filtrar</button> -->
+            <!-- </div>
+            </form> -->
+
+
+            <!-- <div class="button-container">
+                <a href="../controllers/filtrar_producto.php" class="button">
                     <button>Filtrar</button>
                 </a>
-            </div>
+            </div> -->
 
             <div class="button-container">
                 <a href="../img/catalogo.pdf" download="catalogo_frscos_vidrio" class="button">
@@ -211,12 +226,17 @@ if ($_GET["filtro"]) {
                             style="margin-top: 5px;"><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
 
                     </div>
-                    <h3><?php echo $producto["nombre"];?></h3>
+                    <h3><?php echo $producto["nombre"];?>
+                        <?php echo $filtro != "2" ? "de ". $producto["capacidad"]. "ml": "";?></h3>
                     <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
+                    <?php  if ($filtro != "2") {?>
+                    <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
+                    <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
                     <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
                         onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>')">
                         <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
                     </button>
+                    <?php  }?>
 
                 </div>
 
@@ -271,6 +291,18 @@ if ($_GET["filtro"]) {
                                 <label for="color-select" style="text-align: left;">Empaque:</label>
                                 <select id="color-select">
                                     <option value="1">12 Unidades</option>
+                                </select>
+                            </div>
+
+                            <div class="input-container">
+                                <label for="color-select" style="text-align: left;">Elegir tapas:</label>
+                                <select id="color-select">
+                                    <option value="" disabled selected>Seleccione tapas</option>
+                                    <?php foreach ($ventasTapas as $product): ?>
+                                    <option value="<?= htmlspecialchars($product['id']) ?>">
+                                        <?= htmlspecialchars($product['nombre']) ?>
+                                    </option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
 
@@ -570,12 +602,22 @@ function closeText() {
 function storePurchaseData(name, price) {
     const subtotal = price; // En este caso, el subtotal es igual al precio
     // Guardar datos en localStorage
-    localStorage.setItem('productName', selectedProductName);
+    /* localStorage.setItem('productName', selectedProductName);
     localStorage.setItem('productPrice', selectedProductPrice);
-    localStorage.setItem('productSubtotal', selectedProductPrice);
+    localStorage.setItem('productSubtotal', selectedProductPrice); */
     // Redirigir a la pantalla de compra
     window.location.href = 'pantalla_ventas.php';
 }
+</script>
+
+<script>
+// Deshabilitar clic derecho y combinaciones de teclas específicas
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i')) {
+        e.preventDefault();
+    }
+});
 </script>
 
 <script>

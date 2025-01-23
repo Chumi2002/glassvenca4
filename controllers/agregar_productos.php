@@ -31,12 +31,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (move_uploaded_file($tmpPath, $rutaFinal)) {
             $imagen_url = $rutaFinal; // Guardar la ruta de la imagen para la base de datos
         } else {
-            header("location:../admin/agrgarProducto.php?mensaje=3");
+            header("location:../admin/agregarProducto.php?mensaje=3");
             exit;
         }
     } else {
-        header("location:../admin/agrgarProducto.php?mensaje=4"); // Error al cargar la imagen
+        header("location:../admin/agregarProducto.php?mensaje=4"); // Error al cargar la imagen
         exit;
+    }
+    
+    $validarDisponiblilidad = 1;
+
+    if ($disponible < 1) {
+        $validarDisponiblilidad = 0;
     }
 
     // Guardar en la base de datos
@@ -51,13 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'precio_detal' => $precio_detal,
         'cantidad_disponible' => $disponible,
         'inventario' => $inventario,
+        'disponible' => $validarDisponiblilidad,
     ];
     
     if ($db->insert('productos', $data)) {
-        header("location:../admin/agrgarProducto.php?mensaje=1");
+        header("location:../admin/agregarProducto.php?mensaje=1");
         exit;
     } else {
-        header("location:../admin/agrgarProducto.php?mensaje=2");
+        header("location:../admin/agregarProducto.php?mensaje=2");
         exit;
     }
 } else {

@@ -4,6 +4,7 @@ require '../models/conexion.php';
 $db = new Database();
 
  $resultados = $db->select('productos');
+ $ventasTapas = $db->select('tapas');
 
 
 ?>
@@ -216,8 +217,10 @@ $db = new Database();
                 style="margin-top: 5px;"><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
 
         </div>
-        <h3><?php echo $producto["nombre"];?></h3>
+        <h3><?php echo $producto["nombre"];?> de <?php echo $producto["capacidad"];?>ml</h3>
         <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
+        <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
+        <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
         <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
             onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>')">
             <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
@@ -405,6 +408,20 @@ $db = new Database();
                                     <option value="1">12 Unidades</option>
                                 </select>
                             </div>
+
+                            <div class="input-container">
+                                <label for="color-select" style="text-align: left;">Elegir tapas:</label>
+                                <select id="color-select">
+                                    <option value="" disabled selected>Seleccione tapas</option>
+                                    <?php foreach ($ventasTapas as $product): ?>
+                                    <option value="<?= htmlspecialchars($product['id']) ?>">
+                                        <?= htmlspecialchars($product['nombre']) ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+
 
                             <div class="input-container">
                                 <label for="color-select" style="text-align: left;">Cantidad:</label>

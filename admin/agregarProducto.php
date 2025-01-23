@@ -1,7 +1,5 @@
 <?php require_once('headerpro.php'); ?> <?php require_once('sidebarpro.php'); 
-require_once('../models/conexion.php');
-$db = new Database();
-$ventasTapas = $db->select('productos');
+
 
 ?> <title>Dashboard || VEMAMETCA</title>
 <link rel="stylesheet" type="text/css" href="css/stilos.css">
@@ -11,20 +9,20 @@ $ventasTapas = $db->select('productos');
         <div class="row">
 
             <div class="col-12 col-md-10 col-lg-8" style="margin-rigth: 100px;">
-                <h1 style="color: #405788">Producto de catálogo (tapas)</h1>
+                <h1 style="color: #405788">Producto de catálogo (frascos)</h1>
             </div>
 
 
             <div class="col-lg-11" style=" padding-bottom: 1%">
                 <form id="formulario"
                     class="formulario regis-form cotenedor-form container-fluid row d-flex align-items-center justify-content-center"
-                    action="../controllers/agregar_tapas.php" method="post" enctype="multipart/form-data">
+                    action="../controllers/agregar_productos.php" method="post" enctype="multipart/form-data">
                     <div class="container-fluid row d-flex align-items-center">
 
                         <div class="formulario__grupo__input row d-flex align-items-center ">
                             <div id="grupo__nombre" class="inputsection col-md-4">
                                 <label for="nombre" class="form-label d-flex flex-row align-items-center">
-                                    Código del tapa <div class="icono">
+                                    Código del producto <div class="icono">
 
                                     </div>
                                 </label>
@@ -43,15 +41,14 @@ $ventasTapas = $db->select('productos');
                                 <div class="formulario__grupo__input">
                                     <select id="categoria" name="categoria" class="formulario-pieza formulario--input"
                                         autocomplete="off">
-                                        <option value="1">Sellos</option>
-                                        <option value="2">Tapas</option>
-                                        <option value="3">Tapones</option>
+                                        <option value="1">Farmacia</option>
+                                        <option value="2">Veterinaria</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div id="grupo__foto" class="inputsection col-md-4">
-                                <label for="foto" class="form-label">Foto de la tapa</label>
+                                <label for="foto" class="form-label">Foto del frasco</label>
                                 <div class="foto-asis d-flex flex-wrap align-items-end">
                                     <i id="icon" class="fa-solid fa-download icon icon-asis"></i>
                                     <img src="" alt="" id="imagenPreview" class="w-100 h-100 object-cover d-none">
@@ -73,37 +70,11 @@ $ventasTapas = $db->select('productos');
                                 </span>
                             </div>
 
-                            <!--  <div id="grupo__precio" class="inputsection col-md-4">
+                            <div id="grupo__precio" class="inputsection col-md-4">
                                 <label for="precio" class="form-label">Capacidad en ml</label>
                                 <div class="formulario__grupo__input">
                                     <input id="capacidad" type="number" class="formulario--input" name="capacidad"
                                         placeholder="Capacidad en ml del frasco" autocomplete="off">
-                                    <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
-                                </div>
-                                <span>
-                                    <p class="texto__error">El nombre del cliente solo puede contener de 3 a
-                                        16 caracteres y deben de ser letras</p>
-                                </span>
-                            </div> -->
-
-                            <div id="grupo__precio" class="inputsection col-md-4">
-                                <label for="precio" class="form-label">Ancho en mm</label>
-                                <div class="formulario__grupo__input">
-                                    <input id="capacidad" type="number" class="formulario--input" name="ancho"
-                                        placeholder="Ancho en milimetro" autocomplete="off">
-                                    <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
-                                </div>
-                                <span>
-                                    <p class="texto__error">El nombre del cliente solo puede contener de 3 a
-                                        16 caracteres y deben de ser letras</p>
-                                </span>
-                            </div>
-
-                            <div id="grupo__precio" class="inputsection col-md-4">
-                                <label for="precio" class="form-label">Alto en mm (Opcional)</label>
-                                <div class="formulario__grupo__input">
-                                    <input id="capacidad" type="number" class="formulario--input" name="alto"
-                                        placeholder="Alto en milimetros" autocomplete="off">
                                     <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                 </div>
                                 <span>
@@ -141,8 +112,8 @@ $ventasTapas = $db->select('productos');
                             <div id="grupo__cantidad" class="inputsection col-md-4">
                                 <label for="Cantidad" class="form-label">Cantidad disponible</label>
                                 <div class="formulario__grupo__input">
-                                    <input id="disponible" type="number" class="formulario--input"
-                                        name="cantidad_disponible" placeholder="Cantidad disponible" autocomplete="off">
+                                    <input id="disponible" type="number" class="formulario--input" name="disponible"
+                                        placeholder="Cantidad disponible" autocomplete="off">
                                     <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
                                 </div>
                             </div>
@@ -152,20 +123,6 @@ $ventasTapas = $db->select('productos');
                                     <input id="inventario" type="number" class="formulario--input" name="inventario"
                                         placeholder="Inventario" autocomplete="off">
                                     <i class="formulario__validación--estado fa-regular fa-circle-xmark"></i>
-                                </div>
-                            </div>
-
-                            <div id="grupo__codigo" class="inputsection col-md-4">
-                                <label for="categoria" class="form-label">Frascos que la usan</label>
-                                <div class="formulario__grupo__input">
-                                    <select id="categoria" name="fascos_tapa" class="formulario-pieza formulario--input"
-                                        autocomplete="off">
-                                        <!-- <option value="" disabled selected>Seleccione frasco</option> -->
-                                        <?php foreach ($ventasTapas as $product): ?>
-                                        <option value="<?= htmlspecialchars($product['id']) ?>">
-                                            <?= htmlspecialchars($product['nombre']) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
                                 </div>
                             </div>
 
