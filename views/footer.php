@@ -1,4 +1,4 @@
-<div class="container-fluid footer mt-5 pt-5 px-0 position-relative elemento">
+<div class="container-fluid footer mt-5 pt-5 px-0 position-relative elemento" style="background-color: #041d5c;">
     <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Información</h4>

@@ -10,7 +10,35 @@ $db = new Database();
 ?>
 
 <link href="../css/carritocss.css" rel="stylesheet">
+<style>
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<style>
+/* Estilo para el contenedor padre */
+.custom-bg {
+    position: relative;
+    background: linear-gradient(to right, #041d5c, rgba(13, 47, 111, 0.92));
+
+    /* Fondo degradado */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    /* Clip-path personalizado */
+    padding: 2rem;
+    /* Espaciado interno */
+    color: #fff;
+    /* Texto blanco para destacar sobre el fondo */
+}
+</style>
+<!-- <div class="scroll-animate">¡Me aparezco al hacer scroll!</div> -->
 <!-- Navbar End -->
 
 <!-- Carousel Start -->
@@ -26,10 +54,9 @@ $db = new Database();
 
 <!-- Carousel End -->
 
-
 <!-- About Start -->
 <!-- <div class="fade-in" style="margin-top: 30%;">Contenido 1</div> -->
-<div class="container-fluid py-5 elemento">
+<div class="container-fluid py-5 elemento custom-bg">
     <div class="container">
         <div class="" style="text-align: center; padding-bottom: 30px">
             <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; color: #351a09 ;">¿Quiénes somos?
@@ -55,11 +82,11 @@ $db = new Database();
                 <h1 class="mb-3">Nuestra visión</h1>
                 <p>Distribuimos envases de vidrio de alta gama que permiten el crecimiento y la expansión de tu
                     negocio.</p>
-                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Puntualidad y
+                <h5 class="mb-3" style="color: #fff"><i class="fa fa-check text-primary mr-3"></i>Puntualidad y
                     eficiencia</h5>
-                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Capital
+                <h5 class="mb-3" style="color: #fff"><i class="fa fa-check text-primary mr-3"></i>Capital
                     humano</h5>
-                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Capacidad de
+                <h5 class="mb-3" style="color: #fff"><i class="fa fa-check text-primary mr-3"></i>Capacidad de
                     respuesta</h5>
                 <!-- <a href="" class="btn btn-primary font-weight-bold py-2 px-4 mt-2">Learn More</a> -->
             </div>
@@ -67,6 +94,7 @@ $db = new Database();
     </div>
 </div>
 <!-- About End -->
+
 
 
 <!-- Service Start -->
@@ -82,12 +110,9 @@ $db = new Database();
                     <div class="col-sm-5 rounded shadow">
                         <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria.png" alt="">
                     </div>
-                    <!--  <div class="col-sm-7">
-                            <h4><i class="fa fa-truck service-icon"></i>Composición del vidrio</h4>
-                            <p class="m-0">Estos componentes hacen del vidrio un material resistente e ideal para el envasado hasta la actualidad</p>
-                        </div> -->
                     <div class="col-sm-7">
-                        <h4 class="service-title"><i class="fa fa-prescription-bottle-alt service-icon"></i>Farmacia
+                        <h4 class="service-title" style="color: #fff"><i
+                                class="fa fa-prescription-bottle-alt service-icon"></i>Farmacia
                         </h4>
                         <p class="m-0">El vidrio es fundamental en el área de la salud, es por esto que contamos con
                             los productos más resistentes, confiables y duraderos del mercado</p>
@@ -100,42 +125,12 @@ $db = new Database();
                         <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria2.png" alt="veterinaria">
                     </div>
                     <div class="col-sm-7">
-                        <!--  <h4><i class="fa fa-coffee service-icon"></i>Frascos</h4>
-                            <p class="m-0">Porque queremos cubrir todas tus necesidades como empresa, hemos decidido desarrollar el producto que necesites</p> -->
-                        <h4 class="service-title"><i class="fa fa-paw service-icon"></i>Veterinaria</h4>
+                        <h4 class="service-title" style="color: #fff"><i class="fa fa-paw service-icon"></i>Veterinaria
+                        </h4>
                         <p class="m-0">La mayor diversidad de envases en el sector de veterinaria.</p>
                     </div>
                 </div>
             </div>
-            <!--    <div class="col-lg-6 mb-5">
-                    <div class="row align-items-center">
-                        <div class="col-sm-5 rounded shadow">
-                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="img/img/comida.jpg" alt="">
-                        </div>
-                        <div class="col-sm-7">
-                            <h4 class="service-title" ><i
-                                    class="fa fa-utensils service-icon"></i>Envases para alimentos</h4>
-                            <p class="m-0">Los alimentos mantienen la calidad y aumentan su longevidad en envases de
-                                vidrio.
-
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
-
-            <!--  <div class="col-lg-6 mb-5">
-                    <div class="row align-items-center">
-                        <div class="col-sm-5 rounded shadow">
-                            <img class="img-fluid mb-3 mb-sm-0 rounded" src="img/img/cosmeticos2.jpg" alt="">
-                        </div>
-                        <div class="col-sm-7">
-                            <h4 class="service-title" ><i
-                                    class="fa fa-spray-can service-icon"></i>Cosméticos</h4>
-                            <p class="m-0">En Glassvenca podemos desarrollar envases para cosméticos desde ceror</p>
-                        </div>
-                    </div>
-                </div> -->
-
         </div>
     </div>
 </div>
@@ -144,7 +139,7 @@ $db = new Database();
 
 <!-- Offer Start -->
 <?php if (!$validar_inico) { ?>
-<div class="container-fluid py-5 elemento">
+<div class="container-fluid py-5 elemento custom-bg">
     <div class="container">
         <div class="reservation2 position-relative overlay-top overlay-bottom" style="border-radius: 20px;">
             <div class="row align-items-center">
@@ -155,11 +150,11 @@ $db = new Database();
                             <h1 style="color: #351a09;">Obtén opciones de compra</h1>
                         </div>
 
-                        <ul class="list-inline text-white m-0">
+                        <!-- <ul class="list-inline text-white m-0">
                             <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Compra más fácil</li>
                             <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Compra más rápido</li>
                             <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Compra seguro</li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -167,7 +162,7 @@ $db = new Database();
                         style="background: rgba(51, 33, 29, .8); border-radius: 20px; height: 70vh;">
                         <h1 class="text-white mb-4 mt-5">Iniciar sesión</h1>
                         <form class="mb-5" action="../controllers/iniciar_sesion.php?inicio=1" method="post">
-                            <div class="form-group">S
+                            <div class="form-group">
                                 <input name="correo" type="email" class="form-control  border-primary p-4"
                                     placeholder="Correo" required="required" />
                             </div>
@@ -234,7 +229,7 @@ $db = new Database();
 </div>
 
 <div class="centered-container">
-    <a href="Productos.php" class="btn-select2  " style=" border-radius: 20px; 
+    <a href="Productos-farmacia.php" class="btn-select2  " style=" border-radius: 20px; 
     text-decoration: none;">Aregar al carrito</a>
 
 </div>
@@ -245,7 +240,7 @@ $db = new Database();
 
 
 <!-- Ubicacion Start -->
-<div class="container-fluid pt-5 elemento">
+<div class="container-fluid pt-5 elemento custom-bg" style="margin-top: 50px">
     <div class="container">
         <div class="section-title">
             <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contactanos</h4>
@@ -254,13 +249,13 @@ $db = new Database();
         <div class="row px-3 pb-2">
             <div class="col-sm-6 text-center mb-3">
                 <i class="fa fa-2x fa-map-marker-alt mb-3 text-primary"></i>
-                <h4 class="font-weight-bold">Dirección</h4>
+                <h4 class="font-weight-bold" style="color: #fff">Dirección</h4>
                 <p>Calle Oeste 1, 19 de Abril, Sector la Morita, Centro Empresarial Intercomunal Center, Galpón G-6
                     y G-7, Maracay, Aragua 2101</p>
             </div>
             <div class="col-sm-6 text-center mb-3">
                 <i class="fa fa-2x fa-phone-alt mb-3 text-primary"></i>
-                <h4 class="font-weight-bold">Teléfono</h4>
+                <h4 class="font-weight-bold" style="color: #fff">Teléfono</h4>
                 <p>0412-0518796</p>
             </div>
 
@@ -453,6 +448,17 @@ $db = new Database();
     </div>
 </div>
 
+<script>
+document.addEventListener('scroll', () => {
+    const element = document.querySelector('.scroll-animate');
+    const position = element.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight;
+
+    if (position < screenPosition) {
+        element.classList.add('visible');
+    }
+});
+</script>
 
 <script>
 // Función para mostrar el modal con los parámetros

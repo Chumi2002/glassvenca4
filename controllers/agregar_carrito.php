@@ -6,13 +6,13 @@ require_once '../models/conexion.php';
 $host = 'localhost';
 $dbname = 'glassvenca2';
 $username = 'root';
-$password = '';
+$password = ''; 
 
 
-$host = 'sql103.infinityfree.com';
+/* $host = 'sql103.infinityfree.com';
 $dbname = 'if0_37853010_glassvenca';
 $username = 'if0_37853010';
-$password = '8FRkvGWJbK3dyJ5';
+$password = '8FRkvGWJbK3dyJ5'; */
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

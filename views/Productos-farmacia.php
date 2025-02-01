@@ -9,17 +9,26 @@ if ($_GET["filtro"]) {
     $filtro = $_GET["filtro"];
 
     switch ($filtro) {
-        case '0':
+        case '4':
             $resultado = $db->select('productos', '*', ['categoria' => '1']);
             break;
         case '1':
             $resultado = $db->select('productos', '*', ['categoria' => '2']);
             break;
         case '2':
-            $resultado = $db->select('tapas');
+            $resultado = $db->select('tapas', '*', ['categoria' => '1']);
+            // $resultado = $db->select('tapas');
             break;
         case '3':
             $resultado = $db->select('productos');
+            break;
+        case '6':
+            $resultado = $db->select('tapas', '*', ['categoria' => '3']);
+            // $resultado = $db->select('tapas');
+            break;
+        case '5':
+            $resultado = $db->select('tapas', '*', ['categoria' => '2']);
+            // $resultado = $db->select('tapas');
             break;
         
         default:
@@ -227,16 +236,18 @@ if ($_GET["filtro"]) {
 
                     </div>
                     <h3><?php echo $producto["nombre"];?>
-                        <?php echo $filtro != "2" ? "de ". $producto["capacidad"]. "ml": "";?></h3>
-                    <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
-                    <?php  if ($filtro != "2") {?>
-                    <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
-                    <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
-                    <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
-                        onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>')">
-                        <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
-                    </button>
-                    <?php  }?>
+
+                        <?php echo ($filtro != "2" && $filtro != "6" && $filtro != "5") ? "de " . $producto["capacidad"] . "ml" : ""; ?>
+
+                        <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
+                        <?php  if ($filtro != "2" && $filtro != "6" && $filtro != "5") {?>
+                        <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
+                        <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
+                        <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
+                            onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>')">
+                            <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
+                        </button>
+                        <?php  }?>
 
                 </div>
 
@@ -351,7 +362,7 @@ if ($_GET["filtro"]) {
 
 
 <!-- Footer Start -->
-<div class="container-fluid footer mt-5 pt-5 px-0 position-relative">
+<div class="container-fluid footer mt-5 pt-5 px-0 position-relative" style="background-color: #041d5c;">
     <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Información</h4>

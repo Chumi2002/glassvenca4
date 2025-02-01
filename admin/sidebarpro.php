@@ -44,12 +44,12 @@
         <div class="menu-bar">
             <div class="menu">
                 <ul class="menu-links ">
-                    <li class="nav-link">
+                    <!--  <li class="nav-link">
                         <a href="Dashboard.php">
                             <i class="fa-sharp fa-solid fa-house-chimney icon"></i>
                             <span class="text nav-text">Inicio</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li class="nav-link">
                         <a href="control-productos.php">

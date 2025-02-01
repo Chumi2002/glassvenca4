@@ -42,13 +42,13 @@ $resultados = $conex->select('tapas');
             </ul>
 
             <div id="CatalogoContent" class="container">
-                <div class="content-all_search">
+                <!-- <div class="content-all_search">
                     <div class="content-search">
                         <input type="text" name="barra" class="form-control" id="Barra-buscadora"
                             placeholder="Buscar"><i class="fa-solid fa-magnifying-glass"></i>
                     </div>
 
-                </div>
+                </div> -->
 
                 <div id="tableBody_poduccionDisponible"
                     class="d-flex row contenedor-cata g-3 bd-highlight mb-3 container-fluid mt-3">
@@ -94,10 +94,10 @@ $resultados = $conex->select('tapas');
                                 </div>
                             </span>
                             <div class="col-6">
-                                <div class="d-flex justify-content-center align-items-center">
+                                <!--  <div class="d-flex justify-content-center align-items-center">
                                     <a href="http://localhost/b/Proyecto_ing4/views/jefe_de_planta/control-productover.php?id=<?php echo $r['id'];?>"
                                         class="btn btn-producto">Ver producto</a>
-                                </div>
+                                </div> -->
                                 <div class="cotenedor_btn d-flex justify-content-center align-items-center mt-4">
 
                                     <a href="edicionTapas.php?id=<?php echo $r['id']; ?>"
