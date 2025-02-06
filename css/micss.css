@@ -807,3 +807,17 @@ h1, h2, h3 {
     background-color: #d0d0d0;
   }
   
+
+  /* ESTILO DEL CONTENEDOR DE COLORES EN INDEZ */
+.custom-bg {
+    position: relative;
+    background: linear-gradient(to right, #041d5c, rgba(13, 47, 111, 0.92));
+    /* border-radius: 10px; */
+    /* Fondo degradado */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    /* Clip-path personalizado */
+    padding: 2rem;
+    /* Espaciado interno */
+    color: #fff;
+    /* Texto blanco para destacar sobre el fondo */
+}

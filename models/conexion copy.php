@@ -76,26 +76,6 @@ class Database {
     }
 
     // Método genérico para buscar registros
-    public function select2($table, $columns = '*', $where = [], $single = false) {
-        try {
-            $conditions = '';
-            if (!empty($where)) {
-                foreach ($where as $column => $value) {
-                    $conditions .= "$column LIKE :$column OR ";
-                }
-                $conditions = rtrim($conditions, ' OR ');
-            }
-
-            $sql = "SELECT $columns FROM $table" . (!empty($conditions) ? " WHERE $conditions" : '');
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($where);
-
-            return $single ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            throw new Exception("Error al buscar: " . $e->getMessage());
-        }
-    }
-
     public function select($table, $columns = '*', $where = [], $single = false) {
         try {
             $conditions = '';
@@ -110,32 +90,6 @@ class Database {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($where);
 
-            return $single ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            throw new Exception("Error al buscar: " . $e->getMessage());
-        }
-    }
-
-    public function select3($table, $columns = '*', $where = [], $single = false, $limit = null) {
-        try {
-            $conditions = '';
-            if (!empty($where)) {
-                foreach ($where as $column => $value) {
-                    $conditions .= "$column LIKE :$column OR ";
-                }
-                $conditions = rtrim($conditions, ' OR ');
-            }
-    
-            $sql = "SELECT $columns FROM $table" . (!empty($conditions) ? " WHERE $conditions" : '');
-    
-            // Agregar LIMIT si se especifica
-            if ($limit !== null) {
-                $sql .= " LIMIT $limit";
-            }
-    
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($where);
-    
             return $single ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             throw new Exception("Error al buscar: " . $e->getMessage());

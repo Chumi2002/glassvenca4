@@ -64,7 +64,8 @@ window.addEventListener('scroll', function() {
     }
 });
 </script>
-<script>
+
+<!-- <script>
 // Deshabilitar clic derecho y combinaciones de teclas específicas
 document.addEventListener('contextmenu', (e) => e.preventDefault());
 document.addEventListener('keydown', (e) => {
@@ -72,7 +73,7 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
     }
 });
-</script>
+</script> -->
 <script>
 // Detecta si hay un parámetro de error en la URL
 const params = new URLSearchParams(window.location.search);

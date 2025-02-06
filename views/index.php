@@ -3,13 +3,15 @@ include('header.php');
 require '../models/conexion.php';
 $db = new Database();
 
- $resultados = $db->select('productos');
- $ventasTapas = $db->select('tapas');
-
+ $resultados = $db->select3('productos', '*',[], false, 10);
+ $ventasTapas = $db->select3('tapas', '*',[], false, 5);
 
 ?>
 
 <link href="../css/carritocss.css" rel="stylesheet">
+<link href="../css/categoria.css" rel="stylesheet">
+<link href="../css/cartas.css" rel="stylesheet">
+<link href="../css/micss.css" rel="stylesheet">
 <style>
 .scroll-animate {
     opacity: 0;
@@ -23,23 +25,96 @@ $db = new Database();
 }
 </style>
 
-<style>
-/* Estilo para el contenedor padre */
-.custom-bg {
-    position: relative;
-    background: linear-gradient(to right, #041d5c, rgba(13, 47, 111, 0.92));
 
-    /* Fondo degradado */
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    /* Clip-path personalizado */
-    padding: 2rem;
-    /* Espaciado interno */
-    color: #fff;
-    /* Texto blanco para destacar sobre el fondo */
+<style>
+.carousel2 {
+    position: relative;
+    margin: 50px auto;
+    /* Centra el carrusel horizontalmente */
+    width: 90%;
+    max-width: 1500px;
+    /* Limita el ancho máximo del carrusel */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel2-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 28px;
+    /* Espacio entre los elementos */
+}
+
+.carousel2-item {
+    flex: 0 0 32%;
+    /* Tamaño base para pantallas grandes */
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 50%;
+    border-radius: 10px;
+}
+
+.carousel2-control-prev,
+.carousel2-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 24px;
+    /* Tamaño de los íconos */
+}
+
+.carousel2-control-prev:hover,
+.carousel2-control-next:hover {
+    background-color: transparent;
+}
+
+.carousel2-control-prev {
+    left: 10px;
+}
+
+.carousel2-control-next {
+    right: 10px;
+}
+
+/* Media Queries para hacer el carrusel responsive */
+@media (max-width: 1024px) {
+    .carousel2-item {
+        flex: 0 0 48%;
+        /* 2 elementos por fila en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel2-item {
+        flex: 0 0 100%;
+        /* 1 elemento por fila en móviles */
+    }
+
+    .carousel2-control-prev,
+    .carousel2-control-next {
+        font-size: 18px;
+        /* Reduce el tamaño de los íconos en móviles */
+    }
 }
 </style>
-<!-- <div class="scroll-animate">¡Me aparezco al hacer scroll!</div> -->
-<!-- Navbar End -->
+
 
 <!-- Carousel Start -->
 <div class="hero-section">
@@ -100,8 +175,8 @@ $db = new Database();
 <!-- Service Start -->
 <div class="container-fluid pt-5 elemento">
     <div class="container">
-        <div class="">
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Categorías</h4>
+        <div class="centered-div">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; font-size: 3rem;">Categorías</h4>
             <h1 class="display-4">Productos para cada necesidad</h1>
         </div>
         <div class="row">
@@ -111,7 +186,7 @@ $db = new Database();
                         <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria.png" alt="">
                     </div>
                     <div class="col-sm-7">
-                        <h4 class="service-title" style="color: #fff"><i
+                        <h4 class="service-title" style="color: #351a09"><i
                                 class="fa fa-prescription-bottle-alt service-icon"></i>Farmacia
                         </h4>
                         <p class="m-0">El vidrio es fundamental en el área de la salud, es por esto que contamos con
@@ -125,7 +200,8 @@ $db = new Database();
                         <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria2.png" alt="veterinaria">
                     </div>
                     <div class="col-sm-7">
-                        <h4 class="service-title" style="color: #fff"><i class="fa fa-paw service-icon"></i>Veterinaria
+                        <h4 class="service-title" style="color: #351a09"><i
+                                class="fa fa-paw service-icon"></i>Veterinaria
                         </h4>
                         <p class="m-0">La mayor diversidad de envases en el sector de veterinaria.</p>
                     </div>
@@ -139,7 +215,7 @@ $db = new Database();
 
 <!-- Offer Start -->
 <?php if (!$validar_inico) { ?>
-<div class="container-fluid py-5 elemento custom-bg">
+<div style="background-color: #fff;" class="container-fluid py-5 elemento custom-bg ">
     <div class="container">
         <div class="reservation2 position-relative overlay-top overlay-bottom" style="border-radius: 20px;">
             <div class="row align-items-center">
@@ -228,15 +304,64 @@ $db = new Database();
 
 </div>
 
-<div class="centered-container">
+<!-- <div class="centered-container">
     <a href="Productos-farmacia.php" class="btn-select2  " style=" border-radius: 20px; 
     text-decoration: none;">Aregar al carrito</a>
 
+</div> -->
+
+
+<div class="container-cartas  py-5 elemento custom-bg ">
+    <div class="box"><i class="fas fa-box"></i>
+        <h2>Envíos Seguros</h2>
+        <p>A todo el territorio nacional</p>
+    </div>
+    <div class="box">
+        <i class="fas fa-shipping-fast"></i>
+        <h2>Delivery Gratis</h2>
+        <p>En zonas cercanas en Caracas</p>
+    </div>
+    <div class="box">
+        <i class="fas fa-warehouse"></i>
+        <h2>Almacenes</h2>
+        <p>Amplios almacenes para el retiro de sus pedidos.</p>
+    </div>
 </div>
 
 
 
-<!-- Menu End -->
+<div class="carousel2">
+    <div class="carousel2-inner">
+        <?php foreach ($ventasTapas as $producto): ?>
+        <div class="carousel2-item">
+            <div class="product-item">
+                <div class="contenedor-imagen">
+                    <img src="<?php echo $producto["imagen_url"]; ?>" alt="Tarro 230 ml"
+                        style="width: 50%; height: 50%;">
+                </div>
+                <div>
+                    <span class="status <?php echo $producto["disponible"] == 1 ? "disponible" : "agotado"; ?>"
+                        style="margin-top: 5px;"><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
+                </div>
+                <h3><?php echo $producto["nombre"];?> de <?php echo $producto["ancho"];?>ml</h3>
+                <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
+                <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
+                <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
+                <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
+                    onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>')">
+                    <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
+                </button>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <button class="carousel2-control-prev" onclick="prevSlide()">
+        <i class="fas fa-chevron-left"></i> <!-- Icono de flecha izquierda -->
+    </button>
+    <button class="carousel2-control-next" onclick="nextSlide()">
+        <i class="fas fa-chevron-right"></i> <!-- Icono de flecha derecha -->
+    </button>
+</div>
 
 
 <!-- Ubicacion Start -->
@@ -277,7 +402,7 @@ $db = new Database();
 <div class="container-fluid py-5 elemento">
     <div class="container">
         <div class="section-title">
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonios</h4>
+            <!-- <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonios</h4> -->
             <h1 class="display-4">Nuestros clientes</h1>
         </div>
         <div class="owl-carousel testimonial-carousel">
@@ -447,6 +572,71 @@ $db = new Database();
         </div>
     </div>
 </div>
+
+
+<script>
+let currentIndex = 0;
+
+// Función para calcular el número de slides visibles
+function getVisibleSlides() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1024) {
+        return 3; // Pantallas grandes
+    } else if (screenWidth >= 768) {
+        return 2; // Pantallas medianas
+    } else {
+        return 1; // Pantallas pequeñas
+    }
+}
+
+// Función para actualizar el número de slides visibles en el CSS
+function updateVisibleSlides() {
+    const visibleSlides = getVisibleSlides();
+    document.documentElement.style.setProperty('--visible-slides', visibleSlides);
+}
+
+// Función para mostrar el slide actual
+function showSlide(index) {
+    const carouselInner = document.querySelector('.carousel2-inner');
+    const totalItems = document.querySelectorAll('.carousel2-item').length;
+    const visibleSlides = getVisibleSlides();
+
+    // Ajusta el índice para que no se salga de los límites
+    if (index >= totalItems - visibleSlides + 1) {
+        currentIndex = 0;
+    } else if (index < 0) {
+        currentIndex = totalItems - visibleSlides;
+    } else {
+        currentIndex = index;
+    }
+
+    // Calcula el desplazamiento en función del número de slides visibles
+    const offset = -currentIndex * (100 / visibleSlides);
+    carouselInner.style.transform = `translateX(${offset}%)`;
+}
+
+// Funciones para navegar entre slides
+function nextSlide() {
+    showSlide(currentIndex + 1);
+}
+
+function prevSlide() {
+    showSlide(currentIndex - 1);
+}
+
+// Actualizar el carrusel al cambiar el tamaño de la ventana
+window.addEventListener('resize', () => {
+    updateVisibleSlides();
+    showSlide(currentIndex);
+});
+
+// Inicializar
+updateVisibleSlides();
+showSlide(currentIndex);
+
+// Opcional: Autoplay
+setInterval(nextSlide, 3000); // Cambia de slide cada 3 segundos
+</script>
 
 <script>
 document.addEventListener('scroll', () => {
