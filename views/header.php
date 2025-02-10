@@ -60,23 +60,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <!-- <link href="../css/micss2.css" rel="stylesheet"> -->
 
     <style>
-    /*  .wave-container {
-        position: relative;
-        height: 300px;
-        width: 100%;
-        background: #4a90e2;
-        clip-path: path('M0,150 Q150,50 300,150 T600,150 T900,150 T1200,150 V300 H0 Z');
-    }
-
-    .wave-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 2rem;
-        font-weight: bold;
-    } */
     </style>
 
 
@@ -87,22 +70,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
 <body>
 
     <!-- Header Section -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" style="
-        position: fixed; 
-        top: 0; 
-        width: 100%; 
-        z-index: 1000; 
-        background-color: #fff; 
-        color: #041d5c; 
-        transform: scaleY(-1); 
-        background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 320%22%3E%3Cpath fill=%22%230099ff%22 fill-opacity=%221%22 d=%22M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z%22%3E%3C/path%3E%3C/svg%3E'); 
-        background-repeat: no-repeat;  
-        background-position: top center; 
-        background-size: cover; 
-       
-    ">
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" style=" background-color: #fff;">
 
-        <div class="container-fluid" style="color: #041d5c; background-color: transparent; transform: scaleY(-1);">
+        <div class="container-fluid" style="">
             <!-- Logo -->
             <a href="#" class="navbar-brand">
                 <img src="../img/img/logoEmpresa.ico" alt="Glassvenca logo">
@@ -112,7 +82,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
                 <img src="../img/img/boton-menu.png" alt="Icono de menú" class="navbar-toggler-img">
             </button>
             <!-- Links del menú -->
-            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: transparent; color: #041d5c">
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #fff; color: #041d5c">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a href="index.php" class="nav-item nav-link" style="color: #041d5c;">Inicio</a>

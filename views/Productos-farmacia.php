@@ -5,7 +5,7 @@ $db = new Database();
 $ventasTapas = $db->select('tapas');
 $filtro = "0";
 
-if ($_GET["filtro"]) {
+if (isset($_GET["filtro"])) {
     $filtro = $_GET["filtro"];
 
     switch ($filtro) {
@@ -35,7 +35,7 @@ if ($_GET["filtro"]) {
             $resultado = $db->select('productos');
             break;
     }
-} elseif ($_GET["filtro2"]) {
+} elseif ( isset($_GET["filtro2"]) ) {
     $resultado = $_GET["filtro2"];
     
 } else {
@@ -335,7 +335,7 @@ if ($_GET["filtro"]) {
                             <button class="btn-elevate2" style="margin-top: 15px;" onclick="storePurchaseData()">Ir a
                                 compra</button>
                             <div style="margin-top: 5px;">
-                                <a href="#">Ver más de talles</a>
+                                <a href="../views/pantalla_ventas.php">Ver más de talles</a>
 
                             </div>
 
@@ -567,9 +567,9 @@ function redirectToPage() {
     if (selectedOption) {
         // Redirigir según la opción seleccionada
         if (selectedOption.value === 'page1') {
-            window.location.href = 'Productos-farmacia.php'; // Redirigir a la página 1
+            window.location.href = 'Productos-farmacia.php?filtro=4'; // Redirigir a la página 1
         } else if (selectedOption.value === 'page2') {
-            window.location.href = 'Productos-veterinaria.php'; // Redirigir a la página 2
+            window.location.href = 'Productos-farmacia.php?filtro=1'; // Redirigir a la página 2
         } else if (selectedOption.value === 'page3') {
             window.location.href = 'Productos-farmacia.php'; // Redirigir a la página 3
         }

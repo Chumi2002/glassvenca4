@@ -559,7 +559,7 @@ $db = new Database();
                             <button class="btn-elevate2" style="margin-top: 15px;" onclick="storePurchaseData()">Ir a
                                 compra</button>
                             <div style="margin-top: 5px;">
-                                <a href="#">Ver más de talles</a>
+                                <a href="../views/pantalla_ventas.php">Ver más de talles</a>
 
                             </div>
 

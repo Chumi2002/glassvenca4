@@ -284,6 +284,35 @@ try {
     </a>
 </div>
 
+<div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top"
+    style="background-color: #041d5c;">
+    <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Información</h4>
+            <p style="color: white;"><i class="fa fa-map-marker-alt mr-2" style="color: white;"></i>Calle Oeste 1, 19 de
+                Abril, Sector la Morita, Centro Empresarial Intercomunal Center, Galpón G-6 y G-7, Maracay, Aragua 2101
+            </p>
+            <p style="color: white;"><i class="fa fa-phone-alt mr-2" style="color: white;"></i>0412-0518796</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
+            <p style="color: white;">Síguenos en todas nuestras redes sociales</p>
+            <div class="d-flex justify-content-start">
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+                    href="https://www.facebook.com/profile.php?id=61550516111834"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/p/C6WdZcvLmD0/"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
+        <p class="mb-2 text-white">Copyright &copy; <a class="font-weight-bold" href="#">Glassvenca</a>.</a></p>
+        <!-- <p class="m-0 text-white">Designed by <a class="font-weight-bold" href="https://htmlcodex.com">HTML Codex</a></p> -->
+    </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     cargarCarrito();
