@@ -65,6 +65,14 @@
                         </a>
                     </li>
 
+                    <li class="nav-link">
+                        <a href="../views/index.php">
+                            <i class="fa-solid fa-bars icon"></i>
+                            <span class="text nav-text">Salir</span>
+                        </a>
+                    </li>
+
+
                     <!--    <li class="nav-link">
                         <a href="catalogoMateria-prima.php">
                             <i class="fa-solid fa-boxes-stacked icon"></i>

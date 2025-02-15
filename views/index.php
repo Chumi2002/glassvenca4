@@ -276,6 +276,7 @@ $db = new Database();
                 $param2 = $producto["precio_detal"];
                 $param3 = $producto["descripcion"];
                 $param4 = $producto["imagen_url"];
+                $param5 = $producto["id"];
                 ?>
 
     <div class="product-item">
@@ -293,7 +294,7 @@ $db = new Database();
         <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
         <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
         <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
-            onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>')">
+            onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>', '<?php echo $param5; ?>')">
             <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
         </button>
 
@@ -347,10 +348,7 @@ $db = new Database();
                 <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
                 <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
                 <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
-                <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
-                    onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>')">
-                    <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
-                </button>
+
             </div>
         </div>
         <?php endforeach; ?>
@@ -365,7 +363,7 @@ $db = new Database();
 
 
 <!-- Ubicacion Start -->
-<div class="container-fluid pt-5 elemento custom-bg" style="margin-top: 50px">
+<div class="container-fluid pt-5 elemento " style="margin-top: 50px">
     <div class="container">
         <div class="section-title">
             <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contactanos</h4>
@@ -399,10 +397,9 @@ $db = new Database();
 
 
 <!-- Testimonial Start -->
-<div class="container-fluid py-5 elemento">
+<!-- <div class="container-fluid py-5 elemento">
     <div class="container">
         <div class="section-title">
-            <!-- <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonios</h4> -->
             <h1 class="display-4">Nuestros clientes</h1>
         </div>
         <div class="owl-carousel testimonial-carousel">
@@ -448,7 +445,7 @@ $db = new Database();
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Testimonial End -->
 
 <div class="whatsapp-button">
@@ -464,9 +461,10 @@ $db = new Database();
     style="width: 350px; z-index: 1050; overflow-y: auto;">
     <h2 class="text-center mb-4">Carrito</h2>
 
-    <button id="ir-a-comprar" class="btn btn-success w-100 mb-3" onclick="storePurchaseData2()">
+    <a id="ir-a-comprar" class="btn w-100 mb-3 rounded" style="color: black; text-decoration: none;"
+        href="/ruta-de-destino" onclick="storePurchaseData2()">
         Ir a Comprar
-    </button>
+    </a>
 
 
     <ul id="lista-carrito" class="list-group mb-3">
@@ -516,9 +514,7 @@ $db = new Database();
                             <div class="input-container" style="margin-top: 10px;">
                                 <label for="color-select" style="text-align: left;">Color:</label>
                                 <select id="color-select">
-                                    <option value="1">Blanco</option>
-                                    <option value="2">Marron</option>
-                                    <option value="3">Negro</option>
+                                    <option value="1">Ambar</option>
                                 </select>
                             </div>
 
@@ -558,9 +554,15 @@ $db = new Database();
                             <br>
                             <button class="btn-elevate2" style="margin-top: 15px;" onclick="storePurchaseData()">Ir a
                                 compra</button>
-                            <div style="margin-top: 5px;">
-                                <a href="../views/pantalla_ventas.php">Ver más de talles</a>
+                            <!-- <div style="margin-top: 5px;">
+                                <a href="../views/informaccion_producto.php?id=">Ver más de
+                                    talles</a>
 
+                            </div> -->
+
+                            <div>
+                                <a id="enlaceProducto" href="../views/informaccion_producto.php?id=">Ver más
+                                    detalles</a>
                             </div>
 
                         </div>
@@ -652,7 +654,11 @@ document.addEventListener('scroll', () => {
 
 <script>
 // Función para mostrar el modal con los parámetros
-function showModal(param1, param2, param3, param4) {
+let miVariableGlobal = "";
+
+function showModal(param1, param2, param3, param4, param5) {
+    miVariableGlobal = param5;
+
     Swal.fire({
         background: 'transparent',
         showConfirmButton: false,
@@ -688,6 +694,15 @@ function showModal(param1, param2, param3, param4) {
                 `agregarAlCarrito('${param1}', ${param2}, '${param4}')`
             );
         }
+
+        let enlace = document.getElementById('enlaceProducto'); // Seleccionar el enlace
+
+        if (enlace) {
+            // Actualizar el atributo href con el valor de la variable
+            enlace.setAttribute('href', '../views/informaccion_producto.php?id=' + miVariableGlobal);
+        }
+
+
 
         myModal.show();
     });

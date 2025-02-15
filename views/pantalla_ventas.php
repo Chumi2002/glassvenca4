@@ -101,37 +101,35 @@ try {
                         <label>
                             <input type="radio" name="payment" class="payment-radio"
                                 data-target="#transferencia-bolivares">
-                            Transferencia en Bolívares
+                            Banco de Venezuela
+
                         </label>
                         <div id="transferencia-bolivares" class="payment-info">
                             <p>Nombre: Glassvenca</p>
-                            <p>R.I.F.: rif de la empresa </p>
-                            <p>Banco Provincial: Cuenta de la empresa</p>
-                            <p>Banco Mercantil: Cuenta de la empresa</p>
+                            <p>Banco Venezuela: 0102-0333-3900-0091-1128
+                            </p>
+                            <p>Banco de Venezuela Cta. Corriente</p>
                         </div>
                     </div>
 
                     <div class="payment-option">
                         <label>
                             <input type="radio" name="payment" class="payment-radio" data-target="#efectivo-bnc">
-                            Dólares en efectivo (depósito en BNC)
+                            Banco Provincial
                         </label>
                         <div id="efectivo-bnc" class="payment-info">
-                            <p>
 
-                                Datos de pago:
-                            </p>
-                            <p>
-
-                                Número de cuenta: Cuenta de la empresa
-                            </p>
                             <p>
 
                                 Nombre: Glassvenca
                             </p>
                             <p>
-                                R.I.F.: rif de la empresa
 
+                                Banco Provincial: 0108-0157-5401-0054-4487
+                            </p>
+                            <p>
+
+                                Bco Provincial Cta. Corriente
                             </p>
                         </div>
                     </div>
@@ -139,23 +137,20 @@ try {
                     <div class="payment-option">
                         <label>
                             <input type="radio" name="payment" class="payment-radio" data-target="#pago-movil">
-                            Pago móvil
+                            Banco Banesco
                         </label>
                         <div id="pago-movil" class="payment-info">
-                            <p>
-
-                                Datos de pago:
-                            </p>
-                            <p>
-
-                                Número de cuenta: Cuenta de la empresa
-                            </p>
                             <p>
 
                                 Nombre: Glassvenca
                             </p>
                             <p>
-                                R.I.F.: rif de la empresa
+
+                                Banco Provincial: 0108-0157-5401-0054-4487
+                            </p>
+                            <p>
+
+                                Bco Banesco Cta. Corriente
 
                             </p>
                         </div>
@@ -164,58 +159,30 @@ try {
                     <div class="payment-option">
                         <label>
                             <input type="radio" name="payment" class="payment-radio" data-target="#zelle">
-                            Zelle
+                            Banesco Panama
+
                         </label>
                         <div id="zelle" class="payment-info">
-                            <p>
 
-                                Datos de pago:
-                            </p>
-                            <p>
-
-                                Número de cuenta: Cuenta de la empresa
-                            </p>
                             <p>
 
                                 Nombre: Glassvenca
                             </p>
                             <p>
-                                R.I.F.: rif de la empresa
 
+                                Banco Provincial: 221021974397
                             </p>
                         </div>
                     </div>
 
-                    <div class="payment-option">
-                        <label>
-                            <input type="radio" name="payment" class="payment-radio" data-target="#divisas-centro-lido">
-                            Efectivo Divisas Centro Lido
-                        </label>
-                        <div id="divisas-centro-lido" class="payment-info">
-                            <p>
 
-                                Datos de pago:
-                            </p>
-                            <p>
-
-                                Número de cuenta: Cuenta de la empresa
-                            </p>
-                            <p>
-
-                                Nombre: Glassvenca
-                            </p>
-                            <p>
-                                R.I.F.: rif de la empresa
-
-                            </p>
-                        </div>
-                    </div>
                 </div>
 
-                <div style="margin-top: 2%;">
-                    <button
+                <div style="margin-top: 2%; margin-left: 30%; justify-content: center; align-items: center;">
+                    Agendar el pedido vía WhatsApp
+                    <!-- <button
                         style=" width: 100%; margin-left: auto; margin-right: auto; background-color: #041d5c; ">Finalizar
-                        compra</button>
+                        compra</button> -->
                 </div>
             </form>
         </div>

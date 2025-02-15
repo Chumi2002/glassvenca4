@@ -9,10 +9,10 @@ $username = 'root';
 $password = ''; 
 
 
-/* $host = 'sql103.infinityfree.com';
-$dbname = 'if0_37853010_glassvenca';
-$username = 'if0_37853010';
-$password = '8FRkvGWJbK3dyJ5'; */
+// $host = 'glassvenca.com';
+// $dbname = 'glassven_glassvenca2';
+// $username = 'glassven_glassvenca2';
+// $password = '-FVn75h7*e1KUm'; 
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
