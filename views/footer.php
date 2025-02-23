@@ -1,27 +1,30 @@
-<div class="container-fluid footer mt-5 pt-5 px-0 position-relative elemento" style="background-color: #041d5c;">
+<div class="container-fluid footer mt-5 pt-5 px-0 position-relative elemento" style="background-color: #142c44;">
     <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
         <div class="col-lg-3 col-md-6 mb-5">
-            <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Información</h4>
-            <p><i class="fa fa-map-marker-alt mr-2"></i>Calle Oeste 1, 19 de Abril, Sector la Morita, Centro
+            <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #aca494;">Información</h4>
+            <p style="font-size: 25px; color: #aca494;"><i class="fa fa-map-marker-alt mr-2"></i>Calle Oeste 1, 19 de
+                Abril, Sector la
+                Morita, Centro
                 Empresarial Intercomunal Center, Galpón G-6 y G-7, Maracay, Aragua 2101</p>
-            <p><i class="fa fa-phone-alt mr-2"></i>0412-0518796</p>
+            <p style="font-size: 25px; color: #aca494;"><i class="fa fa-phone-alt mr-2"></i>0412-0518796</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
-            <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Síguenos</h4>
-            <p>Síguenos en todas nuestras redes sociales</p>
+            <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #aca494; ">Síguenos</h4>
+            <p style="font-size: 25px; color: #aca494;">Síguenos en todas nuestras redes sociales</p>
             <div class="d-flex justify-content-start">
                 <a class="btn btn-lg btn-outline btn-lg-square mr-2"
                     href="https://www.facebook.com/profile.php?id=61550516111834">
-                    <i class="fab fa-facebook-f"></i>
+                    <i style=" color: #aca494;" class="fab fa-facebook-f"></i>
                 </a>
                 <a class="btn btn-lg btn-outline btn-lg-square" href="https://www.instagram.com/p/C6WdZcvLmD0/">
-                    <i class="fab fa-instagram"></i>
+                    <i style=" color: #aca494;" class="fab fa-instagram"></i>
                 </a>
             </div>
         </div>
     </div>
     <div class="container-fluid text-center border-top mt-4 py-4 px-sm-3 px-md-5">
-        <p class="mb-2">Copyright &copy; <a class="font-weight-bold" href="#">Glassvenca</a>.</p>
+        <p class="mb-2" style="font-size: 30px; color: #aca494;"> Copyright &copy; <a class="font-weight-bold"
+                href="#">Glassvenca</a>.</p>
     </div>
 </div>
 

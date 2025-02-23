@@ -3,6 +3,35 @@
 <link href="../css/micss2.css" rel="stylesheet">
 <!-- Navbar End -->
 
+<style>
+#carrito {
+    background-color: #1c2c47 !important;
+}
+
+.botoninicio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d3bb8b;
+    color: #1c2c47;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Agrega transición suave */
+}
+
+.botoninicio:hover {
+    text-decoration: none;
+    background-color: #d3bb8b;
+    transform: translateY(-5px);
+    color: #1c2c47;
+}
+</style>
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header mb-5 position-relative overlay-bottom">

@@ -198,6 +198,55 @@ body {
 </style>
 
 
+<style>
+#carrito {
+    background-color: #1c2c47 !important;
+}
+
+.botoninicio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d3bb8b;
+    color: #1c2c47;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Agrega transición suave */
+}
+
+.botoninicio:hover {
+    text-decoration: none;
+    background-color: #d3bb8b;
+    transform: translateY(-5px);
+    color: #1c2c47;
+}
+</style>
+
+
+<style>
+@font-face {
+    font-family: 'CG Gothic No1';
+    /* Nombre que le das a la fuente */
+    src: url('../css/fuente/Gothic CG No1 Regular.otf') format('woff2'),
+        /* Formato compatible */
+        /* font-weight: normal; */
+        font-style: normal;
+}
+
+body {
+    font-family: 'CG Gothic No1';
+}
+</style>
+
+
+
+
 
 <div class="containerProductoZoom">
     <!-- Columna izquierda: Imagen del producto -->
@@ -207,29 +256,45 @@ body {
     <!-- Columna derecha: Detalles del producto -->
     <div class="product-container">
         <div class="product-price">
-            <?php echo $resultados[0]["nombre"]; ?> </div>
-        <div class="product-shipping">Los gastos de envío se calculan con el vendedor vía WhatsApp.</div>
-        <div class="product-details">
-            <h3>Capacidad</h3>
-            <p><?php echo $resultados[0]["capacidad"]; ?>ml</p>
-            <h3 style="margin-top: 10px;">Color</h3>
-            <p><?php echo $resultados[0]["descripcion"]; ?></p>
+            <p style="font-size: 80px; color: #142c44; ">
+                <?php echo $resultados[0]["nombre"]; ?> </p>
+        </div>
+        <div class="product-shipping">
+            <h4 style="font-size: 15px; color: #142c44; ">
+                Los gastos de envío se calculan con el vendedor vía WhatsApp. </h4>
 
         </div>
-        <div class="input-container" style="margin-top: 10px;">
-            <label for="color-select" style="text-align: left; color: black">Color:</label>
+        <div class="product-details">
+            <h3 style=" color: #142c44; ">
+                Capacidad: </h3>
+            <p style="font-size: 20px; color:rgba(20, 44, 68, 0.86);"><?php echo $resultados[0]["capacidad"]; ?>ml</p>
+            <h3 style="margin-top: 10px;">Color:</h3>
+            <p style="font-size: 20px; color:rgba(20, 44, 68, 0.86);"><?php echo $resultados[0]["descripcion"]; ?></p>
+
+        </div>
+        <!-- <div class="input-container" style="margin-top: 10px;">
+            <label for="color-select" style="text-align: left; color: black">
+                <h3 style=" color: #142c44; ">
+                    Color: </h3>
+
+
+            </label>
             <select id="color-select">
                 <option value="1">Ambar</option>
             </select>
-        </div>
+        </div> -->
         <div class="input-container">
-            <label for="color-select" style="text-align: left; color: black">Empaque:</label>
+            <label for="color-select" style="text-align: left; color: black">
+                <h3 style="color: #142c44;"> Empaque:</h3>
+            </label>
             <select id="color-select">
                 <option value="1">12 Unidades</option>
             </select>
         </div>
         <div class="input-container">
-            <label for="color-select" style="text-align: left; color: black">Elegir tapas:</label>
+            <label for="color-select" style="text-align: left; color: black">
+                <h3 style="color: #142c44;"> Elegir tapas:</h3>
+            </label>
             <select id="color-select">
                 <option value="" disabled selected>Seleccione tapas</option>
                 <?php foreach ($ventasTapas as $product): ?>
@@ -241,59 +306,87 @@ body {
         </div>
 
         <div class="input-group">
-            <label for="cantidad">Cantidad</label>
+            <label for="cantidad">
+                <h3 style="color: #142c44;"> Cantidad:</h3>
+            </label>
             <input type="text" id="cantidad" placeholder="Cantidad">
         </div>
 
 
 
         <br>
-        <button class="btn-elevate2" style="margin-top: 15px; margin-bottom: 15px;" onclick="storePurchaseData()">Ir a
-            compra</button>
+        <button class="btn-elevate2" style="margin-top: 15px; margin-bottom: 15px;" onclick="storePurchaseData()">
+            <h1 style="color: #142c44; font-size: 20px; margin-top: 10px">Ir a
+                compra</h1>
+        </button>
 
         <div class=" info-section">
-            <h2>Información de Retiro</h2>
-            <p><span class="highlight">Retiro disponible en Calle Oeste 1, 19 de Abril, Sector la Morita, Centro
-                    Empresarial Intercomunal Center (Almacén)</span></p>
-            <p>Normalmente está listo en 24 horas</p>
-            <p>Verificar disponibilidad en otras tiendas</p>
+            <h2 style="color: #142c44; font-size: 30px;">Información de Retiro</h2>
+            <span class="highlight">
+                <h1 style="color: rgba(20, 44, 68, 0.78); font-size: 15px;">Retiro disponible en Calle Oeste 1, 19 de
+                    Abril,
+                    Sector la
+                    Morita, Centro
+                    Empresarial Intercomunal Center (Almacén)</h1>
+            </span>
+            <h1 style="color: rgba(20, 44, 68, 0.78); font-size: 15px;">
+                Normalmente está listo en 24 horas
+            </h1>
+            <h1 style="color: rgba(20, 44, 68, 0.78); font-size: 15px;">
+                Verificar disponibilidad en otras tiendas
+            </h1>
         </div>
 
         <div class="info-section">
-            <h2>Detalles del Producto</h2>
-            <p>Las tapas vienen por separado, en paquetes de 12 unidades. Ver tapa compatible:</p>
+            <h2 style="color: #142c44; font-size: 30px;">Detalles del Producto</h2>
+            <h1 style="color:rgba(20, 44, 68, 0.78); font-size: 15px;">
+                Las tapas vienen por separado, en paquetes de 12 unidades. Ver tapa compatible:
+            </h1>
+            <h1 style="color: rgba(20, 44, 68, 0.78); font-size: 15px;">
+                Envase de vidrio (transparente) de capacidad <?php echo $resultados[0]["capacidad"]; ?> ml.
 
-            <p>Envase de vidrio (transparente) de capacidad <?php echo $resultados[0]["capacidad"]; ?> ml.
-            </p>
-            <p>Cantidad por caja: <?php echo $resultados[0]["cantidad_disponible"]; ?> unidades</p>
+            </h1>
+            <h1 style="color: rgba(20, 44, 68, 0.78); font-size: 15px;">
+                Cantidad por caja: <?php echo $resultados[0]["cantidad_disponible"]; ?> unidades
+            </h1>
         </div>
     </div>
 </div>
 
 <aside id="carrito" class="oculto p-3 bg-light border position-fixed end-0 top-0 h-100 shadow-lg"
-    style="width: 350px; z-index: 1050; overflow-y: auto;">
-    <h2 class="text-center mb-4">Carrito</h2>
+    style="width: 350px; z-index: 1050; overflow-y: auto; display: flex; justify-content: center; align-items: center;">
+    <button onclick="cerrarCarrito()"
+        style="position: absolute; top: 10px; right: 10px; background-color: transparent; color: #d3bb8b; border: none; font-size: 1.5rem;">
+        <i class="bi bi-x-circle"></i>
+    </button>
+    <?php if ($validar_inico) { ?>
+    <h2 class="text-center mb-4" style="color: #d3bb8b ;">Carrito</h2>
 
-    <a id="ir-a-comprar" class="btn w-100 mb-3 rounded" style="color: black; text-decoration: none;"
+    <h1 id="ir-a-comprar" class="btn w-100 mb-3 rounded" style="color: #d3bb8b; text-decoration: none; font-size: 20px;"
         href="/ruta-de-destino" onclick="storePurchaseData2()">
         Ir a Comprar
-    </a>
-
+    </h1>
 
     <ul id="lista-carrito" class="list-group mb-3">
-        <!-- Los productos se agregarán aquí dinámicamente -->
     </ul>
     <hr>
     <div style="display: flex; justify-content: flex-start; align-items: center; gap: 10px;">
-        <!-- <p class="fw-bold mb-0">Total: $<span id="total">0</span></p> -->
+        <?php }  else { ?>
+        <h2 class="text-center mb-4" style="color: #d3bb8b;">Tu carrito está vacío</h2>
 
-        <button onclick="cerrarCarrito()" style="background-color: transparent;  color: black;">
-            <i class="bi bi-x-circle"></i> <!-- Ícono de cerrar -->
-        </button>
+        <a href="../views/Productos-farmacia.php" style=" font-family: 'CG Gothic No1'; font-size: 20px;"
+            class="botoninicio">Seguir
+            comprando</a>
+        <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px; margin-top: 15px">¿Tienes una cuenta?</h1>
+
+        <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px">Para finalizar tus compras con mayor
+            rapidez.</h1>
+
+
+        <?php } ?>
+
+
     </div>
-
-
-
 </aside>
 
 <script>

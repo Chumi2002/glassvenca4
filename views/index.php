@@ -3,7 +3,7 @@ include('header.php');
 require '../models/conexion.php';
 $db = new Database();
 
- $resultados = $db->select3('productos', '*',[], false, 10);
+ $resultados = $db->select3('productos', '*',[], false, 12);
  $ventasTapas = $db->select3('tapas', '*',[], false, 5);
 
 ?>
@@ -22,6 +22,12 @@ $db = new Database();
 .scroll-animate.visible {
     opacity: 1;
     transform: translateY(0);
+}
+</style>
+
+<style>
+#carrito {
+    background-color: #1c2c47 !important;
 }
 </style>
 
@@ -113,159 +119,116 @@ $db = new Database();
         /* Reduce el tamaño de los íconos en móviles */
     }
 }
+
+.botoninicio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d3bb8b;
+    color: #1c2c47;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Agrega transición suave */
+}
+
+.botoninicio:hover {
+    text-decoration: none;
+    background-color: #d3bb8b;
+    transform: translateY(-5px);
+    color: #1c2c47;
+}
+</style>
+
+<style>
+@font-face {
+    font-family: 'CG Gothic No1';
+    /* Nombre que le das a la fuente */
+    src: url('../css/fuente/Gothic CG No1 Regular.otf') format('woff2'),
+        /* Formato compatible */
+        /* font-weight: normal; */
+        font-style: normal;
+}
+
+body {
+    font-family: 'CG Gothic No1';
+}
+</style>
+
+<style>
+#lista-carrito .item-carrito {
+    background-color: transparent !important;
+    color: #b3a27a;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: solid transparent;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    width: 500px;
+
+    /* Esto tiene mayor especificidad */
+}
+
+.item-carrito img {
+    width: 100px;
+    /* Ancho de la imagen */
+    height: 100px;
+    /* Alto de la imagen */
+    object-fit: contain;
+    /* Ajustar la imagen sin distorsionar */
+    border-radius: 15px;
+}
+
+.item-carrito div {
+    width: 100%;
+    /* Ancho del div de información */
+    height: auto;
+    /* Altura automática */
+    margin-left: 10px;
+}
 </style>
 
 
 <!-- Carousel Start -->
 <div class="hero-section">
     <div class=" animated-div" style="margin-left: 20px;">
-        <h1>Glassvenca envios</h1>
-        <p>Envases, empaques y envíos por el país.</p>
+        <p style="font-size: 70px; color: #bfb8b0; font-family: 'CG Gothic No1'">GLASSVENCA ENVIOS</p>
+        <p style="color: #aca494; font-family: 'CG Gothic No1'; font-size: 25px;">Envases, empaques y envíos por el
+            país.</p>
         <?php if (!$validar_inico) { ?>
-        <a href="inicio_sesion.php" style="margin-left: 20px;" class="btn-login">Iniciar sesión</a>
+        <!-- <a href="inicio_sesion.php" class="botoninicio">Ver más</a> -->
+        <a href="../views/Productos-farmacia.php" style=" font-family: 'CG Gothic No1';" class="botoninicio">Ver más</a>
         <?php  }?>
     </div>
 </div>
 
 <!-- Carousel End -->
-
-<!-- About Start -->
-<!-- <div class="fade-in" style="margin-top: 30%;">Contenido 1</div> -->
-<div class="container-fluid py-5 elemento custom-bg">
-    <div class="container">
-        <div class="" style="text-align: center; padding-bottom: 30px">
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; color: #351a09 ;">¿Quiénes somos?
-            </h4>
-            <!-- <h1 class="display-4">Serving Since 1950</h1> -->
-        </div>
-        <div class="row">
-            <div class="col-lg-4 py-0 py-lg-5">
-                <h1 class="mb-3">Comprometidos con tu negocio</h1>
-                <!-- <h5 class="mb-3" style="color: #6c757d ;">¡Somos Más Que Distribución!  -->
-                <!-- |Comercializamos Envases de Farmacia/Veterinario, en todo el Territorio Nacional</h5> -->
-                <p>Glasses Venezolanos es la distribuidora de envases de vidrio con mayor alcance en el país.
-                    Creando profundas relaciones comerciales con nuestros clientes.</p>
-                <!-- <a href="" class="btn btn-secondary font-weight-bold py-2 px-4 mt-2">Learn More</a> -->
-            </div>
-            <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;  overflow: hidden;">
-                <div class=" h-100 ">
-                    <img class=" w-100 h-100 " src="../img/img/carrusel32.png"
-                        style="object-fit: contain; border-radius: 20px;">
-                </div>
-            </div>
-            <div class="col-lg-4 py-0 py-lg-5">
-                <h1 class="mb-3">Nuestra visión</h1>
-                <p>Distribuimos envases de vidrio de alta gama que permiten el crecimiento y la expansión de tu
-                    negocio.</p>
-                <h5 class="mb-3" style="color: #fff"><i class="fa fa-check text-primary mr-3"></i>Puntualidad y
-                    eficiencia</h5>
-                <h5 class="mb-3" style="color: #fff"><i class="fa fa-check text-primary mr-3"></i>Capital
-                    humano</h5>
-                <h5 class="mb-3" style="color: #fff"><i class="fa fa-check text-primary mr-3"></i>Capacidad de
-                    respuesta</h5>
-                <!-- <a href="" class="btn btn-primary font-weight-bold py-2 px-4 mt-2">Learn More</a> -->
-            </div>
-        </div>
+<div class="product-grid elemento"
+    style="background-color: #142c44; color: #aca494; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div>
+        <h5 style="color: #aca494;">Creamos un espacio pensado para ser un punto de encuentro entre sus necesidades y
+            nuestras soluciones.</h5>
+    </div>
+    <div>
+        <a style="background-color: #d3bb8b ; padding: 15px 70px;" href="../views/Productos-farmacia.php"
+            class="botoninicio">Ver soluciones</a>
     </div>
 </div>
-<!-- About End -->
-
-
-
-<!-- Service Start -->
-<div class="container-fluid pt-5 elemento">
-    <div class="container">
-        <div class="centered-div">
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; font-size: 3rem;">Categorías</h4>
-            <h1 class="display-4">Productos para cada necesidad</h1>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 mb-5">
-                <div class="row align-items-center">
-                    <div class="col-sm-5 rounded shadow">
-                        <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria.png" alt="">
-                    </div>
-                    <div class="col-sm-7">
-                        <h4 class="service-title" style="color: #351a09"><i
-                                class="fa fa-prescription-bottle-alt service-icon"></i>Farmacia
-                        </h4>
-                        <p class="m-0">El vidrio es fundamental en el área de la salud, es por esto que contamos con
-                            los productos más resistentes, confiables y duraderos del mercado</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-5">
-                <div class="row align-items-center">
-                    <div class="col-sm-5 rounded shadow">
-                        <img class="img-fluid mb-3 mb-sm-0 rounded" src="../img/img/veterinaria2.png" alt="veterinaria">
-                    </div>
-                    <div class="col-sm-7">
-                        <h4 class="service-title" style="color: #351a09"><i
-                                class="fa fa-paw service-icon"></i>Veterinaria
-                        </h4>
-                        <p class="m-0">La mayor diversidad de envases en el sector de veterinaria.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Service End -->
-
-
-<!-- Offer Start -->
-<?php if (!$validar_inico) { ?>
-<div style="background-color: #fff;" class="container-fluid py-5 elemento custom-bg ">
-    <div class="container">
-        <div class="reservation2 position-relative overlay-top overlay-bottom" style="border-radius: 20px;">
-            <div class="row align-items-center">
-                <div class="col-lg-6 my-5 my-lg-0">
-                    <div class="p-5">
-                        <div class="mb-4">
-                            <h1 class="display-3 text-primary">Inicio de sesión</h1>
-                            <h1 style="color: #351a09;">Obtén opciones de compra</h1>
-                        </div>
-
-                        <!-- <ul class="list-inline text-white m-0">
-                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Compra más fácil</li>
-                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Compra más rápido</li>
-                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Compra seguro</li>
-                        </ul> -->
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="text-center p-5"
-                        style="background: rgba(51, 33, 29, .8); border-radius: 20px; height: 70vh;">
-                        <h1 class="text-white mb-4 mt-5">Iniciar sesión</h1>
-                        <form class="mb-5" action="../controllers/iniciar_sesion.php?inicio=1" method="post">
-                            <div class="form-group">
-                                <input name="correo" type="email" class="form-control  border-primary p-4"
-                                    placeholder="Correo" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input name="contra" type="password" class="form-control  border-primary p-4"
-                                    placeholder="Contraseña" required="required" />
-                            </div>
-
-
-                            <div>
-                                <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Registrar
-                                    usuario</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php  }?>
-
-
-<!-- Offer End -->
-
 
 <!-- Menu Start -->
+
+<div class="product-grid elemento" style="font-size: 50px; ">
+    <p style="color: #142c44;">
+        LOS MÁS PEDIDOS
+
+    </p>
+</div>
 
 
 <div class="product-grid elemento">
@@ -280,20 +243,26 @@ $db = new Database();
                 ?>
 
     <div class="product-item">
-        <div class="contenedor-imagen">
+        <div class="contenedor-imagen ">
             <img src="<?php echo $producto["imagen_url"]; ?>" alt="Tarro 230 ml" style="justify-content: center; ">
 
         </div>
         <div>
             <span class="status <?php echo $producto["disponible"] == 1 ? "disponible" : "agotado"; ?>"
-                style="margin-top: 5px;"><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
+                style="font-size: 20px; color: #d3bb8b; background-color: #142c44; border-radius: 30px; margin-top: 30px; letter-spacing: 2px;"><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
 
         </div>
-        <h3><?php echo $producto["nombre"];?> de <?php echo $producto["capacidad"];?>ml</h3>
-        <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
-        <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
-        <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
-        <button class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
+        <h3 style="font-family: 'CG Gothic No1'; font-size: 30px;"><?php echo $producto["nombre"];?> de
+            <?php echo $producto["capacidad"];?>ml</h3>
+        <p style="font-size: 20px; color: #142c44">Bs<?php echo $producto["precio_detal"];?>.00 </p>
+        <h3 style="font-family: 'CG Gothic No1'; font-size: 20px;">
+            <?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?>
+        </h3>
+        <h3 style="font-family: 'CG Gothic No1'; font-size: 25px;">En stock
+            <?php echo $producto["cantidad_disponible"];?> unidades</h3>
+        <button
+            style="background-color: #ffff; color: #142c44; font-size: 25px; border-radius: 30px; border-width: 1px; border-color: #142c44 ;  border-style: solid;"
+            class="btn-<?php echo $producto["disponible"] == 1 ? "select" : "agotado"; ?>"
             onclick="showModal('<?php echo $param1; ?>', '<?php echo $param2; ?>', '<?php echo $param3; ?>', '<?php echo $param4; ?>', '<?php echo $param5; ?>')">
             <?php echo $producto["disponible"] == 1 ? "Agregar al carrito" : "Agotado"; ?>
         </button>
@@ -313,19 +282,20 @@ $db = new Database();
 
 
 <div class="container-cartas  py-5 elemento custom-bg ">
-    <div class="box"><i class="fas fa-box"></i>
-        <h2>Envíos Seguros</h2>
-        <p>A todo el territorio nacional</p>
+    <div class="box" style=" background-color: #24344c ; border-color: #24344c"><i style="color: #d3bb8b"
+            class="fas fa-box"></i>
+        <h2 style="color: #ffff">Envíos Seguros</h2>
+        <h1 style="color: #ffff; font-size: 20px;">A todo el territorio nacional</h1>
     </div>
-    <div class="box">
-        <i class="fas fa-shipping-fast"></i>
-        <h2>Delivery Gratis</h2>
-        <p>En zonas cercanas en Caracas</p>
+    <div class="box" style=" background-color: #24344c ; border-color: #24344c">
+        <i class="fas fa-shipping-fast" style="color: #d3bb8b"></i>
+        <h2 style="color: #ffff">Delivery Gratis</h2>
+        <h1 style="color: #ffff;  font-size: 20px;">En zonas en Maracay</h1>
     </div>
-    <div class="box">
-        <i class="fas fa-warehouse"></i>
-        <h2>Almacenes</h2>
-        <p>Amplios almacenes para el retiro de sus pedidos.</p>
+    <div class="box" style=" background-color: #24344c ; border-color: #24344c">
+        <i class="fas fa-warehouse" style="color: #d3bb8b"></i>
+        <h2 style="color: #ffff">Almacenes</h2>
+        <h1 style="color: #ffff;  font-size: 20px;">Amplios almacenes para el retiro de sus pedidos.</h1>
     </div>
 </div>
 
@@ -342,12 +312,16 @@ $db = new Database();
                 </div>
                 <div>
                     <span class="status <?php echo $producto["disponible"] == 1 ? "disponible" : "agotado"; ?>"
-                        style="margin-top: 5px;"><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
+                        style="font-size: 20px; color: #d3bb8b; background-color: #142c44; border-radius: 30px; margin-top: 30px;letter-spacing: 2px; "><?php echo $producto["disponible"] == 1 ? "Disponible" : "Agotado"; ?></span>
                 </div>
-                <h3><?php echo $producto["nombre"];?> de <?php echo $producto["ancho"];?>ml</h3>
-                <p>Bs<?php echo $producto["precio_detal"];?>.00 </p>
-                <h3><?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
-                <h3>En stock <?php echo $producto["cantidad_disponible"];?> unidades</h3>
+                <h3 style="font-family: 'CG Gothic No1'; font-size: 30px;"><?php echo $producto["nombre"];?> de
+                    <?php echo $producto["ancho"];?>ml</h3>
+                <p style="font-family: 'CG Gothic No1'; font-size: 20px;">Bs<?php echo $producto["precio_detal"];?>.00
+                </p>
+                <h3 style="font-family: 'CG Gothic No1'; font-size: 25px;">
+                    <?php echo $producto["categoria"] == 1 ? "Farmacia" : "Veterinaria";?></h3>
+                <h3 style="font-family: 'CG Gothic No1'; font-size: 25px;">En stock
+                    <?php echo $producto["cantidad_disponible"];?> unidades</h3>
 
             </div>
         </div>
@@ -361,25 +335,49 @@ $db = new Database();
     </button>
 </div>
 
+<div class="container-cartas  py-5 elemento custom-bg ">
+    <!-- <div style="width: 100%;">
+        <h1 style="font-size: 40px; color: #d3bb8b;">TITULO</h1> 
+    </div> -->
+
+    <div class="box" style=" background-color: #24344c ; border-color: #24344c"><i style="color: #d3bb8b"
+            class="fas fa-box"></i>
+        <h2 style="color: #ffff">Envíos Seguros</h2>
+        <h1 style="color: #ffff; font-size: 20px;">A todo el territorio nacional</h1>
+    </div>
+    <div class="box" style=" background-color: #24344c ; border-color: #24344c">
+        <i class="fas fa-shipping-fast" style="color: #d3bb8b"></i>
+        <h2 style="color: #ffff">Delivery Gratis</h2>
+        <h1 style="color: #ffff;  font-size: 20px;">En zonas en Maracay</h1>
+    </div>
+    <div class="box" style=" background-color: #24344c ; border-color: #24344c">
+        <i class="fas fa-warehouse" style="color: #d3bb8b"></i>
+        <h2 style="color: #ffff">Almacenes</h2>
+        <h1 style="color: #ffff;  font-size: 20px;">Amplios almacenes para el retiro de sus pedidos.</h1>
+    </div>
+</div>
+
+
 
 <!-- Ubicacion Start -->
 <div class="container-fluid pt-5 elemento " style="margin-top: 50px">
     <div class="container">
         <div class="section-title">
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contactanos</h4>
+            <h4 class=" text-uppercase" style="letter-spacing: 5px; color: #d3bb8b">Contactanos</h4>
             <h1 class="display-4">Siéntete libre de contactarnos</h1>
         </div>
         <div class="row px-3 pb-2">
             <div class="col-sm-6 text-center mb-3">
                 <i class="fa fa-2x fa-map-marker-alt mb-3 text-primary"></i>
                 <h4 class="font-weight-bold" style="color: #fff">Dirección</h4>
-                <p>Calle Oeste 1, 19 de Abril, Sector la Morita, Centro Empresarial Intercomunal Center, Galpón G-6
+                <p style="font-size: 25px; color: #aca494;">Calle Oeste 1, 19 de Abril, Sector la Morita, Centro
+                    Empresarial Intercomunal Center, Galpón G-6
                     y G-7, Maracay, Aragua 2101</p>
             </div>
             <div class="col-sm-6 text-center mb-3">
                 <i class="fa fa-2x fa-phone-alt mb-3 text-primary"></i>
                 <h4 class="font-weight-bold" style="color: #fff">Teléfono</h4>
-                <p>0412-0518796</p>
+                <p style="font-size: 25px; color: #aca494;">0412-0518796</p>
             </div>
 
         </div>
@@ -454,37 +452,45 @@ $db = new Database();
     </a>
 </div>
 
-<!-- <aside  class="oculto"> -->
 
 
 <aside id="carrito" class="oculto p-3 bg-light border position-fixed end-0 top-0 h-100 shadow-lg"
-    style="width: 350px; z-index: 1050; overflow-y: auto;">
-    <h2 class="text-center mb-4">Carrito</h2>
+    style="width: 500px; z-index: 1050; overflow-y: auto; display: flex; justify-content: center; align-items: center;">
+    <button onclick="cerrarCarrito()"
+        style="position: absolute; top: 10px; right: 10px; background-color: transparent; color: #d3bb8b; border: none; font-size: 1.5rem;">
+        <i class="bi bi-x-circle"></i>
+    </button>
+    <?php if ($validar_inico) { ?>
+    <h2 style="position: absolute; top: 30px; left: 15px; color: #d3bb8b; margin: 0; font-size: 30px;">Tu carrito</h2>
+    <h2 style="position: absolute; top: 10%; left: 5%; color: #d3bb8b; margin: 0; font-size: 15px;">Producto</h2>
+    <h4 style="position: absolute; top: 10%; left: 80%; color: #d3bb8b; margin: 0; font-size: 15px;">Total</h4>
 
-    <a id="ir-a-comprar" class="btn w-100 mb-3 rounded" style="color: black; text-decoration: none;"
-        href="/ruta-de-destino" onclick="storePurchaseData2()">
-        Ir a Comprar
-    </a>
-
-
-    <ul id="lista-carrito" class="list-group mb-3">
-        <!-- Los productos se agregarán aquí dinámicamente -->
+    <ul id="lista-carrito" class="list-group mb-3" style="margin-top: 40%;">
     </ul>
-    <hr>
+
+    <h3>Total: <span id="total">0.00</span> Bs</h3>
+
+
+    <!-- <hr> -->
     <div style="display: flex; justify-content: flex-start; align-items: center; gap: 10px;">
-        <!-- <p class="fw-bold mb-0">Total: $<span id="total">0</span></p> -->
+        <?php }  else { ?>
+        <h4 class="text-center mb-4" style="color: #d3bb8b;">Tu carrito está vacío</h2>
 
-        <button onclick="cerrarCarrito()" style="background-color: transparent;  color: black;">
-            <i class="bi bi-x-circle"></i> <!-- Ícono de cerrar -->
-        </button>
+            <a href="../views/Productos-farmacia.php" style=" font-family: 'CG Gothic No1'; font-size: 20px;"
+                class="botoninicio">Seguir
+                comprando</a>
+            <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px; margin-top: 15px">¿Tienes una cuenta?
+            </h1>
+
+            <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px">Para finalizar tus compras con mayor
+                rapidez.</h1>
+
+
+            <?php } ?>
+
+
     </div>
-
-
-
 </aside>
-<!-- <button class="open-btn" id="openMenu">Abrir carrito</button> -->
-
-<!-- </aside> -->
 
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -500,38 +506,57 @@ $db = new Database();
                         <div class="col-sm-12 col-md-6 col-lg-6 ">
 
                             <h1 id="modalProductName"
-                                style="color: #784410b3; font-family: 'Arial', sans-serif; font-weight: bold; text-align: left;">
+                                style="color: #142c44; font-size: 40px; font-weight: bold; text-align: left;">
                                 Tarro 230 ml</h1>
                             <!-- <h6 style="padding: 0px; margin: 0px; margin-top: 20px; text-align: left; font-weight: bold; color: #041d5c;">002654.62 cod</h6> -->
-                            <h4 style="padding: 0px; margin: 0px; margin-top: 10px; text-align: left; font-weight: bold; color: #041d5c;"
+                            <h4 style="padding: 0px; margin: 0px; margin-top: 10px; text-align: left; font-size: 20px; color: #142c44;"
                                 id="modalProductPrice">Bs257.70</h4>
-                            <p style="text-align: left; margin: 0px;">Envíos al mayor y detal </p>
-                            <p style="text-align: left; margin: 0px;">Opción de venta en paletas </p>
-                            <p style="text-align: left; margin: 0px;">Elija su tapa </p>
-                            <p style="text-align: left; margin: 0px;" id="modalproductcapacidad">Elija su tapa </p>
-                            <p style="text-align: left; margin: 0px;" id="modalproductdescripcion">Elija su tapa </p>
+                            <p style="text-align: left; margin: 0px; font-size: 25px;  color: #142c44;">Envíos al mayor
+                                y detal </p>
+                            <p style="text-align: left; margin: 0px; font-size: 25px;  color: #142c44;">Opción de venta
+                                en paletas </p>
+                            <p style="text-align: left; margin: 0px; font-size: 25px;  color: #142c44;">Elija su tapa
+                            </p>
+                            <!-- <p style="text-align: left; margin: 0px; font-size: 25px;" id="modalproductcapacidad">Elija
+                                su tapa </p>
+                            <p style="text-align: left; margin: 0px; font-size: 25px;" id="modalproductdescripcion">
+                                Elija su tapa </p> -->
 
-                            <div class="input-container" style="margin-top: 10px;">
+                            <!-- <div class="input-container" style="margin-top: 10px;">
                                 <label for="color-select" style="text-align: left;">Color:</label>
                                 <select id="color-select">
                                     <option value="1">Ambar</option>
                                 </select>
-                            </div>
+                            </div> -->
 
                             <div class="input-container">
-                                <label for="color-select" style="text-align: left;">Empaque:</label>
+                                <label for="color-select" style="text-align: left; ">
+                                    <h4
+                                        style="padding: 0px; margin: 0px; margin-top: 10px; text-align: left; font-size: 20px; color: #142c44;">
+                                        Empaque </h4>
+                                </label>
                                 <select id="color-select">
-                                    <option value="1">12 Unidades</option>
+                                    <option value="1" style="font-size: 25px;">12 Unidades</option>
                                 </select>
                             </div>
 
                             <div class="input-container">
-                                <label for="color-select" style="text-align: left;">Elegir tapas:</label>
+                                <label for="color-select" style="text-align: left; font-size: 25px;">
+                                    <h4
+                                        style="padding: 0px; margin: 0px; margin-top: 10px; text-align: left; font-size: 20px; color: #142c44;">
+                                        Elegir
+                                        tapa: </h4>
+                                </label>
                                 <select id="color-select">
-                                    <option value="" disabled selected>Seleccione tapas</option>
+                                    <option style="font-size: 20px;" value="" disabled selected>
+                                        <p style="font-size: 20px;">Seleccione tapas </p>
+                                    </option>
                                     <?php foreach ($ventasTapas as $product): ?>
                                     <option value="<?= htmlspecialchars($product['id']) ?>">
-                                        <?= htmlspecialchars($product['nombre']) ?>
+                                        <h4
+                                            style="padding: 0px; margin: 0px; margin-top: 10px; text-align: left; font-size: 20px; color: #142c44;">
+                                            <?= htmlspecialchars($product['nombre']) ?> </h4>
+
                                     </option>
                                     <?php endforeach; ?>
                                 </select>
@@ -540,19 +565,24 @@ $db = new Database();
 
 
                             <div class="input-container">
-                                <label for="color-select" style="text-align: left;">Cantidad:</label>
+                                <label for="color-select" style="text-align: left; font-size: 25px;">
+                                    <h4
+                                        style="padding: 0px; margin: 0px; margin-top: 10px; text-align: left; font-size: 20px; color: #142c44;">
+                                        Cantidad: </h4>
+                                </label>
                                 <input type="number" id="user-input">
                             </div>
                             <?php if ($validar_inico) { ?>
                             <!-- <button class="btn-elevate">Agregar al carrito</button> -->
-                            <button class="btn-elevate"
+                            <button class="btn-elevate" style="font-size: 20px;"
                                 onclick="agregarAlCarrito('Envase Boca Ancha', 272.12, '../img/img/farmacia.png')">
                                 Agregar al carrito
                             </button>
 
                             <?php  }?>
                             <br>
-                            <button class="btn-elevate2" style="margin-top: 15px;" onclick="storePurchaseData()">Ir a
+                            <button class="btn-elevate2" style="margin-top: 15px; font-size: 20px;"
+                                onclick="storePurchaseData()">Ir a
                                 compra</button>
                             <!-- <div style="margin-top: 5px;">
                                 <a href="../views/informaccion_producto.php?id=">Ver más de
@@ -561,7 +591,8 @@ $db = new Database();
                             </div> -->
 
                             <div>
-                                <a id="enlaceProducto" href="../views/informaccion_producto.php?id=">Ver más
+                                <a id="enlaceProducto" style="font-size: 20px; color: #d3bb8b"
+                                    href="../views/informaccion_producto.php?id=">Ver más
                                     detalles</a>
                             </div>
 
@@ -732,44 +763,32 @@ function cargarCarrito() {
             let total = 0;
 
             productos.forEach(producto => {
-                // Crear contenedor para el producto
                 const li = document.createElement('li');
-                li.className = 'item-carrito'; // Clase personalizada para el estilo
+                li.className = 'item-carrito'; // Asignar clase CSS
 
                 // Crear imagen del producto
                 const img = document.createElement('img');
-                img.src = producto.imagen_url; // Asegúrate de que la propiedad "imagen_url" exista
+                img.src = producto.imagen_url;
                 img.alt = producto.nombre_producto;
-                img.style.width = '50px';
-                img.style.height = '50px';
-                img.style.objectFit = 'contain';
 
                 // Crear información del producto
                 const productInfo = document.createElement('div');
                 productInfo.innerHTML =
-                    `<strong>${producto.nombre_producto}</strong><br>Bs${producto.precio}`;
+                    `<strong>${producto.nombre_producto}</strong><br> <p>Bs${producto.precio}</p>`;
 
-                // Crear botón de eliminar
-                const botonEliminar = document.createElement('button');
-                botonEliminar.textContent = 'Eliminar';
-                botonEliminar.className = 'btn-eliminar'; // Clase personalizada para el botón
-                botonEliminar.onclick = () => eliminarDelCarrito(producto
-                    .id); // Pasar el ID del producto
-
-                // Agregar todo al contenedor del producto
+                // Agregar imagen e información al contenedor del producto
                 li.appendChild(img);
                 li.appendChild(productInfo);
-                li.appendChild(botonEliminar);
 
                 // Agregar el producto al carrito visual
                 listaCarrito.appendChild(li);
 
-                // Sumar al total
-                // total += producto.precio;
+                // Sumar al total (si lo necesitas)
+                total += producto.precio;
             });
 
             // Actualizar el total en el carrito
-            // totalSpan.textContent = total.toFixed(2);
+            totalSpan.textContent = total.toFixed(2);
         })
         .catch(error => {
             console.error('Error al cargar el carrito:', error);

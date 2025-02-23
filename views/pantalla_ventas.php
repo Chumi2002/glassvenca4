@@ -13,6 +13,36 @@ try {
 }
 
 ?>
+
+<style>
+#carrito {
+    background-color: #1c2c47 !important;
+}
+
+.botoninicio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d3bb8b;
+    color: #1c2c47;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Agrega transición suave */
+}
+
+.botoninicio:hover {
+    text-decoration: none;
+    background-color: #d3bb8b;
+    transform: translateY(-5px);
+    color: #1c2c47;
+}
+</style>
 <link href="../css/ventascss.css" rel="stylesheet">
 
 <div class="container-fluid py-4 container-telefono">
@@ -221,28 +251,39 @@ try {
 
 
 <aside id="carrito" class="oculto p-3 bg-light border position-fixed end-0 top-0 h-100 shadow-lg"
-    style="width: 350px; z-index: 1050; overflow-y: auto;">
-    <h2 class="text-center mb-4">Carrito</h2>
+    style="width: 350px; z-index: 1050; overflow-y: auto; display: flex; justify-content: center; align-items: center;">
+    <button onclick="cerrarCarrito()"
+        style="position: absolute; top: 10px; right: 10px; background-color: transparent; color: #d3bb8b; border: none; font-size: 1.5rem;">
+        <i class="bi bi-x-circle"></i>
+    </button>
+    <?php if ($validar_inico) { ?>
+    <h2 class="text-center mb-4" style="color: #d3bb8b ;">Carrito</h2>
 
-    <!--  <button id="ir-a-comprar" class="btn btn-success w-100 mb-3" onclick="storePurchaseData2()">
+    <h1 id="ir-a-comprar" class="btn w-100 mb-3 rounded" style="color: #d3bb8b; text-decoration: none; font-size: 20px;"
+        href="/ruta-de-destino" onclick="storePurchaseData2()">
         Ir a Comprar
-    </button> -->
-
+    </h1>
 
     <ul id="lista-carrito" class="list-group mb-3">
-        <!-- Los productos se agregarán aquí dinámicamente -->
     </ul>
     <hr>
-    <div
-        style="display: flex; justify-content: flex-start; align-items: center; gap: 10px; border: none; box-shadow: none; margin: 0; padding: 0; background: transparent;">
-        <button onclick="cerrarCarrito()"
-            style="background-color: transparent; color: black; border: none; outline: none;">
-            <i class="bi bi-x-circle"></i> <!-- Ícono de cerrar -->
-        </button>
+    <div style="display: flex; justify-content: flex-start; align-items: center; gap: 10px;">
+        <?php }  else { ?>
+        <h2 class="text-center mb-4" style="color: #d3bb8b;">Tu carrito está vacío</h2>
+
+        <a href="../views/Productos-farmacia.php" style=" font-family: 'CG Gothic No1'; font-size: 20px;"
+            class="botoninicio">Seguir
+            comprando</a>
+        <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px; margin-top: 15px">¿Tienes una cuenta?</h1>
+
+        <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px">Para finalizar tus compras con mayor
+            rapidez.</h1>
+
+
+        <?php } ?>
+
+
     </div>
-
-
-
 </aside>
 
 <div class="whatsapp-button">

@@ -46,6 +46,10 @@ if (isset($_GET["filtro"])) {
 <!-- Navbar End -->
 
 <style>
+body {
+    background-color: #142c44;
+}
+
 .contenedor-imagen {
     display: flex;
     /* Usar Flexbox para centrar */
@@ -111,6 +115,38 @@ if (isset($_GET["filtro"])) {
 </style>
 
 
+<style>
+#carrito {
+    background-color: #1c2c47 !important;
+}
+
+.botoninicio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d3bb8b;
+    color: #1c2c47;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Agrega transición suave */
+}
+
+.botoninicio:hover {
+    text-decoration: none;
+    background-color: #d3bb8b;
+    transform: translateY(-5px);
+    color: #1c2c47;
+}
+</style>
+
+
+
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
@@ -132,39 +168,40 @@ if (isset($_GET["filtro"])) {
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-2 ">
-            <h4>Filtrar</h4>
+            <h4 style="color: #d4bd8f ">Filtrar</h4>
 
             <?php  if ($filtro == "0") {?>
-            <div class="button-text">
-                <span class="text">Farmacia</span>
+            <div class="button-text" style="color: #142c44; background-color: #fff; ">
+                <span class="text" style="color: #142c44 ">Farmacia</span>
                 <span class="close-btn" onclick="closeText()">&#10006;</span>
             </div>
             <?php  }?>
 
             <?php  if ($filtro == "1") {?>
-            <div class="button-text">
-                <span class="text">Veterinaria</span>
+            <div class="button-text" style="color: #142c44; background-color: #fff; ">
+                <span class="text" style="color: #142c44 ">Veterinaria</span>
                 <span class="close-btn" onclick="closeText()">&#10006;</span>
             </div>
             <?php  }?>
 
             <?php  if ($filtro == "2") {?>
-            <div class="button-text">
-                <span class="text">Tapas</span>
+            <div class="button-text" style="color: #142c44; background-color: #fff; ">
+                <span class="text" style="color: #142c44 ">Tapas</span>
                 <span class="close-btn" onclick="closeText()">&#10006;</span>
             </div>
             <?php  }?>
 
 
             <div style="margin-top: 25px;">
-                <h5>Categorías</h5>
+                <h5 style="color: #d4bd8f ">Categorías</h5>
                 <form id="myForm">
-                    <label>
-                        <input type="radio" name="option" value="page1" /> Farmacéuticos
+                    <label style="color: #d4bd8f; margin-top: 20px;">
+                        <input type="radio" name="option" value="page1" style="color: #fff; background-color: #fff; " />
+                        Farmacéuticos
                     </label>
                     <br>
-                    <label>
-                        <input type="radio" name="option" value="page2" /> Veterinaria
+                    <label style="color: #d4bd8f;">
+                        <input type="radio" name="option" value="page2" style="color: #d4bd8f " /> Veterinaria
                     </label>
                     <br>
                 </form>
@@ -200,12 +237,12 @@ if (isset($_GET["filtro"])) {
                     <button>Filtrar</button>
                 </a>
             </div> -->
-
+            <!-- 
             <div class="button-container">
                 <a href="../img/catalogo.pdf" download="catalogo_frscos_vidrio" class="button">
                     <button>Descargar Catálogo</button>
                 </a>
-            </div>
+            </div> -->
 
 
 
@@ -214,7 +251,7 @@ if (isset($_GET["filtro"])) {
         </div>
         <div class="col-sm-12 col-md-6 col-lg-10 ">
 
-            <div class="product-grid elemento">
+            <div class="product-grid elemento" style="background-color: #142c44;">
                 <!-- Producto 1 -->
                 <?php foreach ($resultado as $producto): ?>
                 <?php
@@ -362,7 +399,7 @@ if (isset($_GET["filtro"])) {
 
 
 <!-- Footer Start -->
-<div class="container-fluid footer mt-5 pt-5 px-0 position-relative" style="background-color: #041d5c;">
+<div class="container-fluid footer mt-5 pt-5 px-0 position-relative" style="background-color: #142c44;">
     <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-uppercase mb-4" style="letter-spacing: 3px; color: #afb0ae;">Información</h4>
@@ -392,28 +429,39 @@ if (isset($_GET["filtro"])) {
 
 
 <aside id="carrito" class="oculto p-3 bg-light border position-fixed end-0 top-0 h-100 shadow-lg"
-    style="width: 350px; z-index: 1050; overflow-y: auto;">
-    <h2 class="text-center mb-4">Carrito</h2>
-
-    <button id="ir-a-comprar" class="btn btn-success w-100 mb-3" onclick="storePurchaseData2()">
-        Ir a Comprar
+    style="width: 350px; z-index: 1050; overflow-y: auto; display: flex; justify-content: center; align-items: center;">
+    <button onclick="cerrarCarrito()"
+        style="position: absolute; top: 10px; right: 10px; background-color: transparent; color: #d3bb8b; border: none; font-size: 1.5rem;">
+        <i class="bi bi-x-circle"></i>
     </button>
+    <?php if ($validar_inico) { ?>
+    <h2 class="text-center mb-4" style="color: #d3bb8b ;">Carrito</h2>
 
+    <h1 id="ir-a-comprar" class="btn w-100 mb-3 rounded" style="color: #d3bb8b; text-decoration: none; font-size: 20px;"
+        href="/ruta-de-destino" onclick="storePurchaseData2()">
+        Ir a Comprar
+    </h1>
 
     <ul id="lista-carrito" class="list-group mb-3">
-        <!-- Los productos se agregarán aquí dinámicamente -->
     </ul>
     <hr>
     <div style="display: flex; justify-content: flex-start; align-items: center; gap: 10px;">
-        <!-- <p class="fw-bold mb-0">Total: $<span id="total">0</span></p> -->
+        <?php }  else { ?>
+        <h2 class="text-center mb-4" style="color: #d3bb8b;">Tu carrito está vacío</h2>
 
-        <button onclick="cerrarCarrito()" style="background-color: transparent;  color: black;">
-            <i class="bi bi-x-circle"></i> <!-- Ícono de cerrar -->
-        </button>
+        <a href="../views/Productos-farmacia.php" style=" font-family: 'CG Gothic No1'; font-size: 20px;"
+            class="botoninicio">Seguir
+            comprando</a>
+        <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px; margin-top: 15px">¿Tienes una cuenta?</h1>
+
+        <h1 class="text-center mb-4" style="color: #d3bb8b; font-size: 20px">Para finalizar tus compras con mayor
+            rapidez.</h1>
+
+
+        <?php } ?>
+
+
     </div>
-
-
-
 </aside>
 
 

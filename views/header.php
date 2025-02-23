@@ -57,6 +57,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <link href="../css/micss.css" rel="stylesheet">
     <link href="../css/producto.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- <link href="../css/micss2.css" rel="stylesheet"> -->
 
     <style>
@@ -82,50 +83,77 @@ if (!isset($_SESSION['tipo_usuario'])) {
                 <img src="../img/img/boton-menu.png" alt="Icono de menú" class="navbar-toggler-img">
             </button>
             <!-- Links del menú -->
-            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #fff; color: #041d5c">
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #fff; color: #142c44">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a href="index.php" class="nav-item nav-link" style="color: #041d5c;">Inicio</a>
+                        <a href="index.php" class="nav-item nav-link"
+                            style="color: #142c44; font-size: 20px;">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a href="Productos-farmacia.php?filtro=3" class="nav-item nav-link"
-                            style="color: #041d5c;">Productos</a>
+                            style="color: #142c44; font-size: 20px;">Productos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" style="color: #041d5c;">
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color: #142c44; font-size: 20px;">
                             Categorías
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #fff;">
                             <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=4"
-                                    style="color: #041d5c;">Farmacéuticos</a></li>
+                                    style="color: #142c44; font-size: 20px;">Farmacéuticos</a></li>
                             <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=1"
-                                    style="color: #041d5c;">Veterinaria</a></li>
+                                    style="color: #142c44; font-size: 20px;">Veterinaria</a></li>
                             <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=2"
-                                    style="color: #041d5c;">Tapas</a></li>
+                                    style="color: #142c44; font-size: 20px;">Tapas</a></li>
                             <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=5"
-                                    style="color: #041d5c;">Sellos</a></li>
+                                    style="color: #142c44; font-size: 20px;">Sellos</a></li>
                             <li><a class="dropdown-item" href="Productos-farmacia.php?filtro=6"
-                                    style="color: #041d5c;">Tapones</a></li>
+                                    style="color: #142c44; font-size: 20px;">Tapones</a></li>
                         </ul>
                     </li>
                     <?php if ($rol == "2") { ?>
                     <li class="nav-item">
-                        <a href="../admin/control-productos.php" class="nav-item nav-link" style="color: #041d5c;">Ir a
+                        <a href="../admin/control-productos.php" class="nav-item nav-link"
+                            style="color: #142c44; font-size: 20px;">Ir a
                             panel</a>
                     </li>
                     <?php  }?>
                 </ul>
                 <!-- Iconos a la derecha -->
                 <div class="d-flex align-items-center" style="margin-left: 60%;">
+                    <a href="../views/inicio_sesion.php"
+                        style="color: #142c44; transition: transform 0.3s ease; display: inline-block;"
+                        class="icon-link" onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fas fa-search"></i> <!-- Icono de lupa -->
+                    </a>
+                    <a href="../views/inicio_sesion.php"
+                        style="color: #142c44;  transition: transform 0.3s ease;  display: inline-block;"
+                        class="icon-link" onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'"><i class="fas fa-user"></i></a>
+                    <a onclick="toggleCarrito()"
+                        style="color: #142c44;  transition: transform 0.3s ease;  display: inline-block;"
+                        class="icon-link" onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fas fa-shopping-bag"></i>
+                    </a>
+                    <?php if ($validar_inico) { ?>
+                    <a href="../controllers/cerrar_sesion.php"
+                        style="color: #142c44; transition: transform 0.3s ease;  display: inline-block;"
+                        class="icon-link" onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'"><i class="fas fa-sign-out-alt"></i></a>
+                    <?php  }?>
+                </div>
+
+                <!-- <div class="d-flex align-items-center" style="margin-left: 60%;">
                     <?php if (!$validar_inico) { ?>
-                    <a href="registrar.php" style="color: #041d5c;" class="icon-link">Registrarse</a>
+                    <a href="registrar.php" style="color: #142c44; font-size: 20px;" class="icon-link">Registrarse</a>
                     <?php  }?>
                     <?php if ($validar_inico) { ?>
                     <a onclick="toggleCarrito()" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
                     <a href="../controllers/cerrar_sesion.php" class="icon-link"><i class="fas fa-sign-out-alt"></i></a>
                     <?php  }?>
-                </div>
+                </div> -->
             </div>
         </div>
     </nav>
